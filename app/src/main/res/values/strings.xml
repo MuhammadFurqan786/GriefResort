@@ -1,3 +1,54 @@
 <resources>
-    <string name="app_name">GriefResort</string>
+    <string name="app_name">Grief Resort</string>
+
+    <!--    Intro Screen Title-->
+    <string name="title1">You are Not Alone</string>
+    <string name="title2">All we are left with now are Memories</string>
+    <string name="title3">Never Forget/Miss Special Dates </string>
+    <string name="title4">We are left with so many Whys!</string>
+    <string name="title5">Somedays are harder than others</string>
+    <string name="title6">This is a Judgement Free Zone</string>
+
+
+    <!--    Intro Screen Description-->
+
+    <string name="description1">Here we cry together and we support each other</string>
+    <string name="description2">Here keep memories of your loved ones alive forever where you can access &amp; update them easily </string>
+    <string name="description3">Here you can set a reminder notification for upcoming special dates</string>
+    <string name="description4">Reading or listening or Watching something about grief can help you cope by opening up new perspectives</string>
+    <string name="description5">Uplift Your Spirit with these powerful grieving quotes</string>
+    <string name="description6">Share your thoughts &amp; feelings, your ups &amp; downs, your victories &amp; fears</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="intro_next">Next</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <!--Welcome Screen-->
+    <string name="deepest">Our Deepest Condolences to you and your family</string>
+    <string name="welcome">We welcome you to Grief Resort, an app for those that are Grieving and have lost a loved one</string>
+
+
+    <string name="continue_text">Continue</string>
+    <string name="email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
+
+    <string name="no_account">Don’t have an account?</string>
+    <string name="have_account">Already have an account?</string>
+    <string name="terms">By clicking Sign Up you agree to our <b><font color="#3AAE42"> Terms</font> </b></string>
+    <string name="privacy">and Acknowledge that you have read our  <b><font color="#3AAE42">Privacy Policy</font></b></string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last name</string>
+    <string name="user_name">User NAme</string>
+
 </resources>
