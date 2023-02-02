@@ -74,6 +74,7 @@
             android:fontFamily="@font/poppins_medium"
             android:paddingVertical="10dp"
             android:text="@string/forgot_password"
+            android:id="@+id/tv_forgot"
             android:textColor="@color/black" />
 
         <com.google.android.material.button.MaterialButton

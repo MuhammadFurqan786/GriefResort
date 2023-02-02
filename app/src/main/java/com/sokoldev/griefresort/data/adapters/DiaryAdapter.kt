@@ -1,0 +1,76 @@
+package com.sokoldev.griefresort.data.adapters
+
+
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.sokoldev.griefresort.R
+import com.sokoldev.griefresort.data.models.Diary
+import io.github.kozemirov.readmoretextview.ReadMoreTextView
+
+
+class DiaryAdapter() :
+    RecyclerView.Adapter<DiaryAdapter.DataObjectHolder>() {
+
+    lateinit var context: Context
+
+    var arraylist = mutableListOf<Diary>()
+    fun setList(list: List<Diary>) {
+        this.arraylist = list.toMutableList()
+        notifyDataSetChanged()
+    }
+
+
+    class DataObjectHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
+
+        var groupHug: LinearLayout? = itemView?.findViewById(R.id.sendHug)
+        var support: LinearLayout? = itemView?.findViewById(R.id.support)
+        var desc: ReadMoreTextView? = itemView?.findViewById(R.id.desc)
+        var userName: AppCompatTextView? = itemView?.findViewById(R.id.userName)
+        var date: AppCompatTextView? = itemView?.findViewById(R.id.date)
+        var like: AppCompatTextView? = itemView?.findViewById(R.id.like)
+        var comment: AppCompatTextView? = itemView?.findViewById(R.id.comment)
+        var recyclerview: RecyclerView? = itemView?.findViewById(R.id.recyclerviewComment)
+
+
+    }
+
+
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): DataObjectHolder {
+        context = parent.context
+        val view: View = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_my_diary, parent, false)
+        return DataObjectHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: DataObjectHolder, position: Int) {
+
+        val diary = arraylist[position]
+
+        holder.userName?.text = diary.userName
+        holder.date?.text = diary.date
+        holder.comment?.text = diary.totalComments
+        holder.like?.text = diary.totalHugs
+        holder.desc?.text = diary.description
+
+        val adapter = DiaryCommentAdapter(diary.listComments)
+        holder.recyclerview?.layoutManager = LinearLayoutManager(context)
+        holder.recyclerview?.adapter = adapter
+
+
+    }
+
+    override fun getItemCount(): Int {
+        return arraylist.size
+    }
+
+
+}

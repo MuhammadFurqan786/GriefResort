@@ -77,7 +77,7 @@ class OnBoardingFragment : Fragment() {
     }
 
     companion object {
-        const val MAX_STEP = 6
+        const val MAX_STEP = 7
     }
 }
 
@@ -106,24 +106,29 @@ class AppIntroViewPager2Adapter : RecyclerView.Adapter<PagerVH2>() {
             if (position == 1) {
                 bindingDesign.introTitle.text = context.getString(R.string.title2)
                 bindingDesign.introDescription.text = context.getString(R.string.description2)
-                bindingDesign.introImage.setImageResource(R.drawable.img_memory_box)
+                bindingDesign.introImage.setImageResource(R.drawable.img_memory_box_2)
             }
             if (position == 2) {
+                bindingDesign.introTitle.text = context.getString(R.string.title2)
+                bindingDesign.introDescription.text = context.getString(R.string.description2)
+                bindingDesign.introImage.setImageResource(R.drawable.img_memory_box)
+            }
+            if (position == 3) {
                 bindingDesign.introTitle.text = context.getString(R.string.title3)
                 bindingDesign.introDescription.text = context.getString(R.string.description3)
                 bindingDesign.introImage.setImageResource(R.drawable.img_remember_me)
             }
-            if (position == 3) {
+            if (position == 4) {
                 bindingDesign.introTitle.text = context.getString(R.string.title4)
                 bindingDesign.introDescription.text = context.getString(R.string.description4)
                 bindingDesign.introImage.setImageResource(R.drawable.img_library)
             }
-            if (position == 4) {
+            if (position == 5) {
                 bindingDesign.introTitle.text = context.getString(R.string.title5)
                 bindingDesign.introDescription.text = context.getString(R.string.description5)
                 bindingDesign.introImage.setImageResource(R.drawable.img_quote)
             }
-            if (position == 5) {
+            if (position == 6) {
                 bindingDesign.introTitle.text = context.getString(R.string.title6)
                 bindingDesign.introDescription.text = context.getString(R.string.description6)
                 bindingDesign.introImage.setImageResource(R.drawable.img_my_diary)

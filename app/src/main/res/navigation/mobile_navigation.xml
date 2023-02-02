@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/groupHug">
+    <fragment
+        android:id="@+id/groupHug"
+        android:name="com.sokoldev.griefresort.ui.fragments.grouphug.GroupHugFragment"
+        android:label="fragment_group_hug"
+        tools:layout="@layout/fragment_group_hug" >
+        <action
+            android:id="@+id/action_groupHug_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/memoryBox"
+        android:name="com.sokoldev.griefresort.ui.fragments.memorybox.MemoryBoxFragment"
+        android:label="fragment_memory_box"
+        tools:layout="@layout/fragment_memory_box" >
+        <action
+            android:id="@+id/action_memoryBox_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/remindMe"
+        android:name="com.sokoldev.griefresort.ui.fragments.remindme.RemindMeFragment"
+        android:label="fragment_remind_me"
+        tools:layout="@layout/fragment_remind_me">
+        <action
+            android:id="@+id/action_remindMe_to_addRemindMEFragment"
+            app:destination="@id/addRemindMEFragment" />
+        <action
+            android:id="@+id/action_remindMe_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/library"
+        android:name="com.sokoldev.griefresort.ui.fragments.library.LibraryFragment"
+        android:label="fragment_library"
+        tools:layout="@layout/fragment_library" >
+        <action
+            android:id="@+id/action_library_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myDiary"
+        android:name="com.sokoldev.griefresort.ui.fragments.mydiary.MyDiaryFragment"
+        android:label="fragment_quotes"
+        tools:layout="@layout/fragment_my_diary" >
+        <action
+            android:id="@+id/action_myDiary_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.sokoldev.griefresort.ui.fragments.settings.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting">
+        <action
+            android:id="@+id/action_settingFragment_to_myAccountFragment"
+            app:destination="@id/myAccountFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_subscriptionFragment"
+            app:destination="@id/subscriptionFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_contactUsFragment"
+            app:destination="@id/contactUsFragment"></action>
+        <action
+            android:id="@+id/action_settingFragment_to_changePasswordFragment2"
+            app:destination="@id/changePasswordFragment2" />
+        <action
+            android:id="@+id/action_settingFragment_to_faqsFragment2"
+            app:destination="@id/faqsFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/myAccountFragment"
+        android:name="com.sokoldev.griefresort.ui.fragments.account.MyAccountFragment"
+        android:label="fragment_my_account"
+        tools:layout="@layout/fragment_my_account">
+        <action
+            android:id="@+id/action_myAccountFragment_to_editAccountDetailFragment"
+            app:destination="@id/editAccountDetailFragment" />
+        <action
+            android:id="@+id/action_myAccountFragment_to_deleteAccountFragment"
+            app:destination="@id/deleteAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subscriptionFragment"
+        android:name="com.sokoldev.griefresort.ui.fragments.subscription.SubscriptionFragment"
+        android:label="fragment_subscription"
+        tools:layout="@layout/fragment_subscription" />
+    <fragment
+        android:id="@+id/contactUsFragment"
+        android:name="com.sokoldev.griefresort.ui.fragments.information.ContactUsFragment"
+        android:label="fragment_contact_us"
+        tools:layout="@layout/fragment_contact_us">
+        <argument
+            android:name="type"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment2"
+        android:name="com.sokoldev.griefresort.ui.fragments.changepassword.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/editAccountDetailFragment"
+        android:name="com.sokoldev.griefresort.ui.fragments.account.EditAccountDetailFragment"
+        android:label="fragment_edit_account_detail"
+        tools:layout="@layout/fragment_edit_account_detail" />
+    <fragment
+        android:id="@+id/deleteAccountFragment"
+        android:name="com.sokoldev.griefresort.ui.fragments.account.DeleteAccountFragment"
+        android:label="fragment_delete_account"
+        tools:layout="@layout/fragment_delete_account">
+        <action
+            android:id="@+id/action_deleteAccountFragment_to_contactUsFragment"
+            app:destination="@id/contactUsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRemindMEFragment"
+        android:name="com.sokoldev.griefresort.ui.fragments.remindme.AddRemindMEFragment"
+        android:label="fragment_add_remind_m_e"
+        tools:layout="@layout/fragment_add_remind_m_e" />
+    <fragment
+        android:id="@+id/faqsFragment2"
+        android:name="com.sokoldev.griefresort.ui.fragments.information.FaqsFragment"
+        android:label="FaqsFragment">
+        <action
+            android:id="@+id/action_faqsFragment2_to_contactUsFragment"
+            app:destination="@id/contactUsFragment" />
+    </fragment>
+
+</navigation>

@@ -18,6 +18,7 @@
     <string name="description4">Reading or listening or Watching something about grief can help you cope by opening up new perspectives</string>
     <string name="description5">Uplift Your Spirit with these powerful grieving quotes</string>
     <string name="description6">Share your thoughts &amp; feelings, your ups &amp; downs, your victories &amp; fears</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="intro_next">Next</string>
@@ -39,6 +40,11 @@
     <string name="email">Email Address</string>
     <string name="password">Password</string>
     <string name="forgot_password">Forgot Password?</string>
+    <string name="forgot_passwords">Forgot Password</string>
+    <string name="change_password">Change Password</string>
+    <string name="current_passwrod">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
     <string name="sign_in">Sign In</string>
     <string name="log_in">Log In</string>
     <string name="sign_up">Sign Up</string>
@@ -49,6 +55,210 @@
     <string name="privacy">and Acknowledge that you have read our  <b><font color="#3AAE42">Privacy Policy</font></b></string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last name</string>
-    <string name="user_name">User NAme</string>
+    <string name="user_name">User Name</string>
+    <string name="reset">Reset Password</string>
+    <string name="forgot_email">Enter your email address and we will send you password reset instructions.</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
+    <!--    Bottom Navigation-->
+    <!--   Group Hug -->
+    <string name="group_hug">Group Hug</string>
+    <string name="group_title">Here we cry together and we support each other. No one is alone</string>
+    <string name="group_desc">Send a Hug or Give \n words of support</string>
+    <!--Memeory Box-->
+    <string name="memory_box">Memory Box</string>
+    <string name="memory_title">All we are left with now are memories. Let\'s keep those memories alive forever. Here add photos/videos of your loved ones, the funeral, grave visits, their treasured items etc</string>
+    <string name="memory_desc">Add Picture/Video here</string>
+    <!--Remind Me-->
+    <string name="remind_me">Remind Me</string>
+    <string name="remind_me_title">Never Forget/Miss Special Dates. Here add a special date such as anniversary, grave visit, estate administration meeting etc and get a Notification Reminder</string>
+    <string name="remind_me_desc">Add a special date</string>
+
+
+    <string name="library">Library </string>
+
+    <string name="quotes">Quotes</string>
+    <string name="quotes_title">Some days are harder than others. Uplift Your Spirit with these powerful Uplifting quotes</string>
+    <string name="quotes_desc">Scroll Up</string>
+
+    <!--    My Diary-->
+    <string name="my_diary">My Diary</string>
+    <string name="my_diary_desc">Share Here</string>
+    <string name="my_diary_title">This is a Judgement Free Zone. Share your thoughts &amp; feelings, your ups and downs, your victories &amp; fears</string>
+    <string name="my_account">My Account</string>
+    <string name="manage_subscription">Manage Subscription</string>
+    <string name="contatct_us">Contact Us</string>
+    <string name="faqs">FAQs</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="termsCondition"><![CDATA[Terms & Conditions]]></string>
+    <string name="log_out">Log Out</string>
+    <string name="edit_account">Edit Account Details</string>
+    <string name="edit_account2">Edit Account </string>
+    <string name="delete_account">Delete Account</string>
+    <string name="cancel_subscription">How to cancel my subscription?</string>
+    <string name="save">Save</string>
+    <string name="not_subscribe">You are not  subscribed yet</string>
+    <string name="subscribe_now">Subscribe Now</string>
+    <string name="cancel_payments">If you want to stop recurring  payments, you can do so <font color="#3AAE42"> here.</font></string>
+    <string name="question">Questions? Click Here</string>
+    <string name="what_is_grief">What is Grief Resort?</string>
+    <string name="delete_account_desc">
+
+    Refunds cannot be provided for
+    deleted accounts. For refunds,
+    <u>contact our support</u> team before
+    deleting your account.
+
+ </string>
+
+
+    <string name="contact">
+    Please feel free to reach us at:
+    <font color="#3AAE42">support@griefresort.com</font>
+    We are open Monday to Friday
+    <font color="#3AAE42">9am - 5pm Pacific Time</font>
+
+
+    We are closed on weekends and
+    holidays
+    </string>
+
+    <string name="info_privacy">
+    Grief Resort Privacy Policy
+    Effective October 12, 2022
+
+    We want you to understand how and
+    why Grief Resort, Inc. (“Grief Resort,” “we”
+    or “us”) collects, uses, and shares
+    information about you when you use our
+    sites, mobile apps, widgets, and other
+    online products and services
+    (collectively, the “Services”) or when you
+    otherwise interact with us or receive a
+    communication from us. This Privacy
+    Policy applies to all of our Services
+    including Gift Resort Gifts, which
+    maintains a separate privacy notice that
+    incorporates this Privacy Policy by
+    reference.
+
+
+    What We Collect (and How it is Used and
+    Shared)
+
+    Information You Provide to Us
+
+    We collect information you provide to us
+    directly when you use the Services.
+    </string>
+
+    <string name="info_terms">
+    Terms of Service
+    last updated Oct 12, 2022
+
+    Welcome to Grief Resort! GriefResort.com,
+    Inc. (“Grief Resort ”) provides our website
+    located at www.griefresort.com (the “Site”)
+    and grief support services accessible via
+    our Site and our mobile device application
+    (“App”). To make these Terms easier to
+    read, the Site, our services and App are
+    collectively called the “Services.” Please
+    read these Terms of Service (the “Terms”)
+    carefully because they govern your use of
+    our Services.
+
+    Agreement to Terms
+    By using our Services, you agree to be
+    bound by these Terms. If you don’t agree
+    to be bound by these Terms, do not use
+    the Services.
+
+    Privacy Policy
+    Please refer to our privacy policy for
+    information on how we collect, use and
+    disclose information from our users. You
+    acknowledge and agree that your use of
+    the Services is subject to our Privacy Policy.
+    </string>
+
+
+    <string name="info_faqs">
+    GRIEF RESORT FAQS
+
+    1. How to reset or update your password?
+    If you’re having trouble logging in to your
+    Grief Resort account, you can reset your
+    password.
+
+    How to reset your password:
+    Open the Gift Resort app and tap ‘ forgot
+    password? ‘ option at the bottom right of
+    the screen.
+
+    On the next screen enter your email
+    address associated with your Grief Resort
+    account and we will send you password
+    reset instructions
+    Please check your spam folder if you do
+    not see the email in your inbox.
+
+    If you have not received the email after
+    10 minutes, please add
+    support@griefresort.com
+
+    For security reasons, your password reset
+    link must be accessed within 90 minutes.
+    After 90 minutes, the link will expire, but
+    you can always request a new link by
+    following these steps again.
+
+    If you are currently logged in to your Grief
+    Resort account on the mobile app and
+    would like to update your password:
+
+    Tap ‘ Hamburger menu on the bottom
+    right of the screen’
+    Tap ‘Change Password’
+    Type in your old password
+    Type in your new password - this must be
+    at least 8 characters
+    Tap ‘ Change Password’
+    If you are currently logged in to your Grief
+    Resort account on the website and would
+    like to update your password:
+    Click on the ‘Change password’ button in
+    your profile
+    Type in your old password
+    Type in your new password - this must be
+    at least 8 characters.
+    Confirm your new password Click ‘Update’
+
+    Log out of your Grief Resort account and
+    follow the steps at the beginning of this
+    article.
+
+    2. The app isn’t working - troubleshooting
+    steps.
+    If you’re having trouble using the app, here
+    are a few troubleshooting steps to try:
+
+    1. Double-check your internet connection.
+    We recommend a strong WiFi or cellular
+    connection.
+
+    2. Delete and re-install the app (not your
+    Grief Resort account) while making sure
+    your device is on a solid wifi connection.
+
+    Please note: if you have not yet created a
+    Grief Resort account, you’ll want to do so
+    before deleting the app to ensure your
+    data is not lost.
+
+    </string>
+    <string name="setting">Setting</string>
 </resources>

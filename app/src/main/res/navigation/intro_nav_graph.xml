@@ -8,4 +8,5 @@
         android:id="@+id/onBoardingFragment"
         android:name="com.sokoldev.griefresort.ui.fragments.onBoarding.OnBoardingFragment"
         android:label="OnBoardingFragment" />
+
 </navigation>

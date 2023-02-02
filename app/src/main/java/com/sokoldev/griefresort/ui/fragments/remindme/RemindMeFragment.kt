@@ -1,0 +1,68 @@
+package com.sokoldev.griefresort.ui.fragments.remindme
+
+import android.content.Intent
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.sokoldev.griefresort.R
+import com.sokoldev.griefresort.data.adapters.RemindMeAdapter
+import com.sokoldev.griefresort.data.viewmodel.RemindViewModel
+import com.sokoldev.griefresort.databinding.FragmentRemindMeBinding
+import com.sokoldev.griefresort.ui.activities.AddReminderActivity
+import com.sokoldev.griefresort.ui.activities.HomeActivity
+
+
+class RemindMeFragment : Fragment(), RemindMeAdapter.OnRemindMeItemsClickListener {
+
+    private lateinit var viewModel: RemindViewModel
+    private lateinit var binding: FragmentRemindMeBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        // Inflate the layout for this fragment
+        binding = FragmentRemindMeBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val toolbarText = (requireActivity() as HomeActivity).binding.toolbarText
+        toolbarText.text = getString(R.string.remind_me)
+
+        (requireActivity() as HomeActivity).binding.relativeLayout.visibility = View.VISIBLE
+
+        binding.rvRemindMe.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvRemindMe.setHasFixedSize(true)
+
+
+
+        viewModel = ViewModelProvider(this)[RemindViewModel::class.java]
+        setUpObserver()
+
+        binding.addDate.setOnClickListener {
+            startActivity(Intent(context, AddReminderActivity::class.java))
+        }
+
+    }
+
+    private fun setUpObserver() {
+        viewModel.getList().observe(viewLifecycleOwner) {
+            val adapter = RemindMeAdapter(it, this)
+            binding.rvRemindMe.adapter = adapter
+        }
+    }
+
+    override fun onDeleteClick(position: Int) {
+    }
+
+    override fun onEditClick(position: Int) {
+
+    }
+}
