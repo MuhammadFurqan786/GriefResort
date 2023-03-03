@@ -16,4 +16,10 @@ object Constants {
     const val PRIVACY = "privacy"
     const val TERMS = "terms"
     const val FAQS = "faqs"
+    const val TITLE = "title"
+
+    const val USERCARD = "user_card"
+    const val OTHERUSERCARD = "other_user_card"
+
+    const val AGAIN = "again"
 }

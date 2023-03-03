@@ -10,6 +10,7 @@ data class Diary(
     var listComments: List<Comments>
 ) {
     data class Comments(
+        var type: String,
         var name: String,
         var comment: String,
         var time: String

@@ -10,16 +10,19 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.data.adapters.RemindMeAdapter
+import com.sokoldev.griefresort.data.models.RemindMe
 import com.sokoldev.griefresort.data.viewmodel.RemindViewModel
 import com.sokoldev.griefresort.databinding.FragmentRemindMeBinding
 import com.sokoldev.griefresort.ui.activities.AddReminderActivity
 import com.sokoldev.griefresort.ui.activities.HomeActivity
+import com.sokoldev.griefresort.utils.Constants
 
 
 class RemindMeFragment : Fragment(), RemindMeAdapter.OnRemindMeItemsClickListener {
 
     private lateinit var viewModel: RemindViewModel
     private lateinit var binding: FragmentRemindMeBinding
+    private lateinit var adapter: RemindMeAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,15 +57,18 @@ class RemindMeFragment : Fragment(), RemindMeAdapter.OnRemindMeItemsClickListene
 
     private fun setUpObserver() {
         viewModel.getList().observe(viewLifecycleOwner) {
-            val adapter = RemindMeAdapter(it, this)
+             adapter = RemindMeAdapter(it as ArrayList<RemindMe>, this)
             binding.rvRemindMe.adapter = adapter
         }
     }
 
     override fun onDeleteClick(position: Int) {
+        adapter.removeAt(position)
     }
 
     override fun onEditClick(position: Int) {
-
+        val intent = Intent(context,AddReminderActivity::class.java)
+        intent.putExtra(Constants.TITLE,adapter.arrayList[position].title)
+        startActivity(intent)
     }
 }

@@ -1,8 +1,11 @@
 package com.sokoldev.griefresort.ui.fragments.subscription
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sokoldev.griefresort.databinding.ActivityUnlockBinding
+import com.sokoldev.griefresort.ui.activities.AuthActivity
+import com.sokoldev.griefresort.utils.Constants
 
 class UnlockActivity : AppCompatActivity() {
 
@@ -15,10 +18,12 @@ class UnlockActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.close.setOnClickListener {
-            finish()
+            var intent = Intent(this, AuthActivity::class.java)
+            intent.putExtra(Constants.TYPE,Constants.AGAIN)
+            startActivity(intent)
         }
         binding.btnSubscribe.setOnClickListener {
-            finish()
+            startActivity(Intent(this, AuthActivity::class.java))
         }
     }
 }

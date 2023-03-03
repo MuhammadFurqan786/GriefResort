@@ -21,7 +21,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvaccount"
-                style="@style/TextAppearance.AppCompat.Title"
+                style="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -56,7 +56,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvSub"
-                style="@style/TextAppearance.AppCompat.Title"
+                style="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -91,7 +91,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvContact"
-                style="@style/TextAppearance.AppCompat.Title"
+                style="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -126,7 +126,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvFaq"
-                style="@style/TextAppearance.AppCompat.Title"
+                style="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -161,7 +161,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvprivacy"
-                style="@style/TextAppearance.AppCompat.Title"
+                style="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -196,7 +196,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvterms"
-                style="@style/TextAppearance.AppCompat.Title"
+                style="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -231,7 +231,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvChange"
-                style="@style/TextAppearance.AppCompat.Title"
+                style="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -269,6 +269,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="20dp"
         android:text="@string/log_out"
+        android:visibility="gone"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/white"
         android:textStyle="bold"

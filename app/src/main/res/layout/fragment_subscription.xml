@@ -10,11 +10,10 @@
     <RelativeLayout
         android:id="@+id/notSubscribed"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
+        android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatTextView
-            style="@style/TextAppearance.AppCompat.Display1"
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -43,22 +42,23 @@
     <RelativeLayout
         android:id="@+id/subscribed"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <androidx.appcompat.widget.AppCompatTextView
-            style="@style/TextAppearance.AppCompat.Display1"
-            android:layout_width="wrap_content"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="40dp"
             android:layout_marginTop="60dp"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
-            android:text="@string/not_subscribe"
+            android:text="@string/subscribed"
             android:textColor="@color/black" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            style="@style/TextAppearance.AppCompat.Medium"
+            style="@style/TextAppearance.AppCompat.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/btnQuestions"

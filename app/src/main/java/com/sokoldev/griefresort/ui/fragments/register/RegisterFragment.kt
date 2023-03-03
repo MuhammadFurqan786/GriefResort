@@ -1,5 +1,6 @@
 package com.sokoldev.griefresort.ui.fragments.register
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.databinding.FragmentRegisterBinding
+import com.sokoldev.griefresort.ui.activities.AuthActivity
+import com.sokoldev.griefresort.ui.activities.HomeActivity
 
 class RegisterFragment : Fragment() {
 
@@ -25,7 +28,13 @@ class RegisterFragment : Fragment() {
 
 
         binding.textViewLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+
+            startActivity(Intent(context,AuthActivity::class.java))
+            activity?.finish()
+        }
+
+        binding.btnSignUp.setOnClickListener {
+            startActivity(Intent(context,HomeActivity::class.java))
         }
 
 

@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.databinding.FragmentLoginBinding
+import com.sokoldev.griefresort.ui.activities.GetStartedActivity
 import com.sokoldev.griefresort.ui.activities.HomeActivity
+import com.sokoldev.griefresort.utils.Constants
 
 class LoginFragment : Fragment() {
 
@@ -25,8 +27,17 @@ class LoginFragment : Fragment() {
     ): View? {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
 
+
+        if (activity?.intent?.getStringExtra(Constants.TYPE) != null) {
+            val string = activity?.intent?.getStringExtra(Constants.TYPE)
+            if (string.equals(Constants.AGAIN)) {
+
+                findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            }
+        }
+
         binding.textViewSignUp.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            startActivity(Intent(context, GetStartedActivity::class.java))
         }
         binding.tvForgot.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)

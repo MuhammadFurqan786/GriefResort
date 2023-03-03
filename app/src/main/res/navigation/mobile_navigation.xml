@@ -28,9 +28,6 @@
         android:label="fragment_remind_me"
         tools:layout="@layout/fragment_remind_me">
         <action
-            android:id="@+id/action_remindMe_to_addRemindMEFragment"
-            app:destination="@id/addRemindMEFragment" />
-        <action
             android:id="@+id/action_remindMe_to_settingFragment"
             app:destination="@id/settingFragment" />
     </fragment>
@@ -120,11 +117,7 @@
             android:id="@+id/action_deleteAccountFragment_to_contactUsFragment"
             app:destination="@id/contactUsFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/addRemindMEFragment"
-        android:name="com.sokoldev.griefresort.ui.fragments.remindme.AddRemindMEFragment"
-        android:label="fragment_add_remind_m_e"
-        tools:layout="@layout/fragment_add_remind_m_e" />
+
     <fragment
         android:id="@+id/faqsFragment2"
         android:name="com.sokoldev.griefresort.ui.fragments.information.FaqsFragment"

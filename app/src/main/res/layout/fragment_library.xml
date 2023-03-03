@@ -21,7 +21,7 @@
                 android:background="@drawable/bg_title">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Medium"
+                    style="@style/TextAppearance.AppCompat.Small"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
@@ -29,7 +29,7 @@
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
-                    android:text="@string/remind_me_title"
+                    android:text="@string/library_title"
                     android:textColor="@color/colorPrimary" />
 
 

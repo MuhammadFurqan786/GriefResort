@@ -117,8 +117,24 @@
                 android:inputType="textPassword"
                 android:textColor="@color/black" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/confirm_password"
+                android:textAllCaps="true" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edittextConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/black" />
+
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSignIn"
+                android:id="@+id/btnSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"

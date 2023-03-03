@@ -18,12 +18,14 @@
     <!--indicator-->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom|center"
+        android:layout_weight=".05"
         android:background="@color/white"
         app:tabBackground="@drawable/intro_tab_selector"
         app:tabGravity="center"
+        app:tabMaxWidth="17dp"
         app:tabIndicatorHeight="0dp" />
 
 

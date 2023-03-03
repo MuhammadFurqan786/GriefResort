@@ -13,4 +13,5 @@
     <color name="colorPrimary">#3AAE42</color>
     <color name="colorPrimaryDark">#3AAE42</color>
     <color name="colorGray">#BEBEBB</color>
+    <color name="defaultColor">#BEBEBB</color>
 </resources>

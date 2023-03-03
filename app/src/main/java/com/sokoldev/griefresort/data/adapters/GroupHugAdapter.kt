@@ -1,15 +1,19 @@
 package com.sokoldev.griefresort.data.adapters
 
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatEditText
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.data.models.GroupHug
+import com.sokoldev.griefresort.ui.activities.CommentActivity
 import io.github.kozemirov.readmoretextview.ReadMoreTextView
 
 
@@ -20,6 +24,7 @@ class GroupHugAdapter(
 
 
     var arraylist = mutableListOf<GroupHug>()
+    private lateinit var context: Context
     fun setList(list: List<GroupHug>) {
         this.arraylist = list.toMutableList()
         notifyDataSetChanged()
@@ -30,13 +35,20 @@ class GroupHugAdapter(
     interface OnGroupHugItemsClickListener {
         fun onGroupHugClick(
             position: Int,
-            like: AppCompatTextView?
+            like: AppCompatTextView?,
+            totalHugs: String
         )
 
         fun onSupportclick(
             position: Int,
             comment: AppCompatTextView?,
-            ed_support: AppCompatEditText?
+            ed_support: AppCompatEditText?,
+            totalComments: String
+        )
+
+        fun onMenuImageClick(
+            position: Int,
+            menuImage: AppCompatImageView,
         )
 
     }
@@ -47,10 +59,11 @@ class GroupHugAdapter(
         var support: LinearLayout? = itemView?.findViewById(R.id.support)
         var desc: ReadMoreTextView? = itemView?.findViewById(R.id.desc)
         var userName: AppCompatTextView? = itemView?.findViewById(R.id.userName)
-        var date: AppCompatTextView? = itemView?.findViewById(R.id.date)
         var ed_support: AppCompatEditText? = itemView?.findViewById(R.id.ed_support)
         var like: AppCompatTextView? = itemView?.findViewById(R.id.like)
         var comment: AppCompatTextView? = itemView?.findViewById(R.id.comment)
+        var menuImage: AppCompatImageView? = itemView?.findViewById(R.id.menu)
+        var sendSupport: AppCompatImageView? = itemView?.findViewById(R.id.sendSupport)
 
 
     }
@@ -60,6 +73,7 @@ class GroupHugAdapter(
         parent: ViewGroup,
         viewType: Int
     ): DataObjectHolder {
+        context = parent.context
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_group_hug, parent, false)
         return DataObjectHolder(view)
@@ -70,22 +84,32 @@ class GroupHugAdapter(
         val groupHug = arraylist[position]
 
         holder.userName?.text = groupHug.userName
-        holder.date?.text = groupHug.date
         holder.comment?.text = groupHug.totalComments
         holder.like?.text = groupHug.totalHugs
         holder.desc?.text = groupHug.description
 
+        holder.support!!.setOnClickListener {
+            context.startActivity(Intent(context, CommentActivity::class.java))
+        }
+
         holder.groupHug!!.setOnClickListener { v: View? ->
             clickListener.onGroupHugClick(
                 position,
-                holder.like
+                holder.like,
+                arraylist[position].totalHugs
             )
         }
-        holder.support!!.setOnClickListener { v: View? ->
+        holder.sendSupport!!.setOnClickListener { v: View? ->
             clickListener.onSupportclick(
                 position,
-                holder.comment, holder.ed_support
+                holder.comment,
+                holder.ed_support,
+                arraylist[position].totalComments
             )
+        }
+
+        holder.menuImage!!.setOnClickListener {
+            clickListener.onMenuImageClick(position, holder.menuImage!!)
         }
     }
 

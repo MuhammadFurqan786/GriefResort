@@ -16,6 +16,7 @@
     <string name="description2">Here keep memories of your loved ones alive forever where you can access &amp; update them easily </string>
     <string name="description3">Here you can set a reminder notification for upcoming special dates</string>
     <string name="description4">Reading or listening or Watching something about grief can help you cope by opening up new perspectives</string>
+    <string name="library_title">We are left with so many Whys! Reading or listening or Watching something about grief can help you cope by opening up new perspectives</string>
     <string name="description5">Uplift Your Spirit with these powerful grieving quotes</string>
     <string name="description6">Share your thoughts &amp; feelings, your ups &amp; downs, your victories &amp; fears</string>
 
@@ -71,13 +72,15 @@
     <!--Memeory Box-->
     <string name="memory_box">Memory Box</string>
     <string name="memory_title">All we are left with now are memories. Let\'s keep those memories alive forever. Here add photos/videos of your loved ones, the funeral, grave visits, their treasured items etc</string>
-    <string name="memory_desc">Add Picture/Video here</string>
+    <string name="memory_desc">Add Picture/Video/Audio here</string>
     <!--Remind Me-->
     <string name="remind_me">Remind Me</string>
     <string name="remind_me_title">Never Forget/Miss Special Dates. Here add a special date such as anniversary, grave visit, estate administration meeting etc and get a Notification Reminder</string>
     <string name="remind_me_desc">Add a special date</string>
 
-
+    <string name="delete"><font color="#3AAE42">Delete?</font></string>
+    <string name="report"><font color="#3AAE42">Report</font></string>
+    <string name="edit"><font color="#3AAE42">Edit</font></string>
     <string name="library">Library </string>
 
     <string name="quotes">Quotes</string>
@@ -261,4 +264,8 @@
 
     </string>
     <string name="setting">Setting</string>
+    <string name="share">Share</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="subscribed">You Subscribed on Android</string>
+
 </resources>

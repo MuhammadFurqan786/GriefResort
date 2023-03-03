@@ -78,6 +78,13 @@ object Global {
 
     }
 
+     fun openLink(link: String): Intent {
+        val intent = Intent()
+        intent.action = Intent.ACTION_VIEW
+        intent.data = Uri.parse(link)
+        return intent
+    }
+
     fun calculatePercentage(count:Int, totalCount:Int): Int{
         return  ((count.toDouble()/totalCount.toDouble()) * 100).toInt()
     }

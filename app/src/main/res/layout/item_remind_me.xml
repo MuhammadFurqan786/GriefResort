@@ -2,11 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp">
+    android:layout_margin="8dp">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/title"
-        style="@style/TextAppearance.AppCompat.Medium"
+        style="@style/TextAppearance.AppCompat.Caption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
@@ -18,7 +18,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/date"
-        style="@style/TextAppearance.AppCompat.Small"
+        style="@style/TextAppearance.AppCompat.Caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
@@ -34,16 +34,16 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ic_edit"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_gravity="center_vertical"
             android:padding="5dp"
             android:src="@drawable/ic_editing" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ic_delete"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_gravity="center_vertical"
             android:padding="5dp"
             android:src="@drawable/ic_delete" />

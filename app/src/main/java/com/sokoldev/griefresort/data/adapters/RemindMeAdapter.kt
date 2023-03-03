@@ -12,7 +12,7 @@ import com.sokoldev.griefresort.data.models.RemindMe
 
 
 class RemindMeAdapter(
-    val arrayList: List<RemindMe>, clickListener: OnRemindMeItemsClickListener
+    val arrayList: ArrayList<RemindMe>, clickListener: OnRemindMeItemsClickListener
 ) : RecyclerView.Adapter<RemindMeAdapter.DataObjectHolder>() {
     var clickListener: OnRemindMeItemsClickListener = clickListener
 
@@ -69,6 +69,10 @@ class RemindMeAdapter(
     override fun getItemCount(): Int {
         return arrayList.size
     }
-
+    public fun removeAt(position: Int) {
+        arrayList.removeAt(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, arrayList.size)
+    }
 
 }

@@ -11,7 +11,7 @@ import com.sokoldev.griefresort.data.models.MemoryBox
 
 
 class MemoryBoxAdapter(
-    val arrayList: List<MemoryBox>,
+    val arrayList: ArrayList<MemoryBox>,
     clickListener: OnMemoryBoxItemsClickListener
 ) :
     RecyclerView.Adapter<MemoryBoxAdapter.DataObjectHolder>() {
@@ -24,6 +24,7 @@ class MemoryBoxAdapter(
 
         fun onMenuClick(
             position: Int,
+            menu: AppCompatImageView,
         )
 
     }
@@ -54,7 +55,7 @@ class MemoryBoxAdapter(
 
         holder.menu!!.setOnClickListener { v: View? ->
             clickListener.onMenuClick(
-                position
+                position, holder.menu!!
             )
         }
         holder.image!!.setOnClickListener { v: View? ->
@@ -68,5 +69,11 @@ class MemoryBoxAdapter(
         return arrayList.size
     }
 
+
+    public fun removeAt(position: Int) {
+        arrayList.removeAt(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, arrayList.size)
+    }
 
 }

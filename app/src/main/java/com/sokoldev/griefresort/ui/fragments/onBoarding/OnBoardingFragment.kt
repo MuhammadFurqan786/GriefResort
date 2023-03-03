@@ -12,8 +12,8 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.databinding.FragmentOnBoardingBinding
 import com.sokoldev.griefresort.databinding.OnboardingDesignBinding
-import com.sokoldev.griefresort.ui.activities.WelcomeActivity
 import com.sokoldev.griefresort.ui.fragments.onBoarding.OnBoardingFragment.Companion.MAX_STEP
+import com.sokoldev.griefresort.ui.fragments.subscription.UnlockActivity
 import com.sokoldev.griefresort.utils.animation.ZoomOutPageTransformer
 
 // TODO: Rename parameter arguments, choose names that match
@@ -70,14 +70,13 @@ class OnBoardingFragment : Fragment() {
         })
 
 
-
         binding.btnNext.setOnClickListener {
-            startActivity(Intent(context, WelcomeActivity::class.java))
+            startActivity(Intent(context, UnlockActivity::class.java))
         }
     }
 
     companion object {
-        const val MAX_STEP = 7
+        const val MAX_STEP = 6
     }
 }
 
@@ -106,17 +105,17 @@ class AppIntroViewPager2Adapter : RecyclerView.Adapter<PagerVH2>() {
             if (position == 1) {
                 bindingDesign.introTitle.text = context.getString(R.string.title2)
                 bindingDesign.introDescription.text = context.getString(R.string.description2)
-                bindingDesign.introImage.setImageResource(R.drawable.img_memory_box_2)
+                bindingDesign.introImage.setImageResource(R.drawable.img_memory_box)
             }
             if (position == 2) {
                 bindingDesign.introTitle.text = context.getString(R.string.title2)
                 bindingDesign.introDescription.text = context.getString(R.string.description2)
-                bindingDesign.introImage.setImageResource(R.drawable.img_memory_box)
+                bindingDesign.introImage.setImageResource(R.drawable.img_memory_box_2)
             }
             if (position == 3) {
                 bindingDesign.introTitle.text = context.getString(R.string.title3)
                 bindingDesign.introDescription.text = context.getString(R.string.description3)
-                bindingDesign.introImage.setImageResource(R.drawable.img_remember_me)
+                bindingDesign.introImage.setImageResource(R.drawable.img_remind_me)
             }
             if (position == 4) {
                 bindingDesign.introTitle.text = context.getString(R.string.title4)
@@ -124,11 +123,6 @@ class AppIntroViewPager2Adapter : RecyclerView.Adapter<PagerVH2>() {
                 bindingDesign.introImage.setImageResource(R.drawable.img_library)
             }
             if (position == 5) {
-                bindingDesign.introTitle.text = context.getString(R.string.title5)
-                bindingDesign.introDescription.text = context.getString(R.string.description5)
-                bindingDesign.introImage.setImageResource(R.drawable.img_quote)
-            }
-            if (position == 6) {
                 bindingDesign.introTitle.text = context.getString(R.string.title6)
                 bindingDesign.introDescription.text = context.getString(R.string.description6)
                 bindingDesign.introImage.setImageResource(R.drawable.img_my_diary)

@@ -13,7 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="8dp"
             android:orientation="vertical">
 
             <RelativeLayout
@@ -22,7 +22,7 @@
                 android:background="@drawable/bg_title">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Medium"
+                    style="@style/TextAppearance.AppCompat.Small"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
@@ -37,14 +37,15 @@
 
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/addImageVideo"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="45dp"
                 android:layout_marginVertical="16dp"
                 app:cardBackgroundColor="@color/colorPrimary"
                 app:cardCornerRadius="35dp">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Medium"
+                    style="@style/TextAppearance.AppCompat.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -58,7 +59,11 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvMemoryBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:itemCount="8"
+                tools:listitem="@layout/item_memory_box" />
 
 
         </LinearLayout>

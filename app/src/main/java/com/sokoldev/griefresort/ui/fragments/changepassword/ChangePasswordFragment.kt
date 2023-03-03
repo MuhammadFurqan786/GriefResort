@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.sokoldev.griefresort.databinding.FragmentChangePasswordBinding
 import com.sokoldev.griefresort.ui.activities.HomeActivity
 import com.sokoldev.griefresort.utils.Constants
+import com.sokoldev.griefresort.utils.Global
 
 class ChangePasswordFragment : Fragment() {
 
@@ -32,10 +33,12 @@ class ChangePasswordFragment : Fragment() {
             startActivity(intent)
         }
         binding.btnChangePassword.setOnClickListener {
-            activity?.finish()
+
+            Global.showMessage(it,"Password Changed")
             val intent = Intent(context, HomeActivity::class.java)
             intent.putExtra(Constants.TYPE, "RENEW")
             startActivity(intent)
+            activity?.finish()
         }
 
         (requireActivity() as HomeActivity).binding.relativeLayout.visibility = View.GONE

@@ -3,26 +3,26 @@
 
     <item
         android:id="@+id/groupHug"
-        android:icon="@drawable/ic_hug"
+        android:icon="@drawable/hug_icon_selector"
         android:title="@string/group_hug" />
 
     <item
         android:id="@+id/memoryBox"
-        android:icon="@drawable/ic_memory_box"
+        android:icon="@drawable/memory_icon_selector"
         android:title="@string/memory_box" />
 
     <item
         android:id="@+id/remindMe"
-        android:icon="@drawable/ic_reminder"
+        android:icon="@drawable/reminder_icon_selector"
         android:title="@string/remind_me" />
     <item
         android:id="@+id/library"
-        android:icon="@drawable/ic_library"
+        android:icon="@drawable/lib_icon_selector"
         android:title="@string/library" />
 
     <item
         android:id="@+id/myDiary"
-        android:icon="@drawable/ic_diary"
+        android:icon="@drawable/diary_icon_selector"
         android:title="@string/my_diary" />
 
 

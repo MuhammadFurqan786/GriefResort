@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="5dp"
+    android:layout_marginTop="10dp"
+    app:cardElevation="2dp"
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
@@ -13,41 +14,42 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/userName"
-            style="@style/TextAppearance.AppCompat.Title"
+            style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
             android:layout_marginVertical="16dp"
-            android:fontFamily="@font/poppins_medium"
+            android:fontFamily="@font/poppins_semibold"
             android:text="Sharon186"
             android:textColor="@color/colorPrimary" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/date"
-            style="@style/TextAppearance.AppCompat.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="16dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginHorizontal="10dp"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="center"
-            android:text="01/09/2022" />
-
-
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/menu"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_menu_horizontal"
+            android:tint="@color/colorPrimary" />
 
 
         <io.github.kozemirov.readmoretextview.ReadMoreTextView
             android:id="@+id/desc"
             android:layout_width="match_parent"
+            android:layout_marginEnd="30dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/userName"
-            app:color="@color/colorPrimary"
+            android:fontFamily="@font/poppins_regular"
+            app:color="@color/black"
             app:hidden="true"
             app:justificationMode="1"
-            app:limit="2"
-            app:readMoreText="Show More"
-            app:showLessText="Show Less"
+            app:limit="5"
+            app:readMoreText="Read More"
+            app:showLessText="Read Less"
+            app:textSize="14"
             app:text="@string/memory_title" />
 
 
@@ -68,12 +70,12 @@
                 android:gravity="center">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
                     android:layout_width="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginVertical="10dp"
-                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="10sp"
                     android:text="Send a Hug"
                     android:textColor="@color/colorPrimary" />
 
@@ -86,7 +88,7 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/like"
-                    style="@style/TextAppearance.AppCompat.Small"
+                    style="@style/TextAppearance.AppCompat.Caption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -110,13 +112,13 @@
                 android:gravity="center">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginVertical="10dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Support"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Support Given"
+                    android:textSize="10sp"
                     android:textColor="@color/colorPrimary" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -129,7 +131,7 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/comment"
-                    style="@style/TextAppearance.AppCompat.Small"
+                    style="@style/TextAppearance.AppCompat.Caption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -142,14 +144,33 @@
 
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/ed_support"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/linear"
             android:background="@drawable/bg_edittext"
-            android:hint="Write Words of Support here..."
-            android:paddingLeft="10dp"
-            android:textSize="14sp" />
+            android:weightSum="1">
+
+            <EditText
+                android:id="@+id/ed_support"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight=".9"
+                android:padding="10dp"
+                android:background="@android:color/transparent"
+                android:hint="Write Words of Support here..."
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/sendSupport"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight=".1"
+                android:src="@drawable/baseline_send_24"
+                android:tint="@color/colorPrimary" />
+
+        </LinearLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

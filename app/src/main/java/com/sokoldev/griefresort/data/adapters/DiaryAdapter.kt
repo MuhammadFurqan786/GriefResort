@@ -2,19 +2,24 @@ package com.sokoldev.griefresort.data.adapters
 
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.appcompat.widget.AppCompatEditText
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.data.models.Diary
+import com.sokoldev.griefresort.ui.activities.CommentActivity
+import com.sokoldev.griefresort.utils.Global
 import io.github.kozemirov.readmoretextview.ReadMoreTextView
 
 
-class DiaryAdapter() :
+class DiaryAdapter(var clickListener: OnDiaryItemClickListener) :
     RecyclerView.Adapter<DiaryAdapter.DataObjectHolder>() {
 
     lateinit var context: Context
@@ -25,10 +30,18 @@ class DiaryAdapter() :
         notifyDataSetChanged()
     }
 
+    interface OnDiaryItemClickListener {
+        fun onMenuImageClick(
+            position: Int,
+            menuImage: AppCompatImageView,
+        )
+
+    }
+
+
 
     class DataObjectHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
 
-        var groupHug: LinearLayout? = itemView?.findViewById(R.id.sendHug)
         var support: LinearLayout? = itemView?.findViewById(R.id.support)
         var desc: ReadMoreTextView? = itemView?.findViewById(R.id.desc)
         var userName: AppCompatTextView? = itemView?.findViewById(R.id.userName)
@@ -36,6 +49,7 @@ class DiaryAdapter() :
         var like: AppCompatTextView? = itemView?.findViewById(R.id.like)
         var comment: AppCompatTextView? = itemView?.findViewById(R.id.comment)
         var recyclerview: RecyclerView? = itemView?.findViewById(R.id.recyclerviewComment)
+        var menuImage: AppCompatImageView? = itemView?.findViewById(R.id.menu)
 
 
     }
@@ -61,10 +75,20 @@ class DiaryAdapter() :
         holder.like?.text = diary.totalHugs
         holder.desc?.text = diary.description
 
-        val adapter = DiaryCommentAdapter(diary.listComments)
+
+
+        val adapter = DiaryCommentAdapter(diary.listComments as ArrayList<Diary.Comments>)
         holder.recyclerview?.layoutManager = LinearLayoutManager(context)
         holder.recyclerview?.adapter = adapter
 
+
+        holder.menuImage!!.setOnClickListener {
+            clickListener.onMenuImageClick(position, holder.menuImage!!)
+        }
+
+        holder.support!!.setOnClickListener {
+            context.startActivity(Intent(context, CommentActivity::class.java))
+        }
 
     }
 
