@@ -13,7 +13,8 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sokoldev.griefresort.R
-import com.sokoldev.griefresort.data.models.Diary
+import com.sokoldev.griefresort.data.models.Comment
+import com.sokoldev.griefresort.data.models.GroupHug
 import com.sokoldev.griefresort.ui.activities.CommentActivity
 import com.sokoldev.griefresort.utils.Global
 import io.github.kozemirov.readmoretextview.ReadMoreTextView
@@ -24,8 +25,8 @@ class DiaryAdapter(var clickListener: OnDiaryItemClickListener) :
 
     lateinit var context: Context
 
-    var arraylist = mutableListOf<Diary>()
-    fun setList(list: List<Diary>) {
+    var arraylist = mutableListOf<GroupHug>()
+    fun setList(list: List<GroupHug>) {
         this.arraylist = list.toMutableList()
         notifyDataSetChanged()
     }
@@ -71,13 +72,13 @@ class DiaryAdapter(var clickListener: OnDiaryItemClickListener) :
 
         holder.userName?.text = diary.userName
         holder.date?.text = diary.date
-        holder.comment?.text = diary.totalComments
-        holder.like?.text = diary.totalHugs
+        holder.comment?.text = diary.totalComments.toString()
+        holder.like?.text = diary.totalHugs.toString()
         holder.desc?.text = diary.description
 
 
 
-        val adapter = DiaryCommentAdapter(diary.listComments as ArrayList<Diary.Comments>)
+        val adapter = DiaryCommentAdapter(diary.comments as ArrayList<Comment>)
         holder.recyclerview?.layoutManager = LinearLayoutManager(context)
         holder.recyclerview?.adapter = adapter
 

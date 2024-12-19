@@ -11,7 +11,7 @@ import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.databinding.ActivityMainBinding
 
 class OnBoardingActivity : AppCompatActivity() {
-            private lateinit var appBarConfiguration: AppBarConfiguration
+
             private lateinit var navController: NavController
             private lateinit var binding: ActivityMainBinding
 

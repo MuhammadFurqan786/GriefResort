@@ -120,5 +120,10 @@
         </LinearLayout>
 
     </LinearLayout>
-
+    <com.sokoldev.griefresort.utils.BounceLoadingView
+        android:id="@+id/loadingView"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true" />
 </RelativeLayout>

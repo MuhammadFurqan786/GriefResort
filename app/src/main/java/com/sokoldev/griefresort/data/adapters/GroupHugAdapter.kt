@@ -12,8 +12,10 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sokoldev.griefresort.R
+import com.sokoldev.griefresort.data.models.Comment
 import com.sokoldev.griefresort.data.models.GroupHug
 import com.sokoldev.griefresort.ui.activities.CommentActivity
+import com.sokoldev.griefresort.utils.Constants
 import io.github.kozemirov.readmoretextview.ReadMoreTextView
 
 
@@ -34,14 +36,12 @@ class GroupHugAdapter(
 
     interface OnGroupHugItemsClickListener {
         fun onGroupHugClick(
-            position: Int,
-            like: AppCompatTextView?,
-            totalHugs: String
+           id: String
         )
 
-        fun onSupportclick(
-            position: Int,
-            comment: AppCompatTextView?,
+        fun onSupportClick(
+           id:String,
+           commentText: AppCompatTextView?,
             ed_support: AppCompatEditText?,
             totalComments: String
         )
@@ -84,27 +84,32 @@ class GroupHugAdapter(
         val groupHug = arraylist[position]
 
         holder.userName?.text = groupHug.userName
-        holder.comment?.text = groupHug.totalComments
-        holder.like?.text = groupHug.totalHugs
+        holder.comment?.text = groupHug.totalComments.toString()
+        holder.like?.text = groupHug.totalHugs.toString()
         holder.desc?.text = groupHug.description
 
         holder.support!!.setOnClickListener {
-            context.startActivity(Intent(context, CommentActivity::class.java))
+            val intent = Intent(context, CommentActivity::class.java)
+            intent.putParcelableArrayListExtra(
+                Constants.COMMENT_LIST,
+                arraylist[position].comments as ArrayList<Comment>
+            )
+            context.startActivity(intent)
         }
 
         holder.groupHug!!.setOnClickListener { v: View? ->
-            clickListener.onGroupHugClick(
-                position,
-                holder.like,
-                arraylist[position].totalHugs
-            )
+            groupHug.id?.let {
+                clickListener.onGroupHugClick(
+                    it
+                )
+            }
         }
         holder.sendSupport!!.setOnClickListener { v: View? ->
             clickListener.onSupportclick(
-                position,
+                groupHug.id,
                 holder.comment,
                 holder.ed_support,
-                arraylist[position].totalComments
+                arraylist[position].totalComments.toString()
             )
         }
 

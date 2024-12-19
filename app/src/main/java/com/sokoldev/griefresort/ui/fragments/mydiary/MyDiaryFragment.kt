@@ -16,17 +16,19 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.data.adapters.DiaryAdapter
-import com.sokoldev.griefresort.data.models.Diary
-import com.sokoldev.griefresort.data.viewmodel.DiaryViewModel
+import com.sokoldev.griefresort.data.models.GroupHug
+import com.sokoldev.griefresort.data.viewmodel.GroupHugViewModel
 import com.sokoldev.griefresort.databinding.FragmentMyDiaryBinding
+import com.sokoldev.griefresort.preference.PreferenceHelper
 import com.sokoldev.griefresort.ui.activities.HomeActivity
 import com.sokoldev.griefresort.ui.activities.ShareDiaryActivity
 
 class MyDiaryFragment : Fragment(), DiaryAdapter.OnDiaryItemClickListener {
 
 
-    private lateinit var viewModel: DiaryViewModel
-    private lateinit var arrayList: ArrayList<Diary>
+    private lateinit var viewModel: GroupHugViewModel
+    private lateinit var arrayList: ArrayList<GroupHug>
+    private lateinit var helper: PreferenceHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,14 +50,15 @@ class MyDiaryFragment : Fragment(), DiaryAdapter.OnDiaryItemClickListener {
 
         val toolbarText = (requireActivity() as HomeActivity).binding.toolbarText
         toolbarText.text = getString(R.string.my_diary)
+        helper = PreferenceHelper.getPref(requireContext())
 
         (requireActivity() as HomeActivity).binding.relativeLayout.visibility = View.VISIBLE
 
         binding.rvMyDiary.layoutManager = LinearLayoutManager(requireContext())
         binding.rvMyDiary.setHasFixedSize(true)
 
-        viewModel = ViewModelProvider(this)[DiaryViewModel::class.java]
-
+        viewModel = ViewModelProvider(this)[GroupHugViewModel::class.java]
+        helper.getCurrentUser()?.userId?.let { viewModel.getGroupHugsForUser(it) }
         initObserver()
 
         binding.shareHere.setOnClickListener {
@@ -68,9 +71,9 @@ class MyDiaryFragment : Fragment(), DiaryAdapter.OnDiaryItemClickListener {
     }
 
     private fun initObserver() {
-        viewModel.getList().observe(viewLifecycleOwner) {
+        viewModel.groupHugs.observe(viewLifecycleOwner) {
             arrayList = ArrayList()
-            arrayList = it as ArrayList<Diary>
+            arrayList = it as ArrayList<GroupHug>
             val adapter = DiaryAdapter(this)
             adapter.setList(it)
             binding.rvMyDiary.adapter = adapter

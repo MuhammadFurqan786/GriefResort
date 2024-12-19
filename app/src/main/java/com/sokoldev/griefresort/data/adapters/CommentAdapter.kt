@@ -54,7 +54,7 @@ class CommentAdapter(var clickListener: OnCommentAdapterClickListener) :
 
         val comment = arraylist[position]
 
-        holder.name?.text = comment.name
+        holder.name?.text = comment.userName
         holder.comment?.text = comment.comment
 
 

@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.sokoldev.griefresort.R
+import com.sokoldev.griefresort.data.viewmodel.UserViewModel
 import com.sokoldev.griefresort.databinding.FragmentLoginBinding
 import com.sokoldev.griefresort.ui.activities.GetStartedActivity
 import com.sokoldev.griefresort.ui.activities.HomeActivity
@@ -20,7 +23,7 @@ class LoginFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentLoginBinding
-
+    private val viewModel: UserViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,7 +47,20 @@ class LoginFragment : Fragment() {
         }
 
         binding.btnSignIn.setOnClickListener {
-            startActivity(Intent(context, HomeActivity::class.java))
+            val email = binding.edittextEmail.text.toString()
+            val password = binding.edittextPassword.text.toString()
+
+            if (email.isEmpty()) {
+                binding.edittextEmail.error = "please add email address"
+                return@setOnClickListener
+            }
+            if (password.isEmpty()) {
+                binding.edittextPassword.error = "please add password"
+                return@setOnClickListener
+            }
+
+            viewModel.loginUser(email, password)
+
 
         }
         return binding.root
@@ -54,5 +70,21 @@ class LoginFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
     }
+
+    private fun initObserver() {
+        viewModel.status.observe(viewLifecycleOwner) { status ->
+            Snackbar.make(binding.root, status, Snackbar.LENGTH_SHORT).show()
+        }
+        viewModel.isUserCreated.observe(viewLifecycleOwner) {
+            if (it) {
+                binding.loadingView.visibility = View.GONE
+                startActivity(Intent(context, HomeActivity::class.java))
+                activity?.finish()
+            } else {
+                binding.loadingView.visibility = View.GONE
+            }
+        }
+    }
+
 
 }

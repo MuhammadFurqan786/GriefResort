@@ -17,15 +17,15 @@ class QuotesViewModel : ViewModel() {
     init {
 
 
-        for (i in 1..5) {
-            arrayList.add(
-                Quote(
-                    "The saddest part of life is when the person who gave you the best memories becomes a memory ",
-                    "Unknown"
+            for (i in 1..5) {
+                arrayList.add(
+                    Quote(
+                        "The saddest part of life is when the person who gave you the best memories becomes a memory ",
+                        "Unknown"
+                    )
                 )
-            )
 
-            list.postValue(arrayList)
-        }
+                list.postValue(arrayList)
+            }
     }
 }

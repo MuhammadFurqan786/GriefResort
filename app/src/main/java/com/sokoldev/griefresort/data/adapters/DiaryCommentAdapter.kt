@@ -3,24 +3,27 @@ package com.sokoldev.griefresort.data.adapters
 
 import android.content.Context
 import android.content.DialogInterface
+import android.os.Build
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.PopupMenu
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.sokoldev.griefresort.R
-import com.sokoldev.griefresort.data.models.Diary
+import com.sokoldev.griefresort.data.models.Comment
+import com.sokoldev.griefresort.preference.PreferenceHelper
 import com.sokoldev.griefresort.ui.fragments.mydiary.MyDiaryFragment
-import com.sokoldev.griefresort.utils.Constants
+import com.sokoldev.griefresort.utils.Global
 
 
 class DiaryCommentAdapter(
-    val arrayList: ArrayList<Diary.Comments>
+    val arrayList: ArrayList<Comment>
 ) : RecyclerView.Adapter<DiaryCommentAdapter.DataObjectHolder>() {
 
     private lateinit var context: Context
@@ -52,21 +55,26 @@ class DiaryCommentAdapter(
         return DataObjectHolder(view)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: DataObjectHolder, position: Int) {
 
         val comments = arrayList[position]
 
-        if (arrayList[position].type.equals(Constants.OTHERUSERCARD)) {
+        if (comments.userId == PreferenceHelper.getPref(context).getCurrentUser()?.userId) {
             holder.user_card?.visibility = View.GONE
             holder.other_user_card?.visibility = View.VISIBLE
-            holder.name?.text = comments.name
+            holder.name?.text = comments.userName
             holder.comment?.text = comments.comment
-            holder.time?.text = comments.time
+            val date = comments.timestamp?.let { Global.getFormattedDateTime(it) }
+            val timeDiff = Global.getTimeDifference(date, Global.getCurrentFormattedDateTime())
+            holder.time?.text = timeDiff
         } else {
             holder.other_user_card?.visibility = View.GONE
             holder.user_card?.visibility = View.VISIBLE
             holder.user_comment?.text = comments.comment
-            holder.time?.text = comments.time
+            val date = comments.timestamp?.let { Global.getFormattedDateTime(it) }
+            val timeDiff = Global.getTimeDifference(date, Global.getCurrentFormattedDateTime())
+            holder.time?.text = timeDiff
         }
 
         holder.replyButton!!.setOnClickListener {
@@ -108,7 +116,7 @@ class DiaryCommentAdapter(
             android.app.AlertDialog.Builder(context)
                 .setMessage("Thank You for Reporting, we are looking into this.") //set positive button
                 .setPositiveButton(
-                    "ok",
+                    "Ok",
                     DialogInterface.OnClickListener { dialogInterface, i -> //set what would happen when positive button is clicked
                         dialogInterface.dismiss()
                     })

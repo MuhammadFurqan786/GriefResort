@@ -1,56 +1,175 @@
 package com.sokoldev.griefresort.data.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
+import com.sokoldev.griefresort.data.models.Comment
 import com.sokoldev.griefresort.data.models.GroupHug
 
 class GroupHugViewModel : ViewModel() {
+    private val db = FirebaseFirestore.getInstance()
 
+    private val _groupHugs = MutableLiveData<List<GroupHug>>()
+    val groupHugs: LiveData<List<GroupHug>> get() = _groupHugs
 
-    private val list = MutableLiveData<List<GroupHug>>()
-    private val hugs = MutableLiveData<Int>()
+    private val _error = MutableLiveData<String>()
+    val error: LiveData<String> get() = _error
 
-    fun getHugs (): LiveData<Int> = hugs
+    private val _success = MutableLiveData<String>()
+    val success: LiveData<String> get() = _success
 
-    fun getList(): LiveData<List<GroupHug>> = list
-
-
-    var arrayList = ArrayList<GroupHug>()
-
-    init {
-        arrayList.add(
-            GroupHug(
-                "Sheron186",
-                "20/02/2023",
-                "I just want my mom back.. next month makes a year without her and i still can’t believe it. I’m struggling so hard \uD83D\uDE2D\uD83D\uDE2D i feel like i have no one.",
-                "290",
-                "20"
-            )
-        )
-        arrayList.add(
-            GroupHug(
-                "David",
-                "21/02/2023",
-                "Why did my mom have to die she was only 58 yrs old she was my only cheerleader I miss her so much she wanted nothing more then to see her grandson's graduate high school and such why did God rob me this why? My heart hurts \uD83D\uDC94 \uD83D\uDE1E she's is missing so much she didn't have to die there are so many people much older than her still alive. It's not getting much easier people lie to you when they say it will. I will never see her or talk to her again I still angry and can't understand why my mind is so bad I can't remember anything anymore \uD83D\uDE15 \uD83D\uDE2A. I Need her \uD83D\uDC94",
-                "500",
-                "39"
-            )
-        )
-
-        arrayList.add(
-            GroupHug(
-                "Diana N",
-                "23/02/2023",
-                "Since I lost my dad last year, I’ve been really depressed I cut everyone out of my life even my family, I lost all of my motivation to pursue anything. I even quit my 6 figure job that I spent 2 years trying to get hired at. I’m simply existing without a purpose…",
-                "120",
-                "10"
-            )
-        )
-
-
-        list.postValue(arrayList)
+    // Fetch all GroupHug posts
+    fun getAllGroupHugs() {
+        db.collection("groupHugs").get()
+            .addOnSuccessListener { documents ->
+                val groupHugList = documents.mapNotNull { it.toObject(GroupHug::class.java) }
+                groupHugList.forEach { groupHug ->
+                    groupHug.id?.let {
+                        getComments(it) { comments ->
+                            groupHug.comments = comments
+                        }
+                    }
+                }
+                _groupHugs.postValue(groupHugList)
+            }
+            .addOnFailureListener { e ->
+                Log.e("GroupHug", "Error fetching GroupHugs: ${e.message}")
+                _error.postValue("Error fetching GroupHugs")
+            }
     }
+
+    // Add hug to a GroupHug post
+    fun addHug(groupHugId: String) {
+        val groupHugRef = db.collection("groupHugs").document(groupHugId)
+        groupHugRef.get()
+            .addOnSuccessListener { document ->
+                val groupHug = document.toObject(GroupHug::class.java)
+                if (groupHug != null) {
+                    groupHugRef.update(
+                        "totalHugs", FieldValue.increment(1),
+                    )
+                        .addOnSuccessListener {
+                            _success.postValue("Post hugged successfully")
+                            Log.d("GroupHug", "Post hugged successfully")
+                        }
+                        .addOnFailureListener { e ->
+                            _error.postValue("Error hugging post")
+                            Log.e("GroupHug", "Error hugging post: ${e.message}")
+                        }
+                }
+            }
+            .addOnFailureListener { e ->
+                Log.e("GroupHug", "Error fetching GroupHug for hug: ${e.message}")
+            }
+    }
+
+    // Retrieve comments for a GroupHug post
+    private fun getComments(groupHugId: String, callback: (List<Comment>) -> Unit) {
+        val commentsRef = db.collection("groupHugs").document(groupHugId).collection("comments")
+        commentsRef.get()
+            .addOnSuccessListener { documents ->
+                val comments = documents.mapNotNull { it.toObject(Comment::class.java) }
+                callback(comments)
+            }
+            .addOnFailureListener { e ->
+                Log.e("GroupHug", "Error fetching comments: ${e.message}")
+                callback(emptyList()) // Return empty list in case of error
+            }
+    }
+
+    // Add a comment to a GroupHug post
+    // Add a comment to a GroupHug post with an ID
+    fun addComment(groupHugId: String, comment: Comment) {
+        val commentsRef = db.collection("groupHugs").document(groupHugId).collection("comments")
+
+        // Generate a new document reference to get the ID
+        val newCommentRef = commentsRef.document()
+
+        // Set the ID field in the comment object
+        comment.commentId = newCommentRef.id
+
+        // Add the comment to Firestore
+        newCommentRef.set(comment)
+            .addOnSuccessListener {
+                _success.postValue("Comment added successfully")
+                Log.d("GroupHug", "Comment added successfully with ID: ${newCommentRef.id}")
+            }
+            .addOnFailureListener { e ->
+                Log.e("GroupHug", "Error adding comment: ${e.message}")
+                _error.postValue("Error adding comment")
+            }
+    }
+
+
+    // Method to add a new GroupHug post
+    fun addGroupHug(groupHug: GroupHug) {
+        val groupHugRef =
+            db.collection("groupHugs").document() // Automatically generates a new document ID
+
+        // Set the default values for totalHugs and totalComments
+        groupHug.totalHugs = 0
+        groupHug.totalComments = 0
+
+        // Set the document ID as the 'id' field of the GroupHug object
+        groupHug.id = groupHugRef.id
+
+        // Set the GroupHug object in Firestore with the new document ID
+        groupHugRef.set(groupHug)
+            .addOnSuccessListener {
+                _success.postValue("GroupHug post added successfully")
+                Log.d("GroupHug", "GroupHug post added successfully with ID: ${groupHugRef.id}")
+            }
+            .addOnFailureListener { e ->
+                Log.e("GroupHug", "Error adding GroupHug post: ${e.message}")
+                _error.postValue("Error adding GroupHug post")
+            }
+    }
+
+    // Delete a GroupHug post
+    fun deleteGroupHug(groupHugId: String) {
+        db.collection("groupHugs").document(groupHugId).delete()
+            .addOnSuccessListener {
+                Log.d("GroupHug", "Group Hug deleted successfully")
+                // Refresh the list after deletion
+            }
+            .addOnFailureListener { e ->
+                Log.e("GroupHug", "Error deleting GroupHug: ${e.message}")
+                _error.postValue("Error deleting Group Hug")
+            }
+    }
+
+    // Edit a GroupHug post
+    fun editGroupHug(groupHugId: String, updatedGroupHug: GroupHug) {
+        db.collection("groupHugs").document(groupHugId).set(updatedGroupHug)
+            .addOnSuccessListener {
+                Log.d("GroupHug", "Group Hug updated successfully")
+                // Refresh the list after editing
+//                getAllGroupHugs()
+            }
+            .addOnFailureListener { e ->
+                Log.e("GroupHug", "Error updating GroupHug: ${e.message}")
+                _error.postValue("Error updating Group Hug")
+            }
+    }
+
+    // Fetch all GroupHug posts for a specific user
+    fun getGroupHugsForUser(userId: String) {
+        db.collection("groupHugs")
+            .whereEqualTo("userId", userId) // Filter by userId
+            .get()
+            .addOnSuccessListener { documents ->
+                val groupHugList = documents.mapNotNull { it.toObject(GroupHug::class.java) }
+                _groupHugs.postValue(groupHugList)
+            }
+            .addOnFailureListener { e ->
+                Log.e("GroupHug", "Error fetching GroupHugs for user: ${e.message}")
+                _error.postValue("Error fetching GroupHugs for user")
+            }
+    }
+
 
 
 }

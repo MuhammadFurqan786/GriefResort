@@ -1,41 +1,30 @@
 package com.sokoldev.griefresort.utils
 
 import android.app.Activity
-import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.location.Address
 import android.location.Geocoder
-import android.location.LocationManager
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
 import android.os.Build
 import android.os.Environment.DIRECTORY_PICTURES
 import android.provider.MediaStore
-import android.provider.Settings
 import android.text.TextUtils
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.util.Patterns
-import android.view.Gravity
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
 import java.io.FileOutputStream
@@ -43,6 +32,10 @@ import java.io.IOException
 import java.io.OutputStream
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 object Global {
@@ -51,9 +44,19 @@ object Global {
 
     fun showMessage(rootView: View, message: String, length: Int = Snackbar.LENGTH_SHORT) {
         val sb = Snackbar.make(rootView, message, length)
-        sb.setBackgroundTint(Color.BLACK)
+        sb.setBackgroundTint(Color.GREEN)
+        sb.setTextColor(Color.WHITE)
         sb.show()
     }
+
+    fun showErrorMessage(rootView: View, message: String, length: Int = Snackbar.LENGTH_SHORT) {
+        val sb = Snackbar.make(rootView, message, length)
+        sb.setBackgroundTint(Color.RED)
+        sb.setTextColor(Color.WHITE)
+        sb.show()
+    }
+
+
 
     fun emptyField(fields: Array<EditText>): Boolean {
         for (i in fields.indices) {
@@ -108,6 +111,39 @@ object Global {
 
 
     }
+
+
+    fun convertDateToLong(dateString: String, format: String = "yyyy-MM-dd HH:mm"): Long {
+        val dateFormat = SimpleDateFormat(format, Locale.getDefault())
+        return dateFormat.parse(dateString)?.time ?: 0L
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun getCurrentFormattedDateTime(): String {
+        // Get the current date and time
+        val currentDateTime = LocalDateTime.now()
+
+        // Define the desired date-time format
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+
+        // Format and return the current date and time
+        return currentDateTime.format(formatter)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun getFormattedDateTime(timestamp: Long): String {
+        // Convert the given timestamp (in milliseconds) to LocalDateTime
+        val dateTime =
+            LocalDateTime.ofInstant(Instant.ofEpochMilli(timestamp), ZoneId.systemDefault())
+
+        // Define the desired date-time format
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+
+        // Format and return the date and time
+        return dateTime.format(formatter)
+    }
+
+
 //    fun checkLocationProvider(context: Context) : Boolean {
 //        var gpsEnabled = false
 //        var networkEnabled = false
@@ -175,10 +211,9 @@ object Global {
 //        ivPassword.setImageResource(R.drawable.show)
 //    }
 
+
+
     fun getTimeDifference(starSource: String?, endSource: String?): String {
-
-
-
 
         if (starSource.isNullOrEmpty() || endSource.isNullOrEmpty()) return "No Time Available"
         val startDate = starSource

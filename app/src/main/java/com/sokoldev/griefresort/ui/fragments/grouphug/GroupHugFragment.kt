@@ -1,5 +1,6 @@
 package com.sokoldev.griefresort.ui.fragments.grouphug
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.Gravity
@@ -17,8 +18,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.data.adapters.GroupHugAdapter
+import com.sokoldev.griefresort.data.models.Comment
 import com.sokoldev.griefresort.data.viewmodel.GroupHugViewModel
 import com.sokoldev.griefresort.databinding.FragmentGroupHugBinding
+import com.sokoldev.griefresort.preference.PreferenceHelper
 import com.sokoldev.griefresort.ui.activities.HomeActivity
 import com.sokoldev.griefresort.utils.Global
 
@@ -28,6 +31,7 @@ class GroupHugFragment : Fragment(), GroupHugAdapter.OnGroupHugItemsClickListene
     private lateinit var binding: FragmentGroupHugBinding
     lateinit var viewModel: GroupHugViewModel
     private lateinit var adapter: GroupHugAdapter
+    private lateinit var helper: PreferenceHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,47 +51,63 @@ class GroupHugFragment : Fragment(), GroupHugAdapter.OnGroupHugItemsClickListene
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-//        (requireActivity() as HomeActivity).setText(getString(R.string.group_hug))
-
-        viewModel = ViewModelProvider(this).get(GroupHugViewModel::class.java)
+        helper = PreferenceHelper.getPref(requireContext())
+        viewModel = ViewModelProvider(this)[GroupHugViewModel::class.java]
         binding.rvGroupHug.layoutManager = LinearLayoutManager(requireContext())
         binding.rvGroupHug.setHasFixedSize(true)
 
+        viewModel.getAllGroupHugs()
 
         initObserver()
 
     }
 
     private fun initObserver() {
-        viewModel.getList().observe(viewLifecycleOwner, Observer {
+        viewModel.groupHugs.observe(viewLifecycleOwner, Observer {
             it.let {
                 adapter = GroupHugAdapter(this)
                 binding.rvGroupHug.adapter = adapter
                 adapter.setList(it)
             }
         })
+
+
+        viewModel.error.observe(viewLifecycleOwner, Observer {
+            Global.showErrorMessage(binding.root.rootView, it, Snackbar.LENGTH_SHORT)
+        })
+        viewModel.success.observe(viewLifecycleOwner, Observer {
+            Global.showMessage(binding.root.rootView, it, Snackbar.LENGTH_SHORT)
+        })
     }
 
-    override fun onGroupHugClick(position: Int, like: AppCompatTextView?, totalHugs: String) {
-        var hugs = totalHugs.toInt()
-        hugs += 1
-        like?.text = hugs.toString()
+    override fun onGroupHugClick(id: String) {
+        viewModel.addHug(id)
         Global.showMessage(binding.root.rootView, "Hug Sent", Snackbar.LENGTH_SHORT)
     }
 
 
-    override fun onSupportclick(
-        position: Int,
+    @SuppressLint("SetTextI18n")
+    override fun onSupportClick(
+        id: String,
         commentText: AppCompatTextView?,
         ed_support: AppCompatEditText?,
         totalComments: String
     ) {
         ed_support?.setText("")
-        var comment = totalComments.toInt()
-        comment += 1
-        commentText?.text = comment.toString()
-        Global.showMessage(binding.root.rootView, "Support Sent", Snackbar.LENGTH_SHORT)
+        var totalComment = totalComments.toInt()
+        totalComment += 1
+        commentText?.text = totalComment.toString()
+        var userComment = ed_support?.text.toString()
+        if (userComment.isNotEmpty()) {
+            val comment1 = Comment(
+                null,
+                helper.getCurrentUser()?.userId,
+                helper.getCurrentUser()?.userName,
+                userComment,
+                System.currentTimeMillis()
+            )
+            viewModel.addComment(id, comment1)
+        }
     }
 
     private fun showDialog() {

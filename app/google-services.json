@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "657085024199",
+    "firebase_url": "https://grief-resort-default-rtdb.firebaseio.com",
+    "project_id": "grief-resort",
+    "storage_bucket": "grief-resort.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657085024199:android:58a3da4b12a25e8e1a3be2",
+        "android_client_info": {
+          "package_name": "com.sokoldev.griefresort"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF9fzhWD0bWA4DE1jLg5bUdeIa-bXK5r8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -22,4 +22,5 @@ object Constants {
     const val OTHERUSERCARD = "other_user_card"
 
     const val AGAIN = "again"
+    const val COMMENT_LIST = "comment_list"
 }
