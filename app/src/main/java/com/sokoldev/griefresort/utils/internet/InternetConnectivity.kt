@@ -14,8 +14,8 @@ object InternetConnectivity {
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
         connectivityManager?.let {
             val netInfo = it.activeNetworkInfo
-            netInfo?.let {
-                if (it.isConnected) return true
+            netInfo?.let {it1->
+                if (it1.isConnected) return true
             }
         }
         return false

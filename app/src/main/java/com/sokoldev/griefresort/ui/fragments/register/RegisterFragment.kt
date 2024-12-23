@@ -121,7 +121,7 @@ class RegisterFragment : Fragment() {
         viewModel.status.observe(viewLifecycleOwner) { status ->
             Snackbar.make(binding.root, status, Snackbar.LENGTH_SHORT).show()
         }
-        viewModel.isLoggedIn.observe(viewLifecycleOwner) {
+        viewModel.isUserCreated.observe(viewLifecycleOwner) {
             if (it) {
                 binding.loadingView.visibility = View.GONE
                 startActivity(Intent(context, HomeActivity::class.java))

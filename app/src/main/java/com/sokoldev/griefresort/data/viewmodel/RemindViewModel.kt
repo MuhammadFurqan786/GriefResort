@@ -16,7 +16,7 @@ import com.sokoldev.griefresort.utils.Global
 import java.util.concurrent.TimeUnit
 
 
-class ReminderViewModel(application: Application) : AndroidViewModel(application) {
+class RemindViewModel(application: Application) : AndroidViewModel(application) {
     @SuppressLint("StaticFieldLeak")
     private val context = application.applicationContext
     private val db = FirebaseFirestore.getInstance()

@@ -13,6 +13,7 @@ import com.sokoldev.griefresort.data.adapters.RemindMeAdapter
 import com.sokoldev.griefresort.data.models.RemindMe
 import com.sokoldev.griefresort.data.viewmodel.RemindViewModel
 import com.sokoldev.griefresort.databinding.FragmentRemindMeBinding
+import com.sokoldev.griefresort.preference.PreferenceHelper
 import com.sokoldev.griefresort.ui.activities.AddReminderActivity
 import com.sokoldev.griefresort.ui.activities.HomeActivity
 import com.sokoldev.griefresort.utils.Constants
@@ -47,6 +48,11 @@ class RemindMeFragment : Fragment(), RemindMeAdapter.OnRemindMeItemsClickListene
 
 
         viewModel = ViewModelProvider(this)[RemindViewModel::class.java]
+        PreferenceHelper.getPref(requireContext()).getCurrentUser()?.userId?.let {
+            viewModel.getReminders(
+                it
+            )
+        }
         setUpObserver()
 
         binding.addDate.setOnClickListener {
@@ -56,7 +62,7 @@ class RemindMeFragment : Fragment(), RemindMeAdapter.OnRemindMeItemsClickListene
     }
 
     private fun setUpObserver() {
-        viewModel.getList().observe(viewLifecycleOwner) {
+        viewModel.reminders.observe(viewLifecycleOwner) {
              adapter = RemindMeAdapter(it as ArrayList<RemindMe>, this)
             binding.rvRemindMe.adapter = adapter
         }

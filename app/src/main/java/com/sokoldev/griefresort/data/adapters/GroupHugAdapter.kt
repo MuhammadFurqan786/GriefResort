@@ -105,12 +105,14 @@ class GroupHugAdapter(
             }
         }
         holder.sendSupport!!.setOnClickListener { v: View? ->
-            clickListener.onSupportclick(
-                groupHug.id,
-                holder.comment,
-                holder.ed_support,
-                arraylist[position].totalComments.toString()
-            )
+            groupHug.id?.let {
+                clickListener.onSupportClick(
+                    it,
+                    holder.comment,
+                    holder.ed_support,
+                    arraylist[position].totalComments.toString()
+                )
+            }
         }
 
         holder.menuImage!!.setOnClickListener {

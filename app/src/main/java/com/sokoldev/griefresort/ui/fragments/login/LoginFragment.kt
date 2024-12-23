@@ -1,6 +1,8 @@
 package com.sokoldev.griefresort.ui.fragments.login
 
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,6 +41,13 @@ class LoginFragment : Fragment() {
             }
         }
 
+        binding.loadingView.addBitmap(BitmapFactory.decodeResource(resources, R.drawable.ic_loader))
+        binding.loadingView.setShadowColor(Color.LTGRAY)
+        binding.loadingView.setDuration(800)
+        binding.loadingView.start()
+        binding.loadingView.visibility = View.GONE
+
+
         binding.textViewSignUp.setOnClickListener {
             startActivity(Intent(context, GetStartedActivity::class.java))
         }
@@ -47,22 +56,27 @@ class LoginFragment : Fragment() {
         }
 
         binding.btnSignIn.setOnClickListener {
+            binding.loadingView.visibility = View.VISIBLE
             val email = binding.edittextEmail.text.toString()
             val password = binding.edittextPassword.text.toString()
 
             if (email.isEmpty()) {
+                binding.loadingView.visibility = View.GONE
                 binding.edittextEmail.error = "please add email address"
                 return@setOnClickListener
             }
             if (password.isEmpty()) {
+                binding.loadingView.visibility = View.GONE
                 binding.edittextPassword.error = "please add password"
                 return@setOnClickListener
             }
-
+            binding.loadingView.visibility = View.VISIBLE
             viewModel.loginUser(email, password)
 
 
         }
+
+        initObserver()
         return binding.root
     }
 
@@ -75,7 +89,7 @@ class LoginFragment : Fragment() {
         viewModel.status.observe(viewLifecycleOwner) { status ->
             Snackbar.make(binding.root, status, Snackbar.LENGTH_SHORT).show()
         }
-        viewModel.isUserCreated.observe(viewLifecycleOwner) {
+        viewModel.isLoggedIn.observe(viewLifecycleOwner) {
             if (it) {
                 binding.loadingView.visibility = View.GONE
                 startActivity(Intent(context, HomeActivity::class.java))
