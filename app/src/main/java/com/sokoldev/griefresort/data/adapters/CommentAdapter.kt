@@ -11,7 +11,7 @@ import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.data.models.Comment
 
 
-class CommentAdapter(var clickListener: OnCommentAdapterClickListener) :
+class CommentAdapter(private var clickListener: OnCommentAdapterClickListener) :
     RecyclerView.Adapter<CommentAdapter.DataObjectHolder>() {
 
     lateinit var context: Context

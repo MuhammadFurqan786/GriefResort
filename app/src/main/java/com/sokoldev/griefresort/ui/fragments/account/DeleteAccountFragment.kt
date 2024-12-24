@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.sokoldev.griefresort.R
+import com.sokoldev.griefresort.data.viewmodel.UserViewModel
 import com.sokoldev.griefresort.databinding.FragmentDeleteAccountBinding
 import com.sokoldev.griefresort.ui.activities.AuthActivity
 import com.sokoldev.griefresort.ui.activities.HomeActivity
@@ -19,6 +21,7 @@ import com.sokoldev.griefresort.utils.Global
 
 class DeleteAccountFragment : Fragment() {
     private lateinit var binding: FragmentDeleteAccountBinding
+    private val viewModel : UserViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,6 +65,8 @@ class DeleteAccountFragment : Fragment() {
             .setMessage("Deleting your account is irreversible and means that you will no longer be able to access your posts, pictures/videos, reminder notifications and more.") //set positive button
             .setPositiveButton("Delete Account",
                 DialogInterface.OnClickListener { dialogInterface, i -> //set what would happen when positive button is clicked
+
+                    viewModel.deleteAccount()
                     dialogInterface.dismiss()
                     Global.showMessage(binding.root.rootView, "Account Deleted")
                     startActivity(Intent(context, AuthActivity::class.java))

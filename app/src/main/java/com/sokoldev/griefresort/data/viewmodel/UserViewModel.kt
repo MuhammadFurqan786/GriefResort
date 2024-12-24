@@ -34,6 +34,9 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val _isLoggedIn = MutableLiveData<Boolean>()
     val isLoggedIn: LiveData<Boolean> get() = _isLoggedIn
 
+    private val _isDelete = MutableLiveData<Boolean>()
+    val isDelete: LiveData<Boolean> get() = _isDelete
+
 
     // Register a new user
     fun registerUser(
@@ -303,5 +306,30 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+
+    fun deleteAccount() {
+        _status.value = "Deleting account..."
+
+        val user = auth.currentUser
+        if (user != null) {
+            // Proceed to delete the user
+            user.delete()
+                .addOnCompleteListener { deleteTask ->
+                    if (deleteTask.isSuccessful) {
+                        preference.setUserLogin(false)
+                        // Clear the saved user data from preferences
+                        preference.clearSharedPref()
+
+                        // Update the status and logged-in state
+                        _status.value = "Account deleted successfully."
+                        _isDelete.value = true
+                    } else {
+                        // Handle deletion failure
+                        _isDelete.value = false
+                        _status.value = "Account deletion failed: ${deleteTask.exception?.message}"
+                    }
+                }
+        }
+    }
 
 }
