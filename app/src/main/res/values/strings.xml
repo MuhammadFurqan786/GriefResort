@@ -43,6 +43,7 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="forgot_passwords">Forgot Password</string>
     <string name="change_password">Change Password</string>
+    <string name="confirm_current_passwrod">Confirm Current Password</string>
     <string name="current_passwrod">Current Password</string>
     <string name="new_password">New Password</string>
     <string name="confirm_new_password">Confirm New Password</string>
@@ -267,5 +268,7 @@
     <string name="share">Share</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="subscribed">You Subscribed on Android</string>
+    <string name="enter_name_of_special_date_here">Enter name of special date here</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

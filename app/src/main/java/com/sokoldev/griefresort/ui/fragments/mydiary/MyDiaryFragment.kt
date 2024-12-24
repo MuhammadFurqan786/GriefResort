@@ -22,6 +22,7 @@ import com.sokoldev.griefresort.databinding.FragmentMyDiaryBinding
 import com.sokoldev.griefresort.preference.PreferenceHelper
 import com.sokoldev.griefresort.ui.activities.HomeActivity
 import com.sokoldev.griefresort.ui.activities.ShareDiaryActivity
+import com.sokoldev.griefresort.utils.Constants
 
 class MyDiaryFragment : Fragment(), DiaryAdapter.OnDiaryItemClickListener {
 
@@ -76,6 +77,7 @@ class MyDiaryFragment : Fragment(), DiaryAdapter.OnDiaryItemClickListener {
             arrayList = it as ArrayList<GroupHug>
             val adapter = DiaryAdapter(this)
             adapter.setList(it)
+            adapter.setList(it)
             binding.rvMyDiary.adapter = adapter
         }
     }
@@ -98,13 +100,14 @@ class MyDiaryFragment : Fragment(), DiaryAdapter.OnDiaryItemClickListener {
         popup?.inflate(R.menu.option_menu_diary)
         popup?.setOnMenuItemClickListener { item ->
             if (item.itemId == R.id.edit) {
-                val desc = arrayList[position].description
+                val groupHug = arrayList[position]
                 val intent = Intent(context, ShareDiaryActivity::class.java)
-                intent.putExtra(com.sokoldev.griefresort.utils.Constants.TYPE, desc)
+                intent.putExtra(Constants.GROUP_HUG, groupHug)
                 startActivity(intent)
                 return@setOnMenuItemClickListener true
             } else if (item.itemId == R.id.delete) {
-                binding.rvMyDiary.visibility = View.GONE
+                val groupHug = arrayList[position]
+                groupHug.id?.let { it1 -> viewModel.deleteGroupHug(it1) }
                 return@setOnMenuItemClickListener true
             } else return@setOnMenuItemClickListener item.itemId == R.id.delete
         }

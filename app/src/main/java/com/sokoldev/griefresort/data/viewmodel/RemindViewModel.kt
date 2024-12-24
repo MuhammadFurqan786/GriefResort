@@ -63,38 +63,42 @@ class RemindViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     private fun scheduleNotification(reminder: RemindMe) {
-        val date = Global.convertDateToLong(reminder.date)
-        val notificationTime = date - 2 * 24 * 60 * 60 * 1000 // 2 days before
+        val date = reminder.date?.let { Global.convertDateToLong(it) }
+        val notificationTime = date?.minus(2 * 24 * 60 * 60 * 1000) // 2 days before
 
         val data = Data.Builder()
             .putString("id", reminder.id)
             .putString("title", reminder.title)
             .build()
 
-        val delay = notificationTime - System.currentTimeMillis()
-        if (delay > 0) {
-            val workRequest = OneTimeWorkRequestBuilder<ReminderWorker>()
-                .setInputData(data)
-                .setInitialDelay(delay, TimeUnit.MILLISECONDS)
-                .build()
+        val delay = notificationTime?.minus(System.currentTimeMillis())
+        if (delay != null) {
+            if (delay > 0) {
+                val workRequest = OneTimeWorkRequestBuilder<ReminderWorker>()
+                    .setInputData(data)
+                    .setInitialDelay(delay, TimeUnit.MILLISECONDS)
+                    .build()
 
-            WorkManager.getInstance(context).enqueue(workRequest)
+                WorkManager.getInstance(context).enqueue(workRequest)
+            }
         }
     }
 
     // Update an existing reminder
     fun updateReminder(userId: String, reminder: RemindMe) {
         reminder.id.let { id ->
-            db.collection("users").document(userId).collection("reminders").document(id)
-                .set(reminder)
-                .addOnSuccessListener {
-                    _success.postValue("Reminder updated successfully")
-                    Log.d("ReminderViewModel", "Reminder updated successfully")
-                }
-                .addOnFailureListener { e ->
-                    Log.e("ReminderViewModel", "Error updating reminder: ${e.message}")
-                    _error.postValue("Error updating reminder")
-                }
+            if (id != null) {
+                db.collection("users").document(userId).collection("reminders").document(id)
+                    .set(reminder)
+                    .addOnSuccessListener {
+                        _success.postValue("Reminder updated successfully")
+                        Log.d("ReminderViewModel", "Reminder updated successfully")
+                    }
+                    .addOnFailureListener { e ->
+                        Log.e("ReminderViewModel", "Error updating reminder: ${e.message}")
+                        _error.postValue("Error updating reminder")
+                    }
+            }
         }
     }
 }

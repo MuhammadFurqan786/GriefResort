@@ -25,6 +25,9 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val _isPremium = MutableLiveData<Boolean>()
     val isPremium: LiveData<Boolean> get() = _isPremium
 
+    private val _isEmailSent = MutableLiveData<Boolean>()
+    val isEmailSent: LiveData<Boolean> get() = _isEmailSent
+
     private val _remainingTrialDays = MutableLiveData<Int?>()
     val remainingTrialDays: LiveData<Int?> get() = _remainingTrialDays
 
@@ -33,6 +36,9 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
 
     private val _isLoggedIn = MutableLiveData<Boolean>()
     val isLoggedIn: LiveData<Boolean> get() = _isLoggedIn
+
+    private val _isUpdateUser = MutableLiveData<Boolean>()
+    val isUpdateUser: LiveData<Boolean> get() = _isUpdateUser
 
     private val _isDelete = MutableLiveData<Boolean>()
     val isDelete: LiveData<Boolean> get() = _isDelete
@@ -87,8 +93,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         auth.sendPasswordResetEmail(email)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    _isEmailSent.value = true
                     _status.value = "Password reset email sent."
                 } else {
+                    _isEmailSent.value = false
                     _status.value = "Error: ${task.exception?.message}"
                 }
             }
@@ -231,24 +239,28 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
                                 lastName = updatedLastName,
                                 userName = updatedUserName
                             )
-
                             // Update the user data in Firestore
                             db.collection("users").document(uid).set(updatedUser)
                                 .addOnSuccessListener {
                                     _status.value = "User updated successfully."
                                     preference.saveCurrentUser(updatedUser) // Update the current user in shared preferences
+                                    _isUpdateUser.value = true
                                 }
                                 .addOnFailureListener { e ->
+                                    _isUpdateUser.value = false
                                     _status.value = "Error updating user: ${e.message}"
                                 }
                         } else {
+                            _isUpdateUser.value = false
                             _status.value = "Error: Unable to fetch current user data."
                         }
                     }
                     .addOnFailureListener { e ->
+                        _isUpdateUser.value = false
                         _status.value = "Error fetching current user data: ${e.message}"
                     }
             } else {
+                _isUpdateUser.value = false
                 _status.value = "Username already taken."
             }
         }
