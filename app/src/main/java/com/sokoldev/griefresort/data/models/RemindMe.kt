@@ -1,7 +1,7 @@
 package com.sokoldev.griefresort.data.models
 
 data class RemindMe(
-    var id: String,
-    var title: String,
-    var date: String,
+    var id: String?=null,
+    var title: String?=null,
+    var date: String?=null,
 )

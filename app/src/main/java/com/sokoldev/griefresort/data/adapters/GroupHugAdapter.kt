@@ -36,7 +36,9 @@ class GroupHugAdapter(
 
     interface OnGroupHugItemsClickListener {
         fun onGroupHugClick(
-           id: String
+            id: String,
+            totalHugs: Int?,
+            like: AppCompatTextView?
         )
 
         fun onSupportClick(
@@ -100,7 +102,9 @@ class GroupHugAdapter(
         holder.groupHug!!.setOnClickListener { v: View? ->
             groupHug.id?.let {
                 clickListener.onGroupHugClick(
-                    it
+                    it,
+                    groupHug.totalHugs,
+                    holder.like
                 )
             }
         }

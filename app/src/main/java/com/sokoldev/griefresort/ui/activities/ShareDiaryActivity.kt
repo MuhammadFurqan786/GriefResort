@@ -7,12 +7,14 @@ import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.sokoldev.griefresort.data.models.Comment
 import com.sokoldev.griefresort.data.models.GroupHug
 import com.sokoldev.griefresort.data.viewmodel.GroupHugViewModel
 import com.sokoldev.griefresort.databinding.ActivityShareDiaryBinding
 import com.sokoldev.griefresort.preference.PreferenceHelper
 import com.sokoldev.griefresort.utils.Constants
 import com.sokoldev.griefresort.utils.Global
+import java.util.ArrayList
 
 class ShareDiaryActivity : AppCompatActivity() {
 
@@ -30,14 +32,22 @@ class ShareDiaryActivity : AppCompatActivity() {
         helper = PreferenceHelper.getPref(this)
 
         val intent = intent
-        val desc = intent.getStringExtra(Constants.TYPE)
-        binding.addStory.setText(desc)
+        val groupHug = intent.getParcelableExtra<GroupHug>(Constants.GROUP_HUG)
+        if (groupHug != null) {
+            binding.addStory.setText(groupHug.description)
+        }
 
         binding.back.setOnClickListener {
             finish()
         }
         binding.buttonshare.setOnClickListener {
-            addGroupHug()
+            if (groupHug != null) {
+                groupHug.description = binding.addStory.text.toString()
+                groupHug.id?.let { it1 -> viewModel.editGroupHug(it1, groupHug) }
+                return@setOnClickListener
+            } else {
+                addGroupHug()
+            }
         }
 
         initObserver()
@@ -66,7 +76,7 @@ class ShareDiaryActivity : AppCompatActivity() {
                     description = desc,
                     totalHugs = 0,
                     totalComments = 0,
-                    comments = emptyList(),
+                    comments = ArrayList<Comment>(),
                     userName = userName,
                     date = date
                 )

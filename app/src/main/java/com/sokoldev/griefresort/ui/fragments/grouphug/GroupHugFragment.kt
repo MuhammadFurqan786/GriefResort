@@ -80,9 +80,11 @@ class GroupHugFragment : Fragment(), GroupHugAdapter.OnGroupHugItemsClickListene
         })
     }
 
-    override fun onGroupHugClick(id: String) {
+    override fun onGroupHugClick(id: String, totalHugs: Int?, like: AppCompatTextView?) {
+
+        val hugs = totalHugs?.plus(1)
+        like?.text = hugs.toString()
         viewModel.addHug(id)
-        Global.showMessage(binding.root.rootView, "Hug Sent", Snackbar.LENGTH_SHORT)
     }
 
 
@@ -93,7 +95,6 @@ class GroupHugFragment : Fragment(), GroupHugAdapter.OnGroupHugItemsClickListene
         ed_support: AppCompatEditText?,
         totalComments: String
     ) {
-        ed_support?.setText("")
         var totalComment = totalComments.toInt()
         totalComment += 1
         commentText?.text = totalComment.toString()
@@ -107,6 +108,8 @@ class GroupHugFragment : Fragment(), GroupHugAdapter.OnGroupHugItemsClickListene
                 System.currentTimeMillis()
             )
             viewModel.addComment(id, comment1)
+            ed_support?.setText("")
+
         }
     }
 
@@ -143,4 +146,7 @@ class GroupHugFragment : Fragment(), GroupHugAdapter.OnGroupHugItemsClickListene
 
         (requireActivity() as HomeActivity).binding.relativeLayout.visibility = View.VISIBLE
     }
+
+
+
 }

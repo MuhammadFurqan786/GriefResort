@@ -1,5 +1,7 @@
 package com.sokoldev.griefresort.utils
 
+import com.sokoldev.griefresort.data.models.GroupHug
+
 object Constants {
 
     const val BOOKS = "Books"
@@ -9,6 +11,7 @@ object Constants {
     const val SONGS = "Songs"
     const val QUOTES = "Quotes"
     const val ITEM = "item"
+    const val GROUP_HUG = "group_hug"
 
 
     const val TYPE = "type"

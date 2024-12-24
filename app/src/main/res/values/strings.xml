@@ -267,5 +267,7 @@
     <string name="share">Share</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="subscribed">You Subscribed on Android</string>
+    <string name="enter_name_of_special_date_here">Enter name of special date here</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

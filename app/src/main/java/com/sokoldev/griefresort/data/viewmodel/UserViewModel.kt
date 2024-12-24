@@ -25,6 +25,9 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val _isPremium = MutableLiveData<Boolean>()
     val isPremium: LiveData<Boolean> get() = _isPremium
 
+    private val _isEmailSent = MutableLiveData<Boolean>()
+    val isEmailSent: LiveData<Boolean> get() = _isEmailSent
+
     private val _remainingTrialDays = MutableLiveData<Int?>()
     val remainingTrialDays: LiveData<Int?> get() = _remainingTrialDays
 
@@ -84,8 +87,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         auth.sendPasswordResetEmail(email)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    _isEmailSent.value = true
                     _status.value = "Password reset email sent."
                 } else {
+                    _isEmailSent.value = false
                     _status.value = "Error: ${task.exception?.message}"
                 }
             }

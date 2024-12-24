@@ -44,7 +44,7 @@ object Global {
 
     fun showMessage(rootView: View, message: String, length: Int = Snackbar.LENGTH_SHORT) {
         val sb = Snackbar.make(rootView, message, length)
-        sb.setBackgroundTint(Color.GREEN)
+        sb.setBackgroundTint(Color.BLACK)
         sb.setTextColor(Color.WHITE)
         sb.show()
     }
@@ -124,7 +124,7 @@ object Global {
         val currentDateTime = LocalDateTime.now()
 
         // Define the desired date-time format
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
 
         // Format and return the current date and time
         return currentDateTime.format(formatter)
@@ -137,7 +137,7 @@ object Global {
             LocalDateTime.ofInstant(Instant.ofEpochMilli(timestamp), ZoneId.systemDefault())
 
         // Define the desired date-time format
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
 
         // Format and return the date and time
         return dateTime.format(formatter)
@@ -213,35 +213,35 @@ object Global {
 
 
 
-    fun getTimeDifference(starSource: String?, endSource: String?): String {
+    fun getTimeDifference(startSource: String?, endSource: String?): String {
+        if (startSource.isNullOrEmpty() || endSource.isNullOrEmpty()) return "No Time Available"
 
-        if (starSource.isNullOrEmpty() || endSource.isNullOrEmpty()) return "No Time Available"
-        val startDate = starSource
-        val sdfStart = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.getDefault())
-        val sdfEnd = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        try {
+            // Adjust the date formats to match the input strings
+            val sdfStart = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+            val sdfEnd = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
 
-        val dateStart = sdfStart.parse(starSource)
-        val dateEnd = sdfEnd.parse(endSource)
+            val dateStart = sdfStart.parse(startSource)
+            val dateEnd = sdfEnd.parse(endSource)
 
-        val timeDifference = (dateEnd?.time ?: 0) - (dateStart?.time ?: 0)
-        val numDays = (timeDifference / (1000 * 60 * 60 * 24)).toInt()
-        val hours = (timeDifference / (1000 * 60 * 60)).toInt()
-        val minute = (timeDifference / (1000 * 60)).toInt()
-        val seconds = (timeDifference / 1000).toInt()
+            val timeDifference = (dateEnd?.time ?: 0) - (dateStart?.time ?: 0)
+            val hours = (timeDifference / (1000 * 60 * 60)).toInt()
+            val minutes = (timeDifference / (1000 * 60)).toInt()
+            val seconds = (timeDifference / 1000).toInt()
 
-
-
-        return when {
-            hours > 73 -> "${formatItemListingDate(starSource)}"
-            hours > 23 -> "Yesterday"
-            minute > 59 -> "$hours hours ago"
-            seconds > 59 -> "$minute minutes ago"
-            else -> {
-                "Posted $ ago"
+            return when {
+                hours > 73 -> formatItemListingDate(startSource)
+                hours > 23 -> "Yesterday"
+                minutes > 59 -> "$hours hours ago"
+                seconds > 59 -> "$minutes minutes ago"
+                else -> "Just now"
             }
+        } catch (e: ParseException) {
+            e.printStackTrace()
+            return "Invalid Date Format"
         }
-        return "No Time Available"
     }
+
 
     fun formatItemListingDate(source: String): String {
         var sdf = SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.sss'Z'", Locale.getDefault())

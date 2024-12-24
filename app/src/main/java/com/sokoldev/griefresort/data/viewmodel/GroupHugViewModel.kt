@@ -15,6 +15,9 @@ class GroupHugViewModel : ViewModel() {
     private val _groupHugs = MutableLiveData<List<GroupHug>>()
     val groupHugs: LiveData<List<GroupHug>> get() = _groupHugs
 
+    private val _groupHug = MutableLiveData<GroupHug>()
+    val groupHug: LiveData<GroupHug> get() = _groupHug
+
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
 
@@ -26,13 +29,13 @@ class GroupHugViewModel : ViewModel() {
         db.collection("groupHugs").get()
             .addOnSuccessListener { documents ->
                 val groupHugList = documents.mapNotNull { it.toObject(GroupHug::class.java) }
-                groupHugList.forEach { groupHug ->
+              /*  groupHugList.forEach { groupHug ->
                     groupHug.id?.let {
                         getComments(it) { comments ->
                             groupHug.comments = comments
                         }
                     }
-                }
+                }*/
                 _groupHugs.postValue(groupHugList)
             }
             .addOnFailureListener { e ->
@@ -53,6 +56,7 @@ class GroupHugViewModel : ViewModel() {
                     )
                         .addOnSuccessListener {
                             _success.postValue("Post hugged successfully")
+                            getAllGroupHugs()
                             Log.d("GroupHug", "Post hugged successfully")
                         }
                         .addOnFailureListener { e ->
@@ -66,42 +70,42 @@ class GroupHugViewModel : ViewModel() {
             }
     }
 
-    // Retrieve comments for a GroupHug post
-    private fun getComments(groupHugId: String, callback: (List<Comment>) -> Unit) {
-        val commentsRef = db.collection("groupHugs").document(groupHugId).collection("comments")
-        commentsRef.get()
-            .addOnSuccessListener { documents ->
-                val comments = documents.mapNotNull { it.toObject(Comment::class.java) }
-                callback(comments)
-            }
-            .addOnFailureListener { e ->
-                Log.e("GroupHug", "Error fetching comments: ${e.message}")
-                callback(emptyList()) // Return empty list in case of error
-            }
-    }
-
-    // Add a comment to a GroupHug post
     // Add a comment to a GroupHug post with an ID
-    fun addComment(groupHugId: String, comment: Comment) {
-        val commentsRef = db.collection("groupHugs").document(groupHugId).collection("comments")
+    fun addComment(groupHugId: String, newComment: Comment) {
+        val groupHugRef = db.collection("groupHugs").document(groupHugId)
 
-        // Generate a new document reference to get the ID
-        val newCommentRef = commentsRef.document()
+        db.runTransaction { transaction ->
+            val snapshot = transaction.get(groupHugRef)
+            val currentGroupHug = snapshot.toObject(GroupHug::class.java)
 
-        // Set the ID field in the comment object
-        comment.commentId = newCommentRef.id
+            // Generate a unique ID for the new comment
+            val commentId = db.collection("groupHugs").document().id
+            newComment.commentId = commentId // Set the unique comment ID
 
-        // Add the comment to Firestore
-        newCommentRef.set(comment)
-            .addOnSuccessListener {
-                _success.postValue("Comment added successfully")
-                Log.d("GroupHug", "Comment added successfully with ID: ${newCommentRef.id}")
+            // Update the comments list
+            val updatedComments = currentGroupHug?.comments ?: ArrayList()
+            updatedComments.add(newComment)
+
+            // Update the GroupHug object
+            currentGroupHug?.apply {
+                comments = updatedComments
+                totalComments = updatedComments.size
             }
-            .addOnFailureListener { e ->
-                Log.e("GroupHug", "Error adding comment: ${e.message}")
-                _error.postValue("Error adding comment")
-            }
+
+            // Update Firestore with the new GroupHug object
+            transaction.set(groupHugRef, currentGroupHug ?: GroupHug())
+        }.addOnSuccessListener {
+            getAllGroupHugs() // Refresh group hugs after adding a comment
+            Log.d("Firestore", "Comment added successfully.")
+            _success.postValue("Firestore: Comment added successfully.")
+        }.addOnFailureListener { exception ->
+            _error.postValue("Firestore: Error adding comment: ${exception.message}")
+        }
     }
+
+
+
+
 
 
     // Method to add a new GroupHug post
