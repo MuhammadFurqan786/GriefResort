@@ -269,5 +269,8 @@
     <string name="subscribed">You Subscribed on Android</string>
     <string name="enter_name_of_special_date_here">Enter name of special date here</string>
     <string name="cancel">Cancel</string>
+    <string name="dummy_summary">This memoir by Orna Ross explores her personal experience of grief after the loss of her partner, examining the emotional and psychological facets of grief from a raw, first-person perspective.</string>
+    <string name="dummy_author">Author : Orna Ross</string>
+    <string name="dummy_book">Grief: A Love Story</string>
 
 </resources>

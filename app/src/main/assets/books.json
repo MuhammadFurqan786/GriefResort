@@ -1,0 +1,172 @@
+{
+  "books_on_grief": [
+    {
+      "title": "When Breath Becomes Air",
+      "author": "Paul Kalanithi",
+      "summary": "A memoir by a neurosurgeon diagnosed with terminal cancer, exploring the intersection of medicine, mortality, and the meaning of life as he faced his own death.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "The Year of Magical Thinking",
+      "author": "Joan Didion",
+      "summary": "Didion recounts her experiences of grief following the sudden death of her husband, John Gregory Dunne, and the prolonged illness of their only daughter, Quintana.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "A Grief Observed",
+      "author": "C.S. Lewis",
+      "summary": "After the death of his wife, C.S. Lewis reflects on his grief and the theological questions surrounding loss, exploring the painful and often confusing emotional terrain of mourning.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "The Light Between Oceans",
+      "author": "M.L. Stedman",
+      "summary": "A story of love, loss, and moral dilemmas, this novel centers on a lighthouse keeper and his wife, who experience grief and moral conflict after making a life-changing decision following a tragedy.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "Tuesdays with Morrie",
+      "author": "Mitch Albom",
+      "summary": "This nonfiction book captures the poignant conversations between Mitch Albom and his former college professor, Morrie Schwartz, as Morrie approaches the end of his life due to ALS, offering valuable lessons on life, love, and death.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "The Death of Ivan Ilyich",
+      "author": "Leo Tolstoy",
+      "summary": "A novella about the life and death of Ivan Ilyich Golovin, a high-ranking judge in Russia, who faces his own mortality after being diagnosed with terminal cancer, exploring themes of existential grief.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "Shattered",
+      "author": "Eric Walters",
+      "summary": "This true story explores the emotional and physical journey of Eric Walters' experience with loss and the devastating grief that follows the sudden death of his young daughter.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "The Five People You Meet in Heaven",
+      "author": "Mitch Albom",
+      "summary": "A fictional account of Eddie, a war veteran who dies in a tragic accident and finds himself in Heaven, meeting five people who explain the profound impact of his life and death.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "On Grief and Grieving",
+      "author": "Elisabeth Kübler-Ross & David Kessler",
+      "summary": "The co-author of 'On Death and Dying,' Elisabeth Kübler-Ross, teams up with David Kessler to delve deeper into the five stages of grief, offering insights on how to navigate through loss.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "An Exact Replica of a Figment of My Imagination",
+      "author": "Elizabeth McCracken",
+      "summary": "A moving memoir about McCracken's grief after the death of her newborn son, offering an honest and raw reflection on the experience of losing a child and the slow process of healing.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "Grief Is the Thing with Feathers",
+      "author": "Max Porter",
+      "summary": "This novel blends grief with magic realism as it follows a father and his two sons dealing with the death of their wife and mother. The family is visited by a crow, a metaphor for grief, which helps them process their loss.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "The Long Goodbye",
+      "author": "Meghan O'Rourke",
+      "summary": "O'Rourke reflects on the grief she felt after her mother's death, offering a nuanced examination of the complexities of loss and her emotional journey toward healing.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "We Are All Completely Beside Ourselves",
+      "author": "Karen Joy Fowler",
+      "summary": "This novel explores grief through the lens of a family coping with the loss of a sister, examining how the traumatic event reverberates through their lives and relationships.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "The Lovely Bones",
+      "author": "Alice Sebold",
+      "summary": "A powerful exploration of grief, this novel tells the story of Susie Salmon, a young girl who is murdered and watches from the afterlife as her family struggles with her death.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "Love and Death in the Sunshine State",
+      "author": "Cutter Wood",
+      "summary": "In this memoir, Wood explores his grief and loss following the sudden death of a close friend, examining the trauma of that experience and the ways it reshapes his understanding of life.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "The Year of Yes",
+      "author": "Shonda Rhimes",
+      "summary": "Rhimes reflects on the year she decided to say 'yes' to everything that scared her, including confronting her grief over personal loss and challenges, opening up about vulnerability and transformation.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "After the Eclipse",
+      "author": "Fran Dorricott",
+      "summary": "This memoir recounts the author's journey of grief and recovery after the sudden and traumatic death of her mother. It is a raw and poignant exploration of the emotional turmoil that follows.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "Everything Is Illuminated",
+      "author": "Jonathan Safran Foer",
+      "summary": "A deeply moving and darkly comic novel that explores grief, memory, and identity through the story of a young man who travels to Ukraine to uncover the past and the truth about his family's legacy.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "The Art of Losing",
+      "author": "Alice Zeniter",
+      "summary": "A novel about a French-Algerian family dealing with the grief of loss over multiple generations. It explores themes of identity, family, and the pain of inheritance.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "The Red Bird Sings",
+      "author": "Tina B. Hall",
+      "summary": "This book tells the story of a mother grieving the death of her child and the delicate process of healing and finding hope in the aftermath of tragedy. It is both an intimate portrayal and a universal experience.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "The Wisdom of Sundays",
+      "author": "Oprah Winfrey",
+      "summary": "This book compiles inspirational conversations between Oprah Winfrey and a variety of thought leaders, many of whom share insights on grief, healing, and living with loss.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "I Am Not Your Perfect Mexican Daughter",
+      "author": "Erika L. Sánchez",
+      "summary": "The novel follows a Mexican-American teenager dealing with the death of her sister and the unspoken grief and secrets within her family, addressing themes of identity and cultural expectations.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "The Death of Mrs. Westaway",
+      "author": "Ruth Ware",
+      "summary": "A psychological thriller that incorporates grief into the plot, following a woman who unexpectedly inherits a fortune after her mother's death, only to uncover shocking truths.",
+      "imageName": "ic_book",
+      "type": "Books"
+    },
+    {
+      "title": "Grief: A Love Story",
+      "author": "Orna Ross",
+      "summary": "This memoir by Orna Ross explores her personal experience of grief after the loss of her partner, examining the emotional and psychological facets of grief from a raw, first-person perspective.",
+      "imageName": "ic_book",
+      "type": "Books"
+    }
+  ]
+}

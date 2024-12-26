@@ -1,83 +1,29 @@
 package com.sokoldev.griefresort.data.viewmodel
 
+import android.app.Application
+import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sokoldev.griefresort.R
+import com.sokoldev.griefresort.data.models.Book
 import com.sokoldev.griefresort.data.models.Item
+import com.sokoldev.griefresort.data.repository.BookRepository
 
-class ItemViewModel : ViewModel() {
+class ItemViewModel(application: Application) : AndroidViewModel(application) {
 
-
-    private val listMovies = MutableLiveData<List<Item>>()
-    private val listBooks = MutableLiveData<List<Item>>()
-    private val listShows = MutableLiveData<List<Item>>()
-    private val listSongs = MutableLiveData<List<Item>>()
-    private val listPodCasts = MutableLiveData<List<Item>>()
-
-    fun getListBooks(): LiveData<List<Item>> = listBooks
-    fun getListTvShows(): LiveData<List<Item>> = listShows
-    fun getListPodCast(): LiveData<List<Item>> = listSongs
-    fun getListSongs(): LiveData<List<Item>> = listPodCasts
-    fun getListMovies(): LiveData<List<Item>> = listMovies
-
-    var arrayListBooks = ArrayList<Item>()
-    var arrayListTvShows = ArrayList<Item>()
-    var arrayListPodCasts = ArrayList<Item>()
-    var arrayListSongs = ArrayList<Item>()
-    var arrayListMovies = ArrayList<Item>()
-
-    init {
+    private val bookRepository: BookRepository = BookRepository(application.applicationContext)
+    private val _books = MutableLiveData<List<Book>>()
+    val books: LiveData<List<Book>> get() = _books
 
 
-        for (i in 1..5) {
-            arrayListBooks.add(
-                Item(
-                    R.drawable.img,
-                    "Book $i",
-                )
-            )
+    fun loadBooks() {
+        val response = bookRepository.getBooksFromAssets()
+        response?.bookList.let {
+            _books.postValue(it)
+            Log.d("BOOOOOK" , it?.size.toString())
         }
-        listBooks.postValue(arrayListBooks)
-
-        for (i in 1..5) {
-            arrayListMovies.add(
-                Item(
-                    R.drawable.img,
-                    "Movie $i",
-                )
-            )
-        }
-        listMovies.postValue(arrayListMovies)
-
-        for (i in 1..5) {
-            arrayListTvShows.add(
-                Item(
-                    R.drawable.img,
-                    "Tv Shows $i",
-                )
-            )
-        }
-        listShows.postValue(arrayListTvShows)
-
-        for (i in 1..5) {
-            arrayListSongs.add(
-                Item(
-                    R.drawable.img,
-                    "Song $i",
-                )
-            )
-        }
-        listSongs.postValue(arrayListSongs)
-
-        for (i in 1..5) {
-            arrayListPodCasts.add(
-                Item(
-                    R.drawable.img,
-                    "PodCast $i",
-                )
-            )
-        }
-        listPodCasts.postValue(arrayListPodCasts)
     }
+
 }
