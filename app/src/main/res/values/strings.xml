@@ -43,6 +43,7 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="forgot_passwords">Forgot Password</string>
     <string name="change_password">Change Password</string>
+    <string name="confirm_current_passwrod">Confirm Current Password</string>
     <string name="current_passwrod">Current Password</string>
     <string name="new_password">New Password</string>
     <string name="confirm_new_password">Confirm New Password</string>
@@ -272,5 +273,10 @@
     <string name="dummy_summary">This memoir by Orna Ross explores her personal experience of grief after the loss of her partner, examining the emotional and psychological facets of grief from a raw, first-person perspective.</string>
     <string name="dummy_author">Author : Orna Ross</string>
     <string name="dummy_book">Grief: A Love Story</string>
+    <string name="genre"><font color="#3AAE42">Genre : </font>%1$s</string>
+    <string name="author"><font color="#3AAE42">Author : </font>%1$s</string>
+    <string name="artist"><font color="#3AAE42">Artist : </font> %1$s </string>
+
+
 
 </resources>

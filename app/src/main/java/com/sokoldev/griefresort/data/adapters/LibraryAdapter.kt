@@ -52,27 +52,27 @@ class LibraryAdapter(
 
         holder.button?.setOnClickListener {
             if (library.title == Constants.BOOKS) {
-                var intent = Intent(context, ItemListActivity::class.java)
+                val intent = Intent(context, ItemListActivity::class.java)
                 intent.putExtra(Constants.ITEM, Constants.BOOKS)
                 context.startActivity(intent)
             } else if (library.title == Constants.MOVIES) {
-                var intent = Intent(context, ItemListActivity::class.java)
+                val intent = Intent(context, ItemListActivity::class.java)
                 intent.putExtra(Constants.ITEM, Constants.MOVIES)
                 context.startActivity(intent)
             } else if (library.title == Constants.PODCASTS) {
-                var intent = Intent(context, UnlockActivity::class.java)
+                val intent = Intent(context, UnlockActivity::class.java)
                 intent.putExtra(Constants.ITEM, Constants.PODCASTS)
                 context.startActivity(intent)
             } else if (library.title == Constants.TVSHOWS) {
-                var intent = Intent(context, ItemListActivity::class.java)
+                val intent = Intent(context, ItemListActivity::class.java)
                 intent.putExtra(Constants.ITEM, Constants.TVSHOWS)
                 context.startActivity(intent)
             } else if (library.title == Constants.SONGS) {
-                var intent = Intent(context, ItemListActivity::class.java)
+                val intent = Intent(context, ItemListActivity::class.java)
                 intent.putExtra(Constants.ITEM, Constants.SONGS)
                 context.startActivity(intent)
             } else {
-                var intent = Intent(context, QuotesActivity::class.java)
+                val intent = Intent(context, QuotesActivity::class.java)
                 context.startActivity(intent)
             }
         }

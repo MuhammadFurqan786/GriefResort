@@ -1,0 +1,592 @@
+[
+  {
+    "title": "Tears in Heaven",
+    "artist": "Eric Clapton",
+    "genre": "Pop"
+  },
+  {
+    "title": "The Night We Met",
+    "artist": "Lord Huron",
+    "genre": "Indie Folk"
+  },
+  {
+    "title": "I Will Always Love You",
+    "artist": "Whitney Houston",
+    "genre": "Pop/R&B"
+  },
+  {
+    "title": "See You Again",
+    "artist": "Wiz Khalifa feat. Charlie Puth",
+    "genre": "Hip-Hop/Rap"
+  },
+  {
+    "title": "Hurt",
+    "artist": "Johnny Cash",
+    "genre": "Country"
+  },
+  {
+    "title": "Someone Like You",
+    "artist": "Adele",
+    "genre": "Pop"
+  },
+  {
+    "title": "Everybody Hurts",
+    "artist": "R.E.M.",
+    "genre": "Alternative Rock"
+  },
+  {
+    "title": "My Heart Will Go On",
+    "artist": "Celine Dion",
+    "genre": "Pop"
+  },
+  {
+    "title": "The Dance",
+    "artist": "Garth Brooks",
+    "genre": "Country"
+  },
+  {
+    "title": "Let Her Go",
+    "artist": "Passenger",
+    "genre": "Indie Folk"
+  },
+  {
+    "title": "Supermarket Flowers",
+    "artist": "Ed Sheeran",
+    "genre": "Pop"
+  },
+  {
+    "title": "One Sweet Day",
+    "artist": "Mariah Carey & Boyz II Men",
+    "genre": "R&B/Pop"
+  },
+  {
+    "title": "Don't Let the Sun Go Down on Me",
+    "artist": "Elton John",
+    "genre": "Pop/Rock"
+  },
+  {
+    "title": "Death with Dignity",
+    "artist": "Sufjan Stevens",
+    "genre": "Indie/Alternative"
+  },
+  {
+    "title": "Goodbye My Lover",
+    "artist": "James Blunt",
+    "genre": "Pop"
+  },
+  {
+    "title": "If I Had Only Known",
+    "artist": "Reba McEntire",
+    "genre": "Country"
+  },
+  {
+    "title": "In the Arms of an Angel",
+    "artist": "Sarah McLachlan",
+    "genre": "Pop/Soft Rock"
+  },
+  {
+    "title": "Ain't No Sunshine",
+    "artist": "Bill Withers",
+    "genre": "Soul"
+  },
+  {
+    "title": "I Won't Give Up",
+    "artist": "Jason Mraz",
+    "genre": "Pop"
+  },
+  {
+    "title": "How to Save a Life",
+    "artist": "The Fray",
+    "genre": "Pop Rock"
+  },
+  {
+    "title": "Stay",
+    "artist": "Rihanna feat. Mikky Ekko",
+    "genre": "Pop"
+  },
+  {
+    "title": "Unfinished Sympathy",
+    "artist": "Massive Attack",
+    "genre": "Trip-Hop"
+  },
+  {
+    "title": "The Sound of Silence",
+    "artist": "Simon & Garfunkel",
+    "genre": "Folk Rock"
+  },
+  {
+    "title": "Knocking on Heaven's Door",
+    "artist": "Bob Dylan",
+    "genre": "Folk Rock"
+  },
+  {
+    "title": "The River",
+    "artist": "Bruce Springsteen",
+    "genre": "Rock"
+  },
+  {
+    "title": "I Can't Make You Love Me",
+    "artist": "Bonnie Raitt",
+    "genre": "Blues/Rock"
+  },
+  {
+    "title": "Fix You",
+    "artist": "Coldplay",
+    "genre": "Alternative Rock"
+  },
+  {
+    "title": "Angel",
+    "artist": "Sarah McLachlan",
+    "genre": "Pop/Soft Rock"
+  },
+  {
+    "title": "Tears of a Clown",
+    "artist": "Smokey Robinson & The Miracles",
+    "genre": "Motown/Soul"
+  },
+  {
+    "title": "Where Is My Mind?",
+    "artist": "Pixies",
+    "genre": "Alternative Rock"
+  },
+  {
+    "title": "Somewhere Over the Rainbow/What a Wonderful World",
+    "artist": "Israel Kamakawiwo'ole",
+    "genre": "Reggae/Pop"
+  },
+  {
+    "title": "Candle in the Wind",
+    "artist": "Elton John",
+    "genre": "Pop"
+  },
+  {
+    "title": "The Winner Takes It All",
+    "artist": "ABBA",
+    "genre": "Pop"
+  },
+  {
+    "title": "All I Ask",
+    "artist": "Adele",
+    "genre": "Pop"
+  },
+  {
+    "title": "Ain't No Mountain High Enough",
+    "artist": "Marvin Gaye & Tammi Terrell",
+    "genre": "Soul/Motown"
+  },
+  {
+    "title": "Wish You Were Here",
+    "artist": "Pink Floyd",
+    "genre": "Progressive Rock"
+  },
+  {
+    "title": "I Will Remember You",
+    "artist": "Sarah McLachlan",
+    "genre": "Pop/Soft Rock"
+  },
+  {
+    "title": "Goodbye Stranger",
+    "artist": "Supertramp",
+    "genre": "Pop Rock"
+  },
+  {
+    "title": "I'm Going to Be (500 Miles)",
+    "artist": "The Proclaimers",
+    "genre": "Pop/Rock"
+  },
+  {
+    "title": "Missing",
+    "artist": "Everything But The Girl",
+    "genre": "Pop/Alternative"
+  },
+  {
+    "title": "Yesterday",
+    "artist": "The Beatles",
+    "genre": "Pop/Rock"
+  },
+  {
+    "title": "How Do You Get That Lonely",
+    "artist": "Blaine Larsen",
+    "genre": "Country"
+  },
+  {
+    "title": "Holes in the Floor of Heaven",
+    "artist": "Steve Wariner",
+    "genre": "Country"
+  },
+  {
+    "title": "Heaven",
+    "artist": "Bryan Adams",
+    "genre": "Rock"
+  },
+  {
+    "title": "Don't Take the Girl",
+    "artist": "Tim McGraw",
+    "genre": "Country"
+  },
+  {
+    "title": "Still Feel Like Your Man",
+    "artist": "John Mayer",
+    "genre": "Pop Rock"
+  },
+  {
+    "title": "Say You Won't Let Go",
+    "artist": "James Arthur",
+    "genre": "Pop"
+  },
+  {
+    "title": "I Grieve",
+    "artist": "Peter Gabriel",
+    "genre": "Pop/Rock"
+  },
+  {
+    "title": "Hurt",
+    "artist": "Nine Inch Nails",
+    "genre": "Industrial Rock"
+  },
+  {
+    "title": "I'm So Lonesome I Could Cry",
+    "artist": "Hank Williams",
+    "genre": "Country"
+  },
+  {
+    "title": "To Build a Home",
+    "artist": "The Cinematic Orchestra",
+    "genre": "Downtempo/Jazz"
+  },
+  {
+    "title": "Sad Songs Say So Much",
+    "artist": "Elton John",
+    "genre": "Pop/Rock"
+  },
+  {
+    "title": "Tears of Joy",
+    "artist": "The Black Keys",
+    "genre": "Blues Rock"
+  },
+  {
+    "title": "Only One",
+    "artist": "Kanye West feat. Paul McCartney",
+    "genre": "Hip-Hop/Rap"
+  },
+  {
+    "title": "I Can't Tell You Why",
+    "artist": "Eagles",
+    "genre": "Rock"
+  },
+  {
+    "title": "Missing You",
+    "artist": "Brandy",
+    "genre": "R&B"
+  },
+  {
+    "title": "Right Here Waiting",
+    "artist": "Richard Marx",
+    "genre": "Pop"
+  },
+  {
+    "title": "Keep Holding On",
+    "artist": "Avril Lavigne",
+    "genre": "Pop/Rock"
+  },
+  {
+    "title": "I Won't Give Up",
+    "artist": "Jason Mraz",
+    "genre": "Pop"
+  },
+  {
+    "title": "Cry",
+    "artist": "James Blunt",
+    "genre": "Pop"
+  },
+  {
+    "title": "Into the Fire",
+    "artist": "Bruce Springsteen",
+    "genre": "Rock"
+  },
+  {
+    "title": "I Will Always Love You",
+    "artist": "Dolly Parton",
+    "genre": "Country/Pop"
+  },
+  {
+    "title": "Both Sides Now",
+    "artist": "Joni Mitchell",
+    "genre": "Folk"
+  },
+  {
+    "title": "Don't Let Me Go",
+    "artist": "Spencer Sutherland",
+    "genre": "Pop"
+  },
+  {
+    "title": "All of Me",
+    "artist": "John Legend",
+    "genre": "R&B"
+  },
+  {
+    "title": "Cold Little Heart",
+    "artist": "Michael Kiwanuka",
+    "genre": "Soul/Indie"
+  },
+  {
+    "title": "Soothing Soul",
+    "artist": "Ludovico Einaudi",
+    "genre": "Classical (Instrumental)"
+  },
+  {
+    "title": "Clair de Lune",
+    "artist": "Claude Debussy",
+    "genre": "Classical (Instrumental)"
+  },
+  {
+    "title": "Mad World",
+    "artist": "Gary Jules",
+    "genre": "Alternative"
+  },
+  {
+    "title": "All I Ask",
+    "artist": "Adele",
+    "genre": "Pop"
+  },
+  {
+    "title": "I Miss You",
+    "artist": "Clean Bandit feat. Julia Michaels",
+    "genre": "Pop"
+  },
+  {
+    "title": "Gone Too Soon",
+    "artist": "Michael Jackson",
+    "genre": "Pop"
+  },
+  {
+    "title": "I Am Not Alone",
+    "artist": "Kari Jobe",
+    "genre": "Christian Contemporary"
+  },
+  {
+    "title": "Just Like a Prayer",
+    "artist": "Madonna",
+    "genre": "Pop"
+  },
+  {
+    "title": "Yesterday",
+    "artist": "The Beatles",
+    "genre": "Pop/Rock"
+  },
+  {
+    "title": "Tears Dry on Their Own",
+    "artist": "Amy Winehouse",
+    "genre": "Pop/Soul"
+  },
+  {
+    "title": "I Can't Stop Loving You",
+    "artist": "Ray Charles",
+    "genre": "R&B/Soul"
+  },
+  {
+    "title": "How to Save a Life",
+    "artist": "The Fray",
+    "genre": "Pop/Rock"
+  },
+  {
+    "title": "Tears in Heaven",
+    "artist": "Eric Clapton",
+    "genre": "Pop"
+  },
+  {
+    "title": "Gone",
+    "artist": "NSYNC",
+    "genre": "Pop"
+  },
+  {
+    "title": "Love Is Gone",
+    "artist": "David Guetta feat. Chris Willis",
+    "genre": "Dance/Electronic"
+  },
+  {
+    "title": "The First Cut is the Deepest",
+    "artist": "Sheryl Crow",
+    "genre": "Rock"
+  },
+  {
+    "title": "Goodbye My Friend",
+    "artist": "Linda Ronstadt",
+    "genre": "Pop"
+  },
+  {
+    "title": "I Won't Let You Go",
+    "artist": "James Morrison",
+    "genre": "Pop/Rock"
+  },
+  {
+    "title": "I Miss My Friend",
+    "artist": "Darryl Worley",
+    "genre": "Country"
+  },
+  {
+    "title": "The Winner Takes It All",
+    "artist": "ABBA",
+    "genre": "Pop"
+  },
+  {
+    "title": "Miss You",
+    "artist": "The Rolling Stones",
+    "genre": "Rock"
+  },
+  {
+    "title": "Right Here Waiting",
+    "artist": "Richard Marx",
+    "genre": "Pop"
+  },
+  {
+    "title": "I'm Gonna Be (500 Miles)",
+    "artist": "The Proclaimers",
+    "genre": "Pop/Rock"
+  },
+  {
+    "title": "Goodbye Stranger",
+    "artist": "Supertramp",
+    "genre": "Rock"
+  },
+  {
+    "title": "I Miss My Friend",
+    "artist": "Darryl Worley",
+    "genre": "Country"
+  },
+  {
+    "title": "I Will Wait",
+    "artist": "Mumford & Sons",
+    "genre": "Indie/Folk"
+  },
+  {
+    "title": "Never Say Goodbye",
+    "artist": "Gloria Gaynor",
+    "genre": "Disco"
+  },
+  {
+    "title": "I Can't Stop Loving You",
+    "artist": "Ray Charles",
+    "genre": "R&B"
+  },
+  {
+    "title": "Goodbye",
+    "artist": "Spice Girls",
+    "genre": "Pop"
+  },
+  {
+    "title": "Someone Like You",
+    "artist": "Adele",
+    "genre": "Pop"
+  },
+  {
+    "title": "In the Air Tonight",
+    "artist": "Phil Collins",
+    "genre": "Pop/Rock"
+  },
+  {
+    "title": "I Won't Give Up",
+    "artist": "Jason Mraz",
+    "genre": "Pop"
+  },
+  {
+    "title": "Don't Let Me Go",
+    "artist": "Spencer Sutherland",
+    "genre": "Pop"
+  },
+  {
+    "title": "Where Did My Baby Go",
+    "artist": "John Legend",
+    "genre": "R&B"
+  },
+  {
+    "title": "I Miss You",
+    "artist": "Blink-182",
+    "genre": "Pop Punk"
+  },
+  {
+    "title": "I Will Remember You",
+    "artist": "Sarah McLachlan",
+    "genre": "Pop"
+  },
+  {
+    "title": "I Can't Stop Loving You",
+    "artist": "Ray Charles",
+    "genre": "Soul"
+  },
+  {
+    "title": "Unfinished Sympathy",
+    "artist": "Massive Attack",
+    "genre": "Trip-Hop"
+  },
+  {
+    "title": "You Were Mine",
+    "artist": "Dixie Chicks",
+    "genre": "Country"
+  },
+  {
+    "title": "I Miss You",
+    "artist": "2Pac",
+    "genre": "Hip-Hop/Rap"
+  },
+  {
+    "title": "Say You Won't Let Go",
+    "artist": "James Arthur",
+    "genre": "Pop"
+  },
+  {
+    "title": "Hallelujah",
+    "artist": "Leonard Cohen",
+    "genre": "Folk Rock"
+  },
+  {
+    "title": "Don't Let Go",
+    "artist": "En Vogue",
+    "genre": "R&B"
+  },
+  {
+    "title": "Goodbye Stranger",
+    "artist": "Supertramp",
+    "genre": "Rock"
+  },
+  {
+    "title": "Keep Holding On",
+    "artist": "Avril Lavigne",
+    "genre": "Pop/Rock"
+  },
+  {
+    "title": "Breathe Me",
+    "artist": "Sia",
+    "genre": "Pop"
+  },
+  {
+    "title": "I Will Remember You",
+    "artist": "Sarah McLachlan",
+    "genre": "Pop"
+  },
+  {
+    "title": "Goodbye",
+    "artist": "Spice Girls",
+    "genre": "Pop"
+  },
+  {
+    "title": "Don't Let Me Go",
+    "artist": "Spencer Sutherland",
+    "genre": "Pop"
+  },
+  {
+    "title": "Tears in Heaven",
+    "artist": "Eric Clapton",
+    "genre": "Pop"
+  },
+  {
+    "title": "Someone Like You",
+    "artist": "Adele",
+    "genre": "Pop"
+  },
+  {
+    "title": "With or Without You",
+    "artist": "U2",
+    "genre": "Rock"
+  }
+]

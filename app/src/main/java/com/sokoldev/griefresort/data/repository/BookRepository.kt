@@ -16,13 +16,12 @@ import java.io.Reader;
 class BookRepository(val context: Context) {
 
     fun getBooksFromAssets(): BookResponse? {
-        val json = readJsonFromAssets("books.json")
+        val json = readJsonFromAssets("book.json")
         Log.d("Raw JSON", json ?: "Error reading JSON")
-        val jsonPrettyPrint = json?.let { JSONObject(it).toString(2) }
         val gson = GsonBuilder()
             .setLenient()
             .create()
-        return gson.fromJson(jsonPrettyPrint, BookResponse::class.java)
+        return gson.fromJson(json, BookResponse::class.java)
     }
 
     private fun readJsonFromAssets(filename: String): String? {
@@ -30,7 +29,7 @@ class BookRepository(val context: Context) {
         try {
             val assetManager: AssetManager = context.assets
             val inputStream: InputStream = assetManager.open(filename)
-            val reader: Reader = InputStreamReader(inputStream)
+            val reader: Reader = InputStreamReader(inputStream, Charsets.UTF_8)
             val size = inputStream.available()
             val buffer = CharArray(size)
             reader.read(buffer)
@@ -38,7 +37,7 @@ class BookRepository(val context: Context) {
             reader.close()
         } catch (e: Exception) {
             e.printStackTrace()
-            Log.e("BOOOOOK", "Error reading JSON from assets", e)
+            Log.e("BOOK REPOSITORY", "Error reading JSON from assets", e)
         }
         return json
     }

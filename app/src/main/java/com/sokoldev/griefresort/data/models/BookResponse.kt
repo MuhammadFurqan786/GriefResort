@@ -1,5 +1,8 @@
 package com.sokoldev.griefresort.data.models
 
-class BookResponse {
-    var bookList: List<Book>? = null
-}
+import com.google.gson.annotations.SerializedName
+
+ data class BookResponse (
+     @SerializedName("books")
+     var books: List<Book>? = null
+ )

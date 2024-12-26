@@ -14,7 +14,7 @@ import com.sokoldev.griefresort.data.models.Book
 
 
 class BooksAdapter(
-    val context:Context,
+    val context: Context,
     val arrayList: List<Book>
 ) : RecyclerView.Adapter<BooksAdapter.DataObjectHolder>() {
 
@@ -44,14 +44,8 @@ class BooksAdapter(
         val item = arrayList[position]
 
         holder.name?.text = item.title
-        holder.author?.text = "Author : "+item.title
+        holder.author?.text = context.getString(R.string.author, item.author);
         holder.summary?.text = item.summary
-        val resId = context.resources.getIdentifier(item.imageName, "drawable", context.packageName)
-        if (resId != 0) {
-            holder.image?.setImageResource(resId)
-        } else {
-            holder.image?.setImageResource(R.drawable.ic_book) // Fallback image
-        }
     }
 
     override fun getItemCount(): Int {

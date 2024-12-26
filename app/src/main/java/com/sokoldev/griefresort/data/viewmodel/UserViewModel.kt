@@ -37,6 +37,12 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val _isLoggedIn = MutableLiveData<Boolean>()
     val isLoggedIn: LiveData<Boolean> get() = _isLoggedIn
 
+    private val _isUpdateUser = MutableLiveData<Boolean>()
+    val isUpdateUser: LiveData<Boolean> get() = _isUpdateUser
+
+    private val _isDelete = MutableLiveData<Boolean>()
+    val isDelete: LiveData<Boolean> get() = _isDelete
+
 
     // Register a new user
     fun registerUser(
@@ -233,24 +239,28 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
                                 lastName = updatedLastName,
                                 userName = updatedUserName
                             )
-
                             // Update the user data in Firestore
                             db.collection("users").document(uid).set(updatedUser)
                                 .addOnSuccessListener {
                                     _status.value = "User updated successfully."
                                     preference.saveCurrentUser(updatedUser) // Update the current user in shared preferences
+                                    _isUpdateUser.value = true
                                 }
                                 .addOnFailureListener { e ->
+                                    _isUpdateUser.value = false
                                     _status.value = "Error updating user: ${e.message}"
                                 }
                         } else {
+                            _isUpdateUser.value = false
                             _status.value = "Error: Unable to fetch current user data."
                         }
                     }
                     .addOnFailureListener { e ->
+                        _isUpdateUser.value = false
                         _status.value = "Error fetching current user data: ${e.message}"
                     }
             } else {
+                _isUpdateUser.value = false
                 _status.value = "Username already taken."
             }
         }
@@ -308,5 +318,30 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+
+    fun deleteAccount() {
+        _status.value = "Deleting account..."
+
+        val user = auth.currentUser
+        if (user != null) {
+            // Proceed to delete the user
+            user.delete()
+                .addOnCompleteListener { deleteTask ->
+                    if (deleteTask.isSuccessful) {
+                        preference.setUserLogin(false)
+                        // Clear the saved user data from preferences
+                        preference.clearSharedPref()
+
+                        // Update the status and logged-in state
+                        _status.value = "Account deleted successfully."
+                        _isDelete.value = true
+                    } else {
+                        // Handle deletion failure
+                        _isDelete.value = false
+                        _status.value = "Account deletion failed: ${deleteTask.exception?.message}"
+                    }
+                }
+        }
+    }
 
 }

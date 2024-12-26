@@ -1,9 +1,12 @@
 package com.sokoldev.griefresort.data.models
 
+import com.google.gson.annotations.SerializedName
+
 data class Book(
-    val title: String,
-    val author: String,
-    val summary: String,
-    val imageName: String,
-    val type: String
+    @SerializedName("title")
+    val title: String?=null,
+    @SerializedName("author")
+    val author: String?=null,
+    @SerializedName("summary")
+    val summary: String?=null
 )

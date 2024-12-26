@@ -47,7 +47,7 @@
                 android:textAllCaps="true" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/edittextfname"
+                android:id="@+id/edFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -64,7 +64,7 @@
                 android:textAllCaps="true" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/edittextlname"
+                android:id="@+id/edLastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -80,12 +80,20 @@
                 android:textAllCaps="true" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/edittextUsername"
+                android:id="@+id/edUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text|textPersonName"
                 android:textColor="@color/black" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/userNameStatus"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/user_name"
+                android:textAllCaps="true" />
             <androidx.appcompat.widget.AppCompatTextView
                 style="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="wrap_content"
@@ -96,10 +104,11 @@
                 android:textAllCaps="true" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/edittextEmail"
+                android:id="@+id/edEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:enabled="false"
                 android:textColor="@color/black" />
 
 

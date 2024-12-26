@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sokoldev.griefresort.data.adapters.BooksAdapter
+import com.sokoldev.griefresort.data.adapters.SongsAdapter
 import com.sokoldev.griefresort.data.viewmodel.ItemViewModel
 import com.sokoldev.griefresort.databinding.ActivityItemListBinding
 import com.sokoldev.griefresort.utils.Constants
@@ -45,11 +46,12 @@ class ItemListActivity : AppCompatActivity() {
             } else if (item.equals(Constants.TVSHOWS)) {
                 binding.selectedListText.text = "Tv Shows List"
                 binding.chooseText.text = "Choose Your Tv Show"
-//                setObserverShows()
-            } else if (item.equals(Constants.MOVIES)) {
+
+            } else if (item.equals(Constants.SONGS)) {
                 binding.selectedListText.text = "Songs List"
                 binding.chooseText.text = "Choose Your Song"
-//                setObserverSong()
+                itemViewModel.loadSongs()
+                setObserverSongs()
             }
         }
 
@@ -57,6 +59,15 @@ class ItemListActivity : AppCompatActivity() {
             finish()
         }
 
+    }
+
+
+    // getting songs from assets
+    private fun setObserverSongs() {
+        itemViewModel.songs.observe(this, Observer {
+            val adapter = SongsAdapter(this, it)
+            binding.rvItem.adapter = adapter
+        })
     }
 
     // getting books from assets

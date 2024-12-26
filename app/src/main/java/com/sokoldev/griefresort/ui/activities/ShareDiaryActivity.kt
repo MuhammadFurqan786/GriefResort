@@ -1,6 +1,7 @@
 package com.sokoldev.griefresort.ui.activities
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -14,7 +15,6 @@ import com.sokoldev.griefresort.databinding.ActivityShareDiaryBinding
 import com.sokoldev.griefresort.preference.PreferenceHelper
 import com.sokoldev.griefresort.utils.Constants
 import com.sokoldev.griefresort.utils.Global
-import java.util.ArrayList
 
 class ShareDiaryActivity : AppCompatActivity() {
 
@@ -59,6 +59,7 @@ class ShareDiaryActivity : AppCompatActivity() {
         })
         viewModel.success.observe(this, Observer {
             Global.showMessage(binding.root, it)
+            startActivity(Intent(this, HomeActivity::class.java))
             finish()
         })
     }
