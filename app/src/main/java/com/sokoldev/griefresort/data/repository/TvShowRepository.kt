@@ -1,28 +1,31 @@
 package com.sokoldev.griefresort.data.repository;
 
-import android.content.Context;
-import android.content.res.AssetManager;
+import android.content.Context
+import android.content.res.AssetManager
 import android.util.Log
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder
-import com.sokoldev.griefresort.data.models.BookResponse;
-import org.json.JSONObject
+import com.sokoldev.griefresort.data.models.BookResponse
+import com.sokoldev.griefresort.data.models.Podcast
+import com.sokoldev.griefresort.data.models.Song
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.io.Reader
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
 
+class PodCastRepository(val context: Context) {
 
-class BookRepository(val context: Context) {
-
-    fun getBooksFromAssets(): BookResponse? {
-        val json = readJsonFromAssets("book.json")
+    fun getPodcastsFromAssets(): List<Podcast> {
+        val json = readJsonFromAssets("song.json")
         Log.d("Raw JSON", json ?: "Error reading JSON")
+
         val gson = GsonBuilder()
             .setLenient()
             .create()
-        return gson.fromJson(json, BookResponse::class.java)
+
+        // Change this to deserialize into a list of Song objects
+        return gson.fromJson(json, Array<Podcast>::class.java).toList()
     }
+
 
     private fun readJsonFromAssets(filename: String): String? {
         var json: String? = null
