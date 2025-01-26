@@ -60,7 +60,7 @@ class LibraryAdapter(
                 intent.putExtra(Constants.ITEM, Constants.MOVIES)
                 context.startActivity(intent)
             } else if (library.title == Constants.PODCASTS) {
-                val intent = Intent(context, UnlockActivity::class.java)
+                val intent = Intent(context, ItemListActivity::class.java)
                 intent.putExtra(Constants.ITEM, Constants.PODCASTS)
                 context.startActivity(intent)
             } else if (library.title == Constants.TVSHOWS) {

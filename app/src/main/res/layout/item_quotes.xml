@@ -3,15 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    app:cardCornerRadius="4dp"
-    app:cardBackgroundColor="@color/colorPrimary">
+    app:cardCornerRadius="8dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="16dp"
+    app:cardUseCompatPadding="true">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardCornerRadius="4dp"
-        android:layout_margin="40dp">
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardElevation="16dp"
+        app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -32,10 +35,11 @@
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginTop="80dp"
-                    android:fontFamily="@font/poppins_regular"
+                    android:fontFamily="@font/poppins_bold"
                     android:text=" The saddest part of life is when the person who gave you the best memories becomes a memory  "
                     android:textAlignment="center"
-                    android:textColor="@color/black" />
+
+                    android:textColor="@color/white" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/author"
@@ -47,9 +51,10 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="80dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="Unknown"
+                    android:text="~Unknown"
+                    android:textStyle="italic"
                     android:textAlignment="center"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
 
             </LinearLayout>
         </RelativeLayout>

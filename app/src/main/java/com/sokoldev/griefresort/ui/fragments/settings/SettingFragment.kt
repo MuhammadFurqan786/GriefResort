@@ -1,15 +1,17 @@
 package com.sokoldev.griefresort.ui.fragments.settings
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.get
+import com.google.firebase.auth.FirebaseAuth
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.databinding.FragmentSettingBinding
+import com.sokoldev.griefresort.preference.PreferenceHelper
+import com.sokoldev.griefresort.ui.activities.AuthActivity
 import com.sokoldev.griefresort.ui.activities.HomeActivity
 import com.sokoldev.griefresort.utils.Constants
 
@@ -80,6 +82,15 @@ class SettingFragment : Fragment() {
 
         binding.changePassword.setOnClickListener {
             findNavController().navigate(R.id.action_settingFragment_to_changePasswordFragment2)
+        }
+
+        binding.logOut.setOnClickListener {
+            val pref = PreferenceHelper.getPref(requireContext())
+            FirebaseAuth.getInstance().signOut()
+            pref.setUserLogin(false)
+            pref.clearSharedPref()
+            startActivity(Intent(requireContext(), AuthActivity::class.java))
+            requireActivity().finish()
         }
 
     }

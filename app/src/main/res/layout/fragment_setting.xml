@@ -258,6 +258,42 @@
 
         </RelativeLayout>
 
+
+        <RelativeLayout
+            android:id="@+id/logOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_logout"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="10dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/log_out"
+                android:textColor="@color/colorPrimary" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_vertical"
+                android:padding="5dp"
+                android:src="@drawable/ic_right_arrow" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_logout"
+                android:layout_marginTop="10dp"
+                android:background="#ccc" />
+
+        </RelativeLayout>
+
     </LinearLayout>
 
 

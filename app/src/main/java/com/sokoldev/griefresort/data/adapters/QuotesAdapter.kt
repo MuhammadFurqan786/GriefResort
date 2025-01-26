@@ -1,6 +1,7 @@
 package com.sokoldev.griefresort.data.adapters
 
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,12 +33,13 @@ class QuotesAdapter(
         return DataObjectHolder(view)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: DataObjectHolder, position: Int) {
 
         val quote = arrayList[position]
 
         holder.quote?.text = quote.quote
-        holder.author?.text = quote.author
+        holder.author?.text = "~ "+quote.author
 
     }
 

@@ -107,51 +107,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="We want you to understand how and
-why Grief Resort, Inc. (“Grief Resort,” “we”
-or “us”) collects, uses, and shares
-information about you when you use our
-sites, mobile apps, widgets, and other
-online products and services
-(collectively, the “Services”) or when you
-otherwise interact with us or receive a
-communication from us. This Privacy
-Policy applies to all of our Services
-including Gift Resort Gifts, which
-maintains a separate privacy notice that
-incorporates this Privacy Policy by
-reference."
+                    android:text="@string/info_privacy"
                     android:textAllCaps="false" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="What We Collect (and How it is Used and
-Shared)"
-                    android:textAllCaps="false" />
-
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Information You Provide to Us"
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="We collect information you provide to us
-directly when you use the Services."
-                    android:textAllCaps="false" />
 
 
             </LinearLayout>
@@ -187,28 +145,7 @@ directly when you use the Services."
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="Welcome to Grief Resort! GriefResort.com,
-Inc. (“Grief Resort ”) provides our website
-located at www.griefresort.com (the “Site”)
-and grief support services accessible via
-our Site and our mobile device application
-(“App”). To make these Terms easier to
-read, the Site, our services and App are
-collectively called the “Services.” Please
-read these Terms of Service (the “Terms”)
-carefully because they govern your use of
-our Services."
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Agreement to Terms"
-                    android:textAllCaps="false" />
-
+                    android:text="@string/info_terms" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     style="@style/TextAppearance.AppCompat.Small"
@@ -216,35 +153,7 @@ our Services."
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="By using our Services, you agree to be
-bound by these Terms. If you don’t agree
-to be bound by these Terms, do not use
-the Services."
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Privacy Policy"
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Please refer to our privacy policy for
-information on how we collect, use and
-disclose information from our users. You
-acknowledge and agree that your use of
-the Services is subject to our Privacy Policy."
-                    android:textAllCaps="false" />
-
+                    android:text="@string/info_terms_two" />
 
             </LinearLayout>
 
@@ -270,202 +179,10 @@ the Services is subject to our Privacy Policy."
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="1. How to reset or update your password?"
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="If you’re having trouble logging in to your
-Grief Resort account, you can reset your
-password."
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="How to reset your password:"
+                    android:text="@string/info_faqs"
                     android:textAllCaps="false" />
 
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Open the Gift Resort app and tap ‘ forgot
-password? ‘ option at the bottom right of
-the screen."
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="On the next screen enter your email
-address associated with your Grief Resort
-account and we will send you password
-reset instructions
-Please check your spam folder if you do
-not see the email in your inbox."
-                    android:textAllCaps="false" />
-
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="If you have not received the email after
-10 minutes, please add
-support@griefresort.com"
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="For security reasons, your password reset
-link must be accessed within 90 minutes.
-After 90 minutes, the link will expire, but
-you can always request a new link by
-following these steps again."
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="If you are currently logged in to your Grief
-Resort account on the mobile app and
-would like to update your password:"
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Tap ‘ Hamburger menu on the bottom
-right of the screen’
-Tap ‘Change Password’
-Type in your old password
-Type in your new password - this must be
-at least 8 characters
-Tap ‘ Change Password’
-If you are currently logged in to your Grief
-Resort account on the website and would
-like to update your password:
-Click on the ‘Change password’ button in
-your profile
-Type in your old password
-Type in your new password - this must be
-at least 8 characters.
-Confirm your new password Click ‘Update’"
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Log out of your Grief Resort account and
-follow the steps at the beginning of this
-article."
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="2. The app isn’t working - troubleshooting
-steps"
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="If you’re having trouble using the app, here
-are a few troubleshooting steps to try:"
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="1. Double-check your internet connection.
-We recommend a strong WiFi or cellular
-connection."
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="2. Delete and re-install the app (not your
-Grief Resort account) while making sure
-your device is on a solid wifi connection."
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Please note: if you have not yet created a
-Grief Resort account, you’ll want to do so
-before deleting the app to ensure your
-data is not lost."
-                    android:textAllCaps="false" />
-
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="3. If you have a Grief Resort account, make
-sure you are signed in with the correct
-email address associated with your
-account."
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="4. Restart your device."
-                    android:textAllCaps="false" />
 
             </LinearLayout>
 
