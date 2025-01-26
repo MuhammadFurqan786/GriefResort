@@ -1,5 +1,7 @@
 package com.sokoldev.griefresort.data.models
 
 data class MemoryBox(
-    var image: Int
+    val fileName: String,
+    val fileUrl: String,
+    val fileType: String
 )

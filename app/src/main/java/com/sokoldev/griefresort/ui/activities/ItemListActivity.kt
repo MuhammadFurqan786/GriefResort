@@ -6,7 +6,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sokoldev.griefresort.data.adapters.BooksAdapter
+import com.sokoldev.griefresort.data.adapters.MovieAdapter
+import com.sokoldev.griefresort.data.adapters.PodcastAdapter
 import com.sokoldev.griefresort.data.adapters.SongsAdapter
+import com.sokoldev.griefresort.data.adapters.TvShowAdapter
+import com.sokoldev.griefresort.data.models.TVShow
 import com.sokoldev.griefresort.data.viewmodel.ItemViewModel
 import com.sokoldev.griefresort.databinding.ActivityItemListBinding
 import com.sokoldev.griefresort.utils.Constants
@@ -38,15 +42,19 @@ class ItemListActivity : AppCompatActivity() {
             } else if (item.equals(Constants.MOVIES)) {
                 binding.selectedListText.text = "Movies List"
                 binding.chooseText.text = "Choose Your Movie"
-//                setObserverMovies()
+                itemViewModel.laodMovies()
+                setObserverMovies()
+
             } else if (item.equals(Constants.PODCASTS)) {
                 binding.selectedListText.text = "Podcasts List"
                 binding.chooseText.text = "Choose Your Podcast"
-//                setObserverPodcasts()
+                itemViewModel.loadPodcasts()
+                setObserverPodcasts()
             } else if (item.equals(Constants.TVSHOWS)) {
                 binding.selectedListText.text = "Tv Shows List"
                 binding.chooseText.text = "Choose Your Tv Show"
-
+                itemViewModel.loadShows()
+                setObserverShows()
             } else if (item.equals(Constants.SONGS)) {
                 binding.selectedListText.text = "Songs List"
                 binding.chooseText.text = "Choose Your Song"
@@ -59,6 +67,27 @@ class ItemListActivity : AppCompatActivity() {
             finish()
         }
 
+    }
+
+    private fun setObserverShows() {
+        itemViewModel.shows.observe(this, Observer {
+            val adapter = TvShowAdapter(this, it)
+            binding.rvItem.adapter = adapter
+        })
+    }
+
+    private fun setObserverPodcasts() {
+        itemViewModel.podcast.observe(this, Observer {
+            val adapter = PodcastAdapter(this, it)
+            binding.rvItem.adapter = adapter
+        })
+    }
+
+    private fun setObserverMovies() {
+        itemViewModel.movies.observe(this, Observer {
+            val adapter = MovieAdapter(this, it)
+            binding.rvItem.adapter = adapter
+        })
     }
 
 

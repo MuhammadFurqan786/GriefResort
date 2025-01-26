@@ -6,6 +6,7 @@ import android.util.Log
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder
 import com.sokoldev.griefresort.data.models.BookResponse;
+import com.sokoldev.griefresort.data.models.MovieResponse
 import org.json.JSONObject
 
 import java.io.InputStream;
@@ -13,15 +14,15 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 
 
-class BookRepository(val context: Context) {
+class MovieRepository(val context: Context) {
 
-    fun getBooksFromAssets(): BookResponse? {
-        val json = readJsonFromAssets("book.json")
+    fun getMoviesFromAssets(): MovieResponse? {
+        val json = readJsonFromAssets("movie.json")
         Log.d("Raw JSON", json ?: "Error reading JSON")
         val gson = GsonBuilder()
             .setLenient()
             .create()
-        return gson.fromJson(json, BookResponse::class.java)
+        return gson.fromJson(json, MovieResponse::class.java)
     }
 
     private fun readJsonFromAssets(filename: String): String? {

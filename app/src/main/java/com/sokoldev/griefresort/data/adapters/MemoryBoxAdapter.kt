@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.data.models.MemoryBox
 
@@ -51,7 +52,33 @@ class MemoryBoxAdapter(
 
         val memoryBox = arrayList[position]
 
-        holder.image?.setImageResource(memoryBox.image)
+        when (memoryBox.fileType) {
+            "image" -> {
+                // Load image directly into ImageView using Glide
+                holder.image?.let {
+                    Glide.with(holder.itemView.context)
+                        .load(memoryBox.fileUrl)
+                        .into(it)
+                }
+            }
+            "audio" -> {
+                // Load the default audio thumbnail
+                holder.image?.let {
+                    Glide.with(holder.itemView.context)
+                        .load(R.drawable.ic_music) // Use a default audio image
+                        .into(it)
+                }
+            }
+            "video" -> {
+                // Extract a thumbnail from the video using Glide or a custom method
+                holder.image?.let {
+                    Glide.with(holder.itemView.context)
+                        .load(memoryBox.fileUrl)
+                        .thumbnail(0.1f) // Get a preview thumbnail from the video
+                        .into(it)
+                }
+            }
+        }
 
         holder.menu!!.setOnClickListener { v: View? ->
             clickListener.onMenuClick(

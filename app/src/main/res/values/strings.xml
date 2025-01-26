@@ -276,7 +276,10 @@
     <string name="genre"><font color="#3AAE42">Genre : </font>%1$s</string>
     <string name="author"><font color="#3AAE42">Author : </font>%1$s</string>
     <string name="artist"><font color="#3AAE42">Artist : </font> %1$s </string>
-
+    <string name="host"><font color="#3AAE42">Host : </font> %1$s </string>
+    <string name="actors"><font color="#3AAE42">Main Actors : </font> %1$s </string>
+    <string name="where_to_watch"><font color="#3AAE42">Where to watch : </font> %1$s </string>
+    <string name="where_to_listen"><font color="#3AAE42">Where to Listen : </font> %1$s </string>
 
 
 </resources>

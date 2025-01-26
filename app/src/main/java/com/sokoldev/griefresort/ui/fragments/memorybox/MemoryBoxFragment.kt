@@ -17,42 +17,48 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.data.adapters.MemoryBoxAdapter
 import com.sokoldev.griefresort.data.models.MemoryBox
 import com.sokoldev.griefresort.data.viewmodel.MemoryViewModel
 import com.sokoldev.griefresort.databinding.FragmentMemoryBoxBinding
+import com.sokoldev.griefresort.preference.PreferenceHelper
 import com.sokoldev.griefresort.ui.activities.HomeActivity
-
+import com.sokoldev.griefresort.ui.activities.MediaPlayerActivity
+import com.sokoldev.griefresort.utils.Constants
+import com.sokoldev.griefresort.utils.Global
 
 class MemoryBoxFragment : Fragment(), MemoryBoxAdapter.OnMemoryBoxItemsClickListener {
 
     private lateinit var binding: FragmentMemoryBoxBinding
     lateinit var viewModel: MemoryViewModel
-    var position1: Int = 0
     private lateinit var adapter: MemoryBoxAdapter
+    private val storage = FirebaseStorage.getInstance().reference
+    private val firestore = FirebaseFirestore.getInstance()
+    private lateinit var userId: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentMemoryBoxBinding.inflate(layoutInflater, container, false)
 
-
-        val resultLauncher =  registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        val resultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 onActivityResult(result)
             }
 
         binding.addImageVideo.setOnClickListener {
             pickMediaFiles(resultLauncher)
         }
-
 
         return binding.root
     }
@@ -63,75 +69,179 @@ class MemoryBoxFragment : Fragment(), MemoryBoxAdapter.OnMemoryBoxItemsClickList
         val toolbarText = (requireActivity() as HomeActivity).binding.toolbarText
         toolbarText.text = getString(R.string.memory_box)
 
-
         (requireActivity() as HomeActivity).binding.relativeLayout.visibility = View.VISIBLE
 
-        viewModel = ViewModelProvider(this).get(MemoryViewModel::class.java)
+        viewModel = ViewModelProvider(this)[MemoryViewModel::class.java]
         binding.rvMemoryBox.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.rvMemoryBox.setHasFixedSize(true)
 
-
+        userId = PreferenceHelper.getPref(requireContext())
+            .getCurrentUser()?.userId!!
+        viewModel.getMemoryBoxes(userId)
+        showLoading(true)
         initObserver()
-
-
     }
 
     private fun pickMediaFiles(resultLauncher: ActivityResultLauncher<Intent>) {
-
-
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.addCategory(Intent.CATEGORY_OPENABLE)
-        intent.type = "image/* video/*"
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        intent.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/*", "video/*"))
+        intent.type = "image/* video/* audio/*"
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+        intent.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/*", "video/*", "audio/*"))
         resultLauncher.launch(intent)
     }
 
-
     private fun onActivityResult(result: ActivityResult) {
         if (result.resultCode == RESULT_OK && result.data != null) {
-            //If selected multiple medias
-            if (result.data?.clipData != null) {
-                val count: Int =
-                    result.data!!.clipData!!.itemCount
+            val mediaUris: MutableList<Uri> = mutableListOf()
+
+            // If selected multiple media
+            result.data?.clipData?.let { clipData ->
+                val count = clipData.itemCount
                 for (i in 0 until count) {
-                    val selectedUri: Uri? = result.data!!.clipData?.getItemAt(i)?.uri
+                    val selectedUri = clipData.getItemAt(i).uri
+                    mediaUris.add(selectedUri)
                 }
             }
-            //If selected single media
-            else if (result.data?.data != null) {
-                val selectedUri: Uri? = result.data?.data
+            // If selected a single media
+            result.data?.data?.let { selectedUri ->
+                mediaUris.add(selectedUri)
+            }
+
+            // Show the progress bar (loading indicator)
+            showLoading(true)
+
+            // Upload media files to Firebase Storage
+            mediaUris.forEach { uri ->
+                uploadMediaToStorage(uri)
             }
         }
     }
 
+    private fun uploadMediaToStorage(uri: Uri) {
+        val fileType = when {
+            uri.toString().contains("image") -> "image"
+            uri.toString().contains("video") -> "video"
+            uri.toString().contains("audio") -> "audio"
+            else -> "unknown"
+        }
+
+        val fileName = System.currentTimeMillis().toString() // Unique ID for each file
+        val fileRef = storage.child("memory_box/$userId/$fileName")
+
+        fileRef.putFile(uri)
+            .addOnSuccessListener {
+                fileRef.downloadUrl.addOnSuccessListener { fileUrl ->
+                    viewModel.addMemoryBox(fileName, fileUrl.toString(), fileType, userId)
+
+                    viewModel.getMemoryBoxes(userId)
+                }
+
+            }
+            .addOnFailureListener {
+                // Handle upload failure
+                showLoading(false)
+            }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+        }
+    }
+
     private fun initObserver() {
-        viewModel.getList().observe(viewLifecycleOwner, Observer {
-            it.let {
+        viewModel.memoryBoxes.observe(viewLifecycleOwner, Observer {
+            it?.let {
                 adapter = MemoryBoxAdapter(it as ArrayList<MemoryBox>, this)
                 binding.rvMemoryBox.adapter = adapter
+            }
+            showLoading(false)
+        })
+
+        viewModel.response.observe(viewLifecycleOwner, Observer {
+            it?.let { isUplaoded ->
+                if (isUplaoded) {
+                    showLoading(false)
+                    Global.showMessage(
+                        binding.root.rootView,
+                        "Memory Upload Successfully!",
+                        Snackbar.LENGTH_SHORT
+                    )
+                } else {
+                    showLoading(false)
+                    Global.showMessage(
+                        binding.root.rootView,
+                        "Memory Failed to Upload!",
+                        Snackbar.LENGTH_SHORT
+                    )
+                }
+            }
+        })
+
+        viewModel.delete.observe(viewLifecycleOwner, Observer {
+            it?.let { isDeleted ->
+                if (isDeleted) {
+                    showLoading(false)
+                    Global.showMessage(
+                        binding.root.rootView,
+                        "Memory Deleted Successfully!",
+                        Snackbar.LENGTH_SHORT
+                    )
+                } else {
+                    showLoading(false)
+                    Global.showMessage(
+                        binding.root.rootView,
+                        "Memory Failed to Delete!",
+                        Snackbar.LENGTH_SHORT
+                    )
+                }
             }
         })
     }
 
     override fun onitemClcik(position: Int) {
+        val memoryBox = viewModel.getMemoryBoxes(userId).value?.get(position)
+        memoryBox?.let {
+            when (it.fileType) {
+                "image" -> {
+                    val intent = Intent(requireContext(), MediaPlayerActivity::class.java)
+                    intent.putExtra(Constants.MEDIA_URL, it.fileUrl)
+                    intent.putExtra(Constants.FILE_TYPE, it.fileType)
+                    startActivity(intent)
+                }
 
+                "video" -> {
+                    val intent = Intent(requireContext(), MediaPlayerActivity::class.java)
+                    intent.putExtra(Constants.MEDIA_URL, it.fileUrl)
+                    intent.putExtra(Constants.FILE_TYPE, it.fileType)
+                    startActivity(intent)
+                }
+
+                "audio" -> {
+                    // Play audio
+                    val intent = Intent(requireContext(), MediaPlayerActivity::class.java)
+                    intent.putExtra(Constants.MEDIA_URL, it.fileUrl)
+                    intent.putExtra(Constants.FILE_TYPE, it.fileType)
+                    startActivity(intent)
+                }
+            }
+        }
     }
 
-    override fun onMenuClick(position: Int, menu: AppCompatImageView) {
-        position1 = position
 
+    override fun onMenuClick(position: Int, menu: AppCompatImageView) {
         val popup = context?.let { PopupMenu(it, menu, Gravity.END) }
         popup?.inflate(R.menu.options_menu)
         popup?.setOnMenuItemClickListener { item ->
             if (item.itemId == R.id.delete) {
-                adapter.removeAt(position)
+                viewModel.deleteMemoryBox(position, userId)
                 return@setOnMenuItemClickListener true
             } else
                 return@setOnMenuItemClickListener false
         }
         popup?.show()
-
     }
-
 }

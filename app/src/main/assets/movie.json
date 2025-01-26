@@ -1,0 +1,740 @@
+{
+  "movies": [
+    {
+      "title": "Manchester by the Sea",
+      "summary": "A man returns to his hometown after the death of his brother and is forced to face his painful past while caring for his nephew.",
+      "genre": "Drama",
+      "main_actors": [
+        "Casey Affleck",
+        "Michelle Williams",
+        "Lucas Hedges"
+      ],
+      "director": "Kenneth Lonergan"
+    },
+    {
+      "title": "The Fault in Our Stars",
+      "summary": "Two teenagers with cancer fall in love while dealing with the realities of their illnesses and the inevitability of loss.",
+      "genre": "Drama, Romance",
+      "main_actors": [
+        "Shailene Woodley",
+        "Ansel Elgort"
+      ],
+      "director": "Josh Boone"
+    },
+    {
+      "title": "Rabbit Hole",
+      "summary": "A couple struggles to cope with the death of their young son, each dealing with grief in their own way.",
+      "genre": "Drama",
+      "main_actors": [
+        "Nicole Kidman",
+        "Aaron Eckhart",
+        "Dianne Wiest"
+      ],
+      "director": "John Cameron Mitchell"
+    },
+    {
+      "title": "A Monster Calls",
+      "summary": "A young boy, coping with his mother's terminal illness, befriends a giant tree monster that helps him deal with his grief.",
+      "genre": "Drama, Fantasy",
+      "main_actors": [
+        "Lewis MacDougall",
+        "Felicity Jones",
+        "Sigourney Weaver"
+      ],
+      "director": "J.A. Bayona"
+    },
+    {
+      "title": "The Lovely Bones",
+      "summary": "A young girl watches from the afterlife as her family struggles with her tragic death and her murderer remains at large.",
+      "genre": "Drama, Fantasy, Thriller",
+      "main_actors": [
+        "Saoirse Ronan",
+        "Mark Wahlberg",
+        "Rachel Weisz"
+      ],
+      "director": "Peter Jackson"
+    },
+    {
+      "title": "Steel Magnolias",
+      "summary": "A group of Southern women support each other through life's ups and downs, including the death of one of their own.",
+      "genre": "Drama",
+      "main_actors": [
+        "Sally Field",
+        "Dolly Parton",
+        "Julia Roberts"
+      ],
+      "director": "Herbert Ross"
+    },
+    {
+      "title": "Ordinary People",
+      "summary": "A teenager struggles with the grief of losing his brother, while his family also tries to cope with the tragedy.",
+      "genre": "Drama",
+      "main_actors": [
+        "Donald Sutherland",
+        "Mary Tyler Moore",
+        "Timothy Hutton"
+      ],
+      "director": "Robert Redford"
+    },
+    {
+      "title": "Terms of Endearment",
+      "summary": "The story follows the complicated relationship between a mother and daughter, especially as the daughter faces a terminal illness.",
+      "genre": "Drama, Comedy",
+      "main_actors": [
+        "Shirley MacLaine",
+        "Debra Winger",
+        "Jack Nicholson"
+      ],
+      "director": "James L. Brooks"
+    },
+    {
+      "title": "My Sister's Keeper",
+      "summary": "A young girl seeks medical emancipation from her parents, who are using her as a genetic match to save her dying sister.",
+      "genre": "Drama",
+      "main_actors": [
+        "Cameron Diaz",
+        "Abigail Breslin",
+        "Alec Baldwin"
+      ],
+      "director": "Nick Cassavetes"
+    },
+    {
+      "title": "The Pursuit of Happyness",
+      "summary": "A struggling salesman takes custody of his son while fighting to overcome poverty and hardship.",
+      "genre": "Drama",
+      "main_actors": [
+        "Will Smith",
+        "Jaden Smith"
+      ],
+      "director": "Gabriele Muccino"
+    },
+    {
+      "title": "Collateral Beauty",
+      "summary": "A man grieving the death of his young daughter writes letters to Love, Time, and Death, and receives responses from the personifications of these concepts.",
+      "genre": "Drama",
+      "main_actors": [
+        "Will Smith",
+        "Edward Norton",
+        "Keira Knightley"
+      ],
+      "director": "David Frankel"
+    },
+    {
+      "title": "Cloud Atlas",
+      "summary": "Six stories spanning centuries are interconnected, exploring how choices made in the past can ripple through time.",
+      "genre": "Drama, Science Fiction",
+      "main_actors": [
+        "Tom Hanks",
+        "Halle Berry",
+        "Hugh Grant"
+      ],
+      "director": "Tom Tykwer"
+    },
+    {
+      "title": "Griefwalker",
+      "summary": "A documentary exploring how one man helps others deal with their grief, loss, and death, including his own reflections on mortality.",
+      "genre": "Documentary",
+      "main_actors": [
+        "Stephen Jenkinson"
+      ],
+      "director": "Tim Wilson"
+    },
+    {
+      "title": "The Five People You Meet in Heaven",
+      "summary": "After dying in a tragic accident, a man meets five people who helped him during his life, helping him understand the impact of his life.",
+      "genre": "Drama, Fantasy",
+      "main_actors": [
+        "Jon Voight",
+        "Ellen Burstyn",
+        "Jeff Daniels"
+      ],
+      "director": "Lloyd Kramer"
+    },
+    {
+      "title": "Death of a Salesman",
+      "summary": "A struggling salesman faces personal and professional struggles, while trying to hold his family together in the face of his failures.",
+      "genre": "Drama",
+      "main_actors": [
+        "Dustin Hoffman",
+        "John Malkovich",
+        "Kate Reid"
+      ],
+      "director": "Volker Schlondorff"
+    },
+    {
+      "title": "The Sky is Pink",
+      "summary": "A family navigates grief and the challenges of a terminally ill daughter, while celebrating her life.",
+      "genre": "Drama, Biographical",
+      "main_actors": [
+        "Priyanka Chopra",
+        "Farhan Akhtar"
+      ],
+      "director": "Shonali Nagrani"
+    },
+    {
+      "title": "In the Bedroom",
+      "summary": "After a tragic death, a couple struggles with their grief and their strained relationship.",
+      "genre": "Drama",
+      "main_actors": [
+        "Sissy Spacek",
+        "Tom Wilkinson",
+        "Nick Stahl"
+      ],
+      "director": "Todd Field"
+    },
+    {
+      "title": "The Secret Life of Bees",
+      "summary": "After the death of her mother, a young girl embarks on a journey to understand her past, aided by a group of compassionate women.",
+      "genre": "Drama",
+      "main_actors": [
+        "Dakota Fanning",
+        "Queen Latifah",
+        "Jennifer Hudson"
+      ],
+      "director": "Gina Prince Bythewood"
+    },
+    {
+      "title": "Blue Valentine",
+      "summary": "A young married couple's relationship is examined, including the grief and pain of their disintegrating marriage.",
+      "genre": "Drama, Romance",
+      "main_actors": [
+        "Ryan Gosling",
+        "Michelle Williams"
+      ],
+      "director": "Derek Cianfrance"
+    },
+    {
+      "title": "The Bridge",
+      "summary": "A documentary that explores the lives of individuals who have died by suicide from the Golden Gate Bridge, focusing on their stories.",
+      "genre": "Documentary",
+      "main_actors": [
+        "Ryan Gosling"
+      ],
+      "director": "Eric Steel"
+    },
+    {
+      "title": "Griefwalker",
+      "summary": "A documentary exploring how one man helps others deal with their grief, loss, and death, including his own reflections on mortality.",
+      "genre": "Documentary",
+      "main_actors": [
+        "Stephen Jenkinson"
+      ],
+      "director": "Tim Wilson"
+    },
+    {
+      "title": "The Five People You Meet in Heaven",
+      "summary": "After dying in a tragic accident, a man meets five people who helped him during his life, helping him understand the impact of his life.",
+      "genre": "Drama, Fantasy",
+      "main_actors": [
+        "Jon Voight",
+        "Ellen Burstyn",
+        "Jeff Daniels"
+      ],
+      "director": "Lloyd Kramer"
+    },
+    {
+      "title": "Death of a Salesman",
+      "summary": "A struggling salesman faces personal and professional struggles, while trying to hold his family together in the face of his failures.",
+      "genre": "Drama",
+      "main_actors": [
+        "Dustin Hoffman",
+        "John Malkovich",
+        "Kate Reid"
+      ],
+      "director": "Volker Schlondorff"
+    },
+    {
+      "title": "The Sky is Pink",
+      "summary": "A family navigates grief and the challenges of a terminally ill daughter, while celebrating her life.",
+      "genre": "Drama, Biographical",
+      "main_actors": [
+        "Priyanka Chopra",
+        "Farhan Akhtar"
+      ],
+      "director": "Shonali Nagrani"
+    },
+    {
+      "title": "In the Bedroom",
+      "summary": "After a tragic death, a couple struggles with their grief and their strained relationship.",
+      "genre": "Drama",
+      "main_actors": [
+        "Sissy Spacek",
+        "Tom Wilkinson",
+        "Nick Stahl"
+      ],
+      "director": "Todd Field"
+    },
+    {
+      "title": "The Secret Life of Bees",
+      "summary": "After the death of her mother, a young girl embarks on a journey to understand her past, aided by a group of compassionate women.",
+      "genre": "Drama",
+      "main_actors": [
+        "Dakota Fanning",
+        "Queen Latifah",
+        "Jennifer Hudson"
+      ],
+      "director": "Gina Prince Bythewood"
+    },
+    {
+      "title": "Blue Valentine",
+      "summary": "A young married couples relationship is examined, including the grief and pain of their disintegrating marriage.",
+      "genre": "Drama, Romance",
+      "main_actors": [
+        "Ryan Gosling",
+        "Michelle Williams"
+      ],
+      "director": "Derek Cianfrance"
+    },
+    {
+      "title": "The Bridge",
+      "summary": "A documentary that explores the lives of individuals who have died by suicide from the Golden Gate Bridge, focusing on their stories.",
+      "genre": "Documentary",
+      "main_actors": [
+        "Ryan Gosling"
+      ],
+      "director": "Eric Steel"
+    },
+    {
+      "title": "The Killing of a Sacred Deer",
+      "summary": "A mans family is cursed after he befriends a troubled teenager, who demands a terrible price for the familys survival.",
+      "genre": "Drama, Thriller",
+      "main_actors": [
+        "Colin Farrell",
+        "Nicole Kidman",
+        "Barry Keoghan"
+      ],
+      "director": "Yorgos Lanthimos"
+    },
+    {
+      "title": "Wild",
+      "summary": "A woman embarks on a solo hike across the Pacific Crest Trail to recover from the loss of her mother and her broken life.",
+      "genre": "Adventure, Drama",
+      "main_actors": [
+        "Reese Witherspoon",
+        "Laura Dern"
+      ],
+      "director": "Jean Marc Vallee"
+    },
+    {
+      "title": "After Life",
+      "summary": "People who have died must relive one moment of their life before they move on to the afterlife.",
+      "genre": "Drama, Fantasy",
+      "main_actors": [
+        "Ryiko Hirosue",
+        "Tetsuya Bessho",
+        "Hideaki Anno"
+      ],
+      "director": "Hirokazu Kore eda"
+    },
+    {
+      "title": "The Sea Inside",
+      "summary": "Based on a true story, a paralyzed man struggles with the decision of whether or not to end his life.",
+      "genre": "Drama",
+      "main_actors": [
+        "Javier Bardem",
+        "Belen Rueda"
+      ],
+      "director": "Alejandro Amenabar"
+    },
+    {
+      "title": "Still Alice",
+      "summary": "A renowned linguistics professor is diagnosed with early onset Alzheimers disease, forcing her to face the eventual loss of her memories and identity.",
+      "genre": "Drama",
+      "main_actors": [
+        "Julianne Moore",
+        "Alec Baldwin",
+        "Kristen Stewart"
+      ],
+      "director": "Richard Glatzer, Wash Westmoreland"
+    },
+    {
+      "title": "The Big Chill",
+      "summary": "A group of friends reunites for the funeral of one of their own, reflecting on their past and dealing with grief in different ways.",
+      "genre": "Drama, Comedy",
+      "main_actors": [
+        "Glenn Close",
+        "Tom Berenger",
+        "Jeff Goldblum"
+      ],
+      "director": "Lawrence Kasdan"
+    },
+    {
+      "title": "Collateral Beauty",
+      "summary": "A man grieving the death of his young daughter writes letters to Love, Time, and Death, and receives surprising responses.",
+      "genre": "Drama",
+      "main_actors": [
+        "Will Smith",
+        "Edward Norton",
+        "Keira Knightley"
+      ],
+      "director": "David Frankel"
+    },
+    {
+      "title": "The Shack",
+      "summary": "A grieving father receives a mysterious invitation to meet with God and work through his loss and grief.",
+      "genre": "Drama, Fantasy",
+      "main_actors": [
+        "Sam Worthington",
+        "Octavia Spencer",
+        "Tim McGraw"
+      ],
+      "director": "Stuart Hazeldine"
+    },
+    {
+      "title": "50/50",
+      "summary": "A young man is diagnosed with cancer, and his struggle with the illness brings him closer to his friends, family, and his own emotions.",
+      "genre": "Comedy, Drama",
+      "main_actors": [
+        "Joseph Gordon Levitt",
+        "Seth Rogen",
+        "Anna Kendrick"
+      ],
+      "director": "Jonathan Levine"
+    },
+    {
+      "title": "The Ice Storm",
+      "summary": "A dysfunctional family grapples with secrets, loss, and the changes that come with adolescence during a chaotic Thanksgiving weekend.",
+      "genre": "Drama",
+      "main_actors": [
+        "Kevin Kline",
+        "Sigourney Weaver",
+        "Tobey Maguire"
+      ],
+      "director": "Ang Lee"
+    },
+    {
+      "title": "American Beauty",
+      "summary": "A mans midlife crisis leads him to reflect on his relationships, grief, and his own life as it unravels.",
+      "genre": "Drama",
+      "main_actors": [
+        "Kevin Spacey",
+        "Annette Bening",
+        "Thora Birch"
+      ],
+      "director": "Sam Mendes"
+    },
+    {
+      "title": "Coco",
+      "summary": "A young boy embarks on a journey to the Land of the Dead to learn about his familys past and their connection to the world of the living.",
+      "genre": "Animation, Adventure, Family",
+      "main_actors": [
+        "Anthony Gonzalez",
+        "Gael Garcia Bernal"
+      ],
+      "director": "Lee Unkrich, Adrian Molina"
+    },
+    {
+      "title": "The Lovely Bones",
+      "summary": "A young girl watches from the afterlife as her family deals with her tragic death, and her murderer remains at large.",
+      "genre": "Drama, Fantasy",
+      "main_actors": [
+        "Saoirse Ronan",
+        "Mark Wahlberg",
+        "Rachel Weisz"
+      ],
+      "director": "Peter Jackson"
+    },
+    {
+      "title": "The Road",
+      "summary": "A father and son travel through a post apocalyptic world, struggling to survive and deal with the grief of the worlds collapse.",
+      "genre": "Drama, Sci Fi",
+      "main_actors": [
+        "Viggo Mortensen",
+        "Kodi Smit McPhee"
+      ],
+      "director": "John Hillcoat"
+    },
+    {
+      "title": "Boys Don't Cry",
+      "summary": "Based on a true story, a transgender man faces violence and grief after his true identity is revealed.",
+      "genre": "Drama, Biography",
+      "main_actors": [
+        "Hilary Swank",
+        "Chloe Sevigny"
+      ],
+      "director": "Kimberly Peirce"
+    },
+    {
+      "title": "Griefwalker",
+      "summary": "A documentary about Stephen Jenkinson, who works with terminally ill people and discusses death, grief, and the process of accepting mortality.",
+      "genre": "Documentary",
+      "main_actors": [
+        "Stephen Jenkinson"
+      ],
+      "director": "Tim Wilson"
+    },
+    {
+      "title": "The English Patient",
+      "summary": "During World War II, a burned and dying patient in an Italian hospital recounts his tragic love affair, and his caregivers deal with their own grief.",
+      "genre": "Biography, Drama, Romance",
+      "main_actors": [
+        "Ralph Fiennes",
+        "Juliette Binoche",
+        "Willem Dafoe"
+      ],
+      "director": "Anthony Minghella"
+    },
+    {
+      "title": "Griefwalker",
+      "summary": "A documentary exploring how one man helps others deal with their grief, loss, and death, including his own reflections on mortality.",
+      "genre": "Documentary",
+      "main_actors": [
+        "Stephen Jenkinson"
+      ],
+      "director": "Tim Wilson"
+    },
+    {
+      "title": "The Five People You Meet in Heaven",
+      "summary": "After dying in a tragic accident, a man meets five people who helped him during his life, helping him understand the impact of his life.",
+      "genre": "Drama, Fantasy",
+      "main_actors": [
+        "Jon Voight",
+        "Ellen Burstyn",
+        "Jeff Daniels"
+      ],
+      "director": "Lloyd Kramer"
+    },
+    {
+      "title": "Death of a Salesman",
+      "summary": "A struggling salesman faces personal and professional struggles, while trying to hold his family together in the face of his failures.",
+      "genre": "Drama",
+      "main_actors": [
+        "Dustin Hoffman",
+        "John Malkovich",
+        "Kate Reid"
+      ],
+      "director": "Volker Schlondorff"
+    },
+    {
+      "title": "The Sky is Pink",
+      "summary": "A family navigates grief and the challenges of a terminally ill daughter, while celebrating her life.",
+      "genre": "Drama, Biographical",
+      "main_actors": [
+        "Priyanka Chopra",
+        "Farhan Akhtar"
+      ],
+      "director": "Shonali Nagrani"
+    },
+    {
+      "title": "In the Bedroom",
+      "summary": "After a tragic death, a couple struggles with their grief and their strained relationship.",
+      "genre": "Drama",
+      "main_actors": [
+        "Sissy Spacek",
+        "Tom Wilkinson",
+        "Nick Stahl"
+      ],
+      "director": "Todd Field"
+    },
+    {
+      "title": "The Secret Life of Bees",
+      "summary": "After the death of her mother, a young girl embarks on a journey to understand her past, aided by a group of compassionate women.",
+      "genre": "Drama",
+      "main_actors": [
+        "Dakota Fanning",
+        "Queen Latifah",
+        "Jennifer Hudson"
+      ],
+      "director": "Gina Prince Bythewood"
+    },
+    {
+      "title": "Blue Valentine",
+      "summary": "A young married couples relationship is examined, including the grief and pain of their disintegrating marriage.",
+      "genre": "Drama, Romance",
+      "main_actors": [
+        "Ryan Gosling",
+        "Michelle Williams"
+      ],
+      "director": "Derek Cianfrance"
+    },
+    {
+      "title": "The Bridge",
+      "summary": "A documentary that explores the lives of individuals who have died by suicide from the Golden Gate Bridge, focusing on their stories.",
+      "genre": "Documentary",
+      "main_actors": [
+        "Ryan Gosling"
+      ],
+      "director": "Eric Steel"
+    },
+    {
+      "title": "The Killing of a Sacred Deer",
+      "summary": "A mans family is cursed after he befriends a troubled teenager, who demands a terrible price for the familys survival.",
+      "genre": "Drama, Thriller",
+      "main_actors": [
+        "Colin Farrell",
+        "Nicole Kidman",
+        "Barry Keoghan"
+      ],
+      "director": "Yorgos Lanthimos"
+    },
+    {
+      "title": "Wild",
+      "summary": "A woman embarks on a solo hike across the Pacific Crest Trail to recover from the loss of her mother and her broken life.",
+      "genre": "Adventure, Drama",
+      "main_actors": [
+        "Reese Witherspoon",
+        "Laura Dern"
+      ],
+      "director": "Jean Marc Vallee"
+    },
+    {
+      "title": "After Life",
+      "summary": "People who have died must relive one moment of their life before they move on to the afterlife.",
+      "genre": "Drama, Fantasy",
+      "main_actors": [
+        "Ryiko Hirosue",
+        "Tetsuya Bessho",
+        "Hideaki Anno"
+      ],
+      "director": "Hirokazu Kore eda"
+    },
+    {
+      "title": "The Sea Inside",
+      "summary": "Based on a true story, a paralyzed man struggles with the decision of whether or not to end his life.",
+      "genre": "Drama",
+      "main_actors": [
+        "Javier Bardem",
+        "Belen Rueda"
+      ],
+      "director": "Alejandro Amenabar"
+    },
+    {
+      "title": "Still Alice",
+      "summary": "A renowned linguistics professor is diagnosed with early onset Alzheimers disease, forcing her to face the eventual loss of her memories and identity.",
+      "genre": "Drama",
+      "main_actors": [
+        "Julianne Moore",
+        "Alec Baldwin",
+        "Kristen Stewart"
+      ],
+      "director": "Richard Glatzer, Wash Westmoreland"
+    },
+    {
+      "title": "The Big Chill",
+      "summary": "A group of friends reunites for the funeral of one of their own, reflecting on their past and dealing with grief in different ways.",
+      "genre": "Drama, Comedy",
+      "main_actors": [
+        "Glenn Close",
+        "Tom Berenger",
+        "Jeff Goldblum"
+      ],
+      "director": "Lawrence Kasdan"
+    },
+    {
+      "title": "Collateral Beauty",
+      "summary": "A man grieving the death of his young daughter writes letters to Love, Time, and Death, and receives surprising responses.",
+      "genre": "Drama",
+      "main_actors": [
+        "Will Smith",
+        "Edward Norton",
+        "Keira Knightley"
+      ],
+      "director": "David Frankel"
+    },
+    {
+      "title": "The Shack",
+      "summary": "A grieving father receives a mysterious invitation to meet with God and work through his loss and grief.",
+      "genre": "Drama, Fantasy",
+      "main_actors": [
+        "Sam Worthington",
+        "Octavia Spencer",
+        "Tim McGraw"
+      ],
+      "director": "Stuart Hazeldine"
+    },
+    {
+      "title": "50/50",
+      "summary": "A young man is diagnosed with cancer, and his struggle with the illness brings him closer to his friends, family, and his own emotions.",
+      "genre": "Comedy, Drama",
+      "main_actors": [
+        "Joseph Gordon Levitt",
+        "Seth Rogen",
+        "Anna Kendrick"
+      ],
+      "director": "Jonathan Levine"
+    },
+    {
+      "title": "The Ice Storm",
+      "summary": "A dysfunctional family grapples with secrets, loss, and the changes that come with adolescence during a chaotic Thanksgiving weekend.",
+      "genre": "Drama",
+      "main_actors": [
+        "Kevin Kline",
+        "Sigourney Weaver",
+        "Tobey Maguire"
+      ],
+      "director": "Ang Lee"
+    },
+    {
+      "title": "American Beauty",
+      "summary": "A mans midlife crisis leads him to reflect on his relationships, grief, and his own life as it unravels.",
+      "genre": "Drama",
+      "main_actors": [
+        "Kevin Spacey",
+        "Annette Bening",
+        "Thora Birch"
+      ],
+      "director": "Sam Mendes"
+    },
+    {
+      "title": "Coco",
+      "summary": "A young boy embarks on a journey to the Land of the Dead to learn about his familys past and their connection to the world of the living.",
+      "genre": "Animation, Adventure, Family",
+      "main_actors": [
+        "Anthony Gonzalez",
+        "Gael Garcia Bernal"
+      ],
+      "director": "Lee Unkrich, Adrian Molina"
+    },
+    {
+      "title": "The Lovely Bones",
+      "summary": "A young girl watches from the afterlife as her family deals with her tragic death, and her murderer remains at large.",
+      "genre": "Drama, Fantasy",
+      "main_actors": [
+        "Saoirse Ronan",
+        "Mark Wahlberg",
+        "Rachel Weisz"
+      ],
+      "director": "Peter Jackson"
+    },
+    {
+      "title": "The Road",
+      "summary": "A father and son travel through a post apocalyptic world, struggling to survive and deal with the grief of the worlds collapse.",
+      "genre": "Drama, Sci Fi",
+      "main_actors": [
+        "Viggo Mortensen",
+        "Kodi Smit McPhee"
+      ],
+      "director": "John Hillcoat"
+    },
+    {
+      "title": "Boys Don't Cry",
+      "summary": "Based on a true story, a transgender man faces violence and grief after his true identity is revealed.",
+      "genre": "Drama, Biography",
+      "main_actors": [
+        "Hilary Swank",
+        "Chloe Sevigny"
+      ],
+      "director": "Kimberly Peirce"
+    },
+    {
+      "title": "Griefwalker",
+      "summary": "A documentary about Stephen Jenkinson, who works with terminally ill people and discusses death, grief, and the process of accepting mortality.",
+      "genre": "Documentary",
+      "main_actors": [
+        "Stephen Jenkinson"
+      ],
+      "director": "Tim Wilson"
+    },
+    {
+      "title": "The English Patient",
+      "summary": "During World War II, a burned and dying patient in an Italian hospital recounts his tragic love affair, and his caregivers deal with their own grief.",
+      "genre": "Biography, Drama, Romance",
+      "main_actors": [
+        "Ralph Fiennes",
+        "Juliette Binoche",
+        "Willem Dafoe"
+      ],
+      "director": "Anthony Minghella"
+    }
+  ]
+}

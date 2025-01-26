@@ -26,4 +26,6 @@ object Constants {
 
     const val AGAIN = "again"
     const val COMMENT_LIST = "comment_list"
+    const val MEDIA_URL = "MEDIA_URL"
+    const val FILE_TYPE = "file_type"
 }

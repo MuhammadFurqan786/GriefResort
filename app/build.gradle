@@ -55,6 +55,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:23.1.0'
     implementation 'com.google.firebase:firebase-firestore:25.1.1'
     implementation 'com.google.firebase:firebase-messaging:24.1.0'
+    implementation 'androidx.activity:activity:1.9.3'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
@@ -78,7 +79,16 @@ dependencies {
     // Worker
     //noinspection GradleDependency
     implementation "androidx.work:work-runtime-ktx:2.9.0"
-    
 
 
+    // Firebase Storage
+    implementation 'com.google.firebase:firebase-storage:21.0.1'
+
+    // Exoplayer
+    //noinspection GradleDependency
+    implementation 'androidx.media3:media3-exoplayer:1.2.1'
+    //noinspection GradleDependency
+    implementation 'androidx.media3:media3-exoplayer-dash:1.2.1'
+    //noinspection GradleDependency
+    implementation 'androidx.media3:media3-ui:1.2.1'
 }

@@ -3,7 +3,6 @@ package com.sokoldev.griefresort.ui.fragments.mydiary
 import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.content.Intent
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -49,6 +48,7 @@ class MyDiaryFragment : Fragment(), DiaryAdapter.OnDiaryItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         val toolbarText = (requireActivity() as HomeActivity).binding.toolbarText
         toolbarText.text = getString(R.string.my_diary)
         helper = PreferenceHelper.getPref(requireContext())
@@ -76,7 +76,6 @@ class MyDiaryFragment : Fragment(), DiaryAdapter.OnDiaryItemClickListener {
             arrayList = ArrayList()
             arrayList = it as ArrayList<GroupHug>
             val adapter = DiaryAdapter(this)
-            adapter.setList(it)
             adapter.setList(it)
             binding.rvMyDiary.adapter = adapter
         }
@@ -119,5 +118,6 @@ class MyDiaryFragment : Fragment(), DiaryAdapter.OnDiaryItemClickListener {
     companion object {
         lateinit var binding: FragmentMyDiaryBinding
     }
+
 
 }

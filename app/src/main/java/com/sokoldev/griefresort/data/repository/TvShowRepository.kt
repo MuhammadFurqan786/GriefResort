@@ -7,15 +7,16 @@ import com.google.gson.GsonBuilder
 import com.sokoldev.griefresort.data.models.BookResponse
 import com.sokoldev.griefresort.data.models.Podcast
 import com.sokoldev.griefresort.data.models.Song
+import com.sokoldev.griefresort.data.models.TVShow
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.io.Reader
 
 
-class PodCastRepository(val context: Context) {
+class TvShowRepository(val context: Context) {
 
-    fun getPodcastsFromAssets(): List<Podcast> {
-        val json = readJsonFromAssets("song.json")
+    fun getShowsFromAssets(): List<TVShow> {
+        val json = readJsonFromAssets("tvshow.json")
         Log.d("Raw JSON", json ?: "Error reading JSON")
 
         val gson = GsonBuilder()
@@ -23,7 +24,7 @@ class PodCastRepository(val context: Context) {
             .create()
 
         // Change this to deserialize into a list of Song objects
-        return gson.fromJson(json, Array<Podcast>::class.java).toList()
+        return gson.fromJson(json, Array<TVShow>::class.java).toList()
     }
 
 
