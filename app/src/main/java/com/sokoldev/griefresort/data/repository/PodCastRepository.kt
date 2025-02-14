@@ -15,14 +15,14 @@ import java.io.Reader
 class PodCastRepository(val context: Context) {
 
     fun getPodcastsFromAssets(): List<Podcast> {
-        val json = readJsonFromAssets("song.json")
+        val json = readJsonFromAssets("podcast.json")
         Log.d("Raw JSON", json ?: "Error reading JSON")
 
         val gson = GsonBuilder()
             .setLenient()
             .create()
 
-        // Change this to deserialize into a list of Song objects
+        // Change this to deserialize into a list of podcast  objects
         return gson.fromJson(json, Array<Podcast>::class.java).toList()
     }
 
@@ -40,7 +40,7 @@ class PodCastRepository(val context: Context) {
             reader.close()
         } catch (e: Exception) {
             e.printStackTrace()
-            Log.e("BOOK REPOSITORY", "Error reading JSON from assets", e)
+            Log.e("Podcast REPOSITORY", "Error reading JSON from assets", e)
         }
         return json
     }

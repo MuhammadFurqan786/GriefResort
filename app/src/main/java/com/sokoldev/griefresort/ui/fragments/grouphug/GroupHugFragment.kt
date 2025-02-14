@@ -2,15 +2,18 @@ package com.sokoldev.griefresort.ui.fragments.grouphug
 
 import android.annotation.SuppressLint
 import android.content.DialogInterface
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.PopupMenu
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -80,11 +83,27 @@ class GroupHugFragment : Fragment(), GroupHugAdapter.OnGroupHugItemsClickListene
         })
     }
 
-    override fun onGroupHugClick(id: String, totalHugs: Int?, like: AppCompatTextView?) {
+    override fun onGroupHugClick(
+        id: String,
+        totalHugs: Int?,
+        like: AppCompatTextView?,
+        textSendHug: AppCompatTextView?,
+        imgHug: AppCompatImageView?,
+        groupHug: LinearLayout
+    ) {
 
         val hugs = totalHugs?.plus(1)
         like?.text = hugs.toString()
         viewModel.addHug(id)
+        textSendHug?.setTextColor(Color.WHITE)
+        like?.setTextColor(Color.WHITE)
+        groupHug.background =
+            ContextCompat.getDrawable(requireContext(), R.drawable.bg_title_selected)
+        imgHug?.setColorFilter(
+            ContextCompat.getColor(requireContext(), R.color.white),
+            android.graphics.PorterDuff.Mode.MULTIPLY
+        );
+
     }
 
 
@@ -93,7 +112,10 @@ class GroupHugFragment : Fragment(), GroupHugAdapter.OnGroupHugItemsClickListene
         id: String,
         commentText: AppCompatTextView?,
         ed_support: AppCompatEditText?,
-        totalComments: String
+        totalComments: String,
+        textSupport: AppCompatTextView?,
+        imgSupport: AppCompatImageView?,
+        sendSupport: LinearLayout?
     ) {
         var totalComment = totalComments.toInt()
         totalComment += 1
@@ -102,6 +124,7 @@ class GroupHugFragment : Fragment(), GroupHugAdapter.OnGroupHugItemsClickListene
         if (userComment.isNotEmpty()) {
             val comment1 = Comment(
                 null,
+                id,
                 helper.getCurrentUser()?.userId,
                 helper.getCurrentUser()?.userName,
                 userComment,
@@ -109,6 +132,16 @@ class GroupHugFragment : Fragment(), GroupHugAdapter.OnGroupHugItemsClickListene
             )
             viewModel.addComment(id, comment1)
             ed_support?.setText("")
+
+            textSupport?.setTextColor(Color.WHITE)
+            commentText?.setTextColor(Color.WHITE)
+            sendSupport?.background =
+                ContextCompat.getDrawable(requireContext(), R.drawable.bg_title_selected)
+            imgSupport?.setColorFilter(
+                ContextCompat.getColor(requireContext(), R.color.white),
+                android.graphics.PorterDuff.Mode.MULTIPLY
+            );
+
 
         }
     }

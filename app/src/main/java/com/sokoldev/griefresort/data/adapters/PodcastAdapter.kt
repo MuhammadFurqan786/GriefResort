@@ -40,10 +40,10 @@ class PodcastAdapter(val context: Context, private val movies: List<Podcast>) :
             imageView.setImageResource(R.drawable.ic_podcast)
             titleTextView.text = movie.title
             summaryTextView.text = movie.summary
-            genreTextView.text = context.getString(R.string.genre, movie.genre.joinToString(", "))
+            genreTextView.text = context.getString(R.string.genre, movie.genre.joinToString(","))
             actorsTextView.text = context.getString(R.string.host, movie.host)
             directorTextView.text =
-                context.getString(R.string.where_to_listen, movie.whereToListen.joinToString(","))
+                context.getString(R.string.where_to_listen, movie.where_to_listen.joinToString(","))
         }
     }
 }

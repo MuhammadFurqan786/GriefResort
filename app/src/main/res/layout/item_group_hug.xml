@@ -69,6 +69,7 @@
                 android:gravity="center">
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textSendHug"
                     android:layout_width="wrap_content"
                     android:fontFamily="@font/poppins_medium"
                     android:layout_height="wrap_content"
@@ -79,6 +80,7 @@
                     android:textColor="@color/colorPrimary" />
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgHug"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
@@ -111,6 +113,7 @@
                 android:gravity="center">
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textSupport"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -121,7 +124,7 @@
                     android:textColor="@color/colorPrimary" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/lockImage"
+                    android:id="@+id/imgSupport"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"

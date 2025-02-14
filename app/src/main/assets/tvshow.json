@@ -1480,5 +1480,285 @@
     "where_to_watch": [
       "Netflix"
     ]
+  },
+  {
+    "title": "The Haunting of Hill House",
+    "summary": "A family confronts their traumatic past and grief, stemming from their time spent at a haunted house.",
+    "genre": [
+      "Horror",
+      "Drama"
+    ],
+    "main_actors": [
+      "Michiel Huisman",
+      "Carla Gugino",
+      "Elizabeth Reaser"
+    ],
+    "director": "Mike Flanagan",
+    "where_to_watch": [
+      "Netflix"
+    ]
+  },
+  {
+    "title": "Inside No 9",
+    "summary": "A dark anthology series where each episode involves different characters experiencing grief, loss, and psychological twists.",
+    "genre": [
+      "Anthology",
+      "Thriller",
+      "Drama"
+    ],
+    "main_actors": [
+      "Reece Shearsmith",
+      "Steve Pemberton"
+    ],
+    "director": "Reece Shearsmith, Steve Pemberton",
+    "where_to_watch": [
+      "Amazon Prime Video"
+    ]
+  },
+  {
+    "title": "Married",
+    "summary": "A married couple grapples with the ups and downs of their relationship, including the grief of not fulfilling their expectations.",
+    "genre": [
+      "Comedy",
+      "Drama"
+    ],
+    "main_actors": [
+      "Judy Greer",
+      "Nat Faxon"
+    ],
+    "director": "Andrew Gurland",
+    "where_to_watch": [
+      "Hulu"
+    ]
+  },
+  {
+    "title": "In Treatment",
+    "summary": "A psychotherapist navigates his own grief and personal challenges while counseling others dealing with their trauma.",
+    "genre": [
+      "Drama"
+    ],
+    "main_actors": [
+      "Gabriel Byrne",
+      "Dianne Wiest"
+    ],
+    "director": "Rodrigo Garcia",
+    "where_to_watch": [
+      "HBO Max",
+      "Amazon Prime Video"
+    ]
+  },
+  {
+    "title": "The Night Manager",
+    "summary": "A former soldier turned hotel manager is caught in a complex web of grief, espionage, and revenge.",
+    "genre": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "main_actors": [
+      "Tom Hiddleston",
+      "Hugh Laurie",
+      "Olivia Colman"
+    ],
+    "director": "Susanne Bier",
+    "where_to_watch": [
+      "Amazon Prime Video"
+    ]
+  },
+  {
+    "title": "The Fall",
+    "summary": "A detective investigates a series of murders in Northern Ireland while grappling with personal grief and obsession.",
+    "genre": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "main_actors": [
+      "Gillian Anderson",
+      "Jamie Dornan"
+    ],
+    "director": "Allan Cubitt",
+    "where_to_watch": [
+      "Netflix"
+    ]
+  },
+  {
+    "title": "Big Sky",
+    "summary": "A private detective investigates the disappearance of two sisters, confronting grief and the complicated emotions of the case.",
+    "genre": [
+      "Crime",
+      "Drama",
+      "Mystery"
+    ],
+    "main_actors": [
+      "Katheryn Winnick",
+      "Ryan Phillippe",
+      "Kylie Bunbury"
+    ],
+    "director": "David E Kelley",
+    "where_to_watch": [
+      "Hulu",
+      "ABC"
+    ]
+  },
+  {
+    "title": "Chernobyl",
+    "summary": "A dramatized account of the 1986 Chernobyl nuclear disaster and the profound grief and loss experienced by survivors and those affected.",
+    "genre": [
+      "Drama",
+      "History"
+    ],
+    "main_actors": [
+      "Jared Harris",
+      "Stellan Skarsgard",
+      "Emily Watson"
+    ],
+    "director": "Johan Renck",
+    "where_to_watch": [
+      "HBO Max",
+      "Amazon Prime Video"
+    ]
+  },
+  {
+    "title": "The Boys",
+    "summary": "A group of vigilantes seeks to take down corrupt superheroes, exploring themes of grief, loss, and corruption.",
+    "genre": [
+      "Action",
+      "Comedy",
+      "Drama"
+    ],
+    "main_actors": [
+      "Karl Urban",
+      "Jack Quaid",
+      "Antony Starr"
+    ],
+    "director": "Eric Kripke",
+    "where_to_watch": [
+      "Amazon Prime Video"
+    ]
+  },
+  {
+    "title": "Brooklyn Nine Nine",
+    "summary": "A police procedural comedy that occasionally touches on grief and loss through the characters' personal lives.",
+    "genre": [
+      "Comedy",
+      "Crime"
+    ],
+    "main_actors": [
+      "Andy Samberg",
+      "Stephanie Beatriz",
+      "Terry Crews"
+    ],
+    "director": "Michael Schur, Dan Goor",
+    "where_to_watch": [
+      "Hulu",
+      "Peacock"
+    ]
+  },
+  {
+    "title": "Killing Eve",
+    "summary": "A highly skilled assassin and a determined MI5 agent become obsessed with each other, both grappling with their own grief and emotional baggage.",
+    "genre": [
+      "Action",
+      "Drama",
+      "Thriller"
+    ],
+    "main_actors": [
+      "Sandra Oh",
+      "Jodie Comer"
+    ],
+    "director": "Phoebe Waller Bridge",
+    "where_to_watch": [
+      "Hulu",
+      "BBC iPlayer"
+    ]
+  },
+  {
+    "title": "Lovecraft Country",
+    "summary": "A young man searches for his missing father while dealing with grief, loss, and racism in 1950s America, blending horror and historical drama.",
+    "genre": [
+      "Drama",
+      "Fantasy",
+      "Horror"
+    ],
+    "main_actors": [
+      "Jonathan Majors",
+      "Jurnee Smollett"
+    ],
+    "director": "Misha Green",
+    "where_to_watch": [
+      "HBO Max"
+    ]
+  },
+  {
+    "title": "The Bridge",
+    "summary": "A Swedish and Danish police detective team up to investigate crimes along the Oresund Bridge, each coping with grief from their personal lives.",
+    "genre": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "main_actors": [
+      "Sofia Helin",
+      "Kim Bodnia"
+    ],
+    "director": "Hans Rosenfeldt",
+    "where_to_watch": [
+      "Amazon Prime Video"
+    ]
+  },
+  {
+    "title": "The Blacklist",
+    "summary": "A criminal mastermind surrenders to the FBI and offers to help catch high-profile criminals while dealing with grief from his past.",
+    "genre": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "main_actors": [
+      "James Spader",
+      "Megan Boone"
+    ],
+    "director": "Jon Bokenkamp",
+    "where_to_watch": [
+      "NBC",
+      "Hulu"
+    ]
+  },
+  {
+    "title": "Ted Lasso",
+    "summary": "An American football coach is hired to manage a British soccer team, while the characters struggle with grief and personal growth.",
+    "genre": [
+      "Comedy",
+      "Drama",
+      "Sports"
+    ],
+    "main_actors": [
+      "Jason Sudeikis",
+      "Hannah Waddingham",
+      "Brett Goldstein"
+    ],
+    "director": "Bill Lawrence",
+    "where_to_watch": [
+      "Apple TV+"
+    ]
+  },
+  {
+    "title": "Narcos",
+    "summary": "The series follows the rise and fall of the drug trade in Colombia and the loss and grief experienced by those involved in the conflict.",
+    "genre": [
+      "Crime",
+      "Drama",
+      "Biography"
+    ],
+    "main_actors": [
+      "Wagner Moura",
+      "Boyd Holbrook",
+      "Pedro Pascal"
+    ],
+    "director": "Andi Baiz, Jose Padilha",
+    "where_to_watch": [
+      "Netflix"
+    ]
   }
 ]

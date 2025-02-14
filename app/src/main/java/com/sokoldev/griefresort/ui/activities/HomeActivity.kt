@@ -18,6 +18,7 @@ class HomeActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityHomeBinding
     private lateinit var navController: NavController
+    private var isSettingOpen = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,52 +44,86 @@ class HomeActivity : AppCompatActivity() {
         if (intent.getStringExtra(Constants.TYPE) == "RENEW") {
             navigateToSettings(navView)
         }
+        navView.setOnItemSelectedListener { menuItem ->
+            if (isSettingOpen && menuItem.itemId != R.id.settingFragment) {
+                isSettingOpen = false
+            }
+            navController.navigate(menuItem.itemId)
+            true
+        }
+
 
         // Add a listener to sync the BottomNavigationView state
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.settingFragment) {
+                isSettingOpen = true
                 uncheckAllItems(navView.menu) // Uncheck all items for `settingFragment`
             } else {
+                isSettingOpen = false
                 updateBottomNavigationState(navView, destination.id)
             }
         }
     }
 
+//    private fun handleBackNavigation() {
+//        when (navController.currentDestination?.id) {
+//            R.id.settingFragment -> {
+//                isSettingOpen = false
+//                navController.navigateUp()
+//            }
+//
+//        }
+//    }
+
+
     private fun handleBackNavigation() {
         when (navController.currentDestination?.id) {
             R.id.settingFragment -> {
+                isSettingOpen = false
                 navController.navigateUp()
             }
             R.id.groupHug -> {
+                isSettingOpen = true
                 navigateToSettings(binding.navView)
+
             }
             R.id.memoryBox -> {
+                isSettingOpen = true
                 navigateToSettings(binding.navView)
             }
             R.id.library -> {
+                isSettingOpen = true
                 navigateToSettings(binding.navView)
+
             }
             R.id.remindMe -> {
+                isSettingOpen = true
                 navigateToSettings(binding.navView)
+
             }
             R.id.myDiary -> {
+                isSettingOpen = true
                 navigateToSettings(binding.navView)
-            }
+
+            }else -> {
+            isSettingOpen = false
+            navController.navigateUp()
+        }
+
         }
     }
 
     private fun navigateToSettings(navView: BottomNavigationView) {
         uncheckAllItems(navView.menu) // Uncheck all items
         navController.navigate(R.id.settingFragment) // Navigate to Settings
+        isSettingOpen = true
     }
-
     private fun updateBottomNavigationState(navView: BottomNavigationView, destinationId: Int) {
         // Update the selected state of the menu item corresponding to the destination
         val menuItem = navView.menu.findItem(destinationId)
-        if (menuItem != null) {
-            menuItem.isChecked = true
-        }
+        menuItem?.isChecked = true
     }
+
 
     private fun uncheckAllItems(menu: Menu) {
         menu.setGroupCheckable(0, true, false)

@@ -33,6 +33,7 @@ class MemoryBoxAdapter(
     class DataObjectHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
 
         var image: AppCompatImageView? = itemView?.findViewById(R.id.image)
+        var memoryTyp: AppCompatImageView? = itemView?.findViewById(R.id.memoryType)
         var menu: AppCompatImageView? = itemView?.findViewById(R.id.menu)
 
 
@@ -60,6 +61,9 @@ class MemoryBoxAdapter(
                         .load(memoryBox.fileUrl)
                         .into(it)
                 }
+                holder.memoryTyp?.setImageResource(R.drawable.ic_image)
+                holder.memoryTyp?.visibility = View.VISIBLE
+
             }
             "audio" -> {
                 // Load the default audio thumbnail
@@ -77,6 +81,8 @@ class MemoryBoxAdapter(
                         .thumbnail(0.1f) // Get a preview thumbnail from the video
                         .into(it)
                 }
+                holder.memoryTyp?.setImageResource(R.drawable.ic_video)
+                holder.memoryTyp?.visibility = View.VISIBLE
             }
         }
 

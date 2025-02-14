@@ -1,5 +1,6 @@
 package com.sokoldev.griefresort.ui.fragments.register
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
@@ -124,12 +125,30 @@ class RegisterFragment : Fragment() {
         viewModel.isUserCreated.observe(viewLifecycleOwner) {
             if (it) {
                 binding.loadingView.visibility = View.GONE
-                startActivity(Intent(context, HomeActivity::class.java))
-                activity?.finish()
+                showDialog()
+
             } else {
                 binding.loadingView.visibility = View.GONE
             }
         }
+    }
+
+    private fun showDialog() {
+        val alertDialog: android.app.AlertDialog? = android.app.AlertDialog.Builder(context)
+            .setTitle("Grief Resort would like to send you Notifications.")
+            .setMessage("Notifications may include alerts, sounds and icon badges.") //set positive button
+            .setPositiveButton("Allow",
+                DialogInterface.OnClickListener { dialogInterface, i -> //set what would happen when positive button is clicked
+                    dialogInterface.dismiss()
+                    startActivity(Intent(context, HomeActivity::class.java))
+                    activity?.finish()
+
+                }).setNegativeButton(
+                "Don't Allow",
+                DialogInterface.OnClickListener { dialogInterface, i ->
+                    startActivity(Intent(context, HomeActivity::class.java))
+                    activity?.finish()
+                }).show()
     }
 
 }

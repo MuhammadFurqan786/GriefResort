@@ -6,6 +6,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Comment(
     var commentId: String? = null,
+    var id: String? = null,
     var userId: String? = null,
     var userName: String? = null,
     var comment: String? = null,

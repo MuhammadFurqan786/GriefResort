@@ -18,6 +18,9 @@ class GroupHugViewModel : ViewModel() {
     private val _groupHug = MutableLiveData<GroupHug>()
     val groupHug: LiveData<GroupHug> get() = _groupHug
 
+    private val _comments = MutableLiveData<List<Comment>?>()
+    val comments: LiveData<List<Comment>?> get() = _comments
+
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
 
@@ -97,12 +100,46 @@ class GroupHugViewModel : ViewModel() {
         }.addOnSuccessListener {
             getAllGroupHugs() // Refresh group hugs after adding a comment
             Log.d("Firestore", "Comment added successfully.")
-            _success.postValue("Firestore: Comment added successfully.")
+            _success.postValue(" Comment added successfully.")
         }.addOnFailureListener { exception ->
-            _error.postValue("Firestore: Error adding comment: ${exception.message}")
+            _error.postValue("Error adding comment: ${exception.message}")
         }
     }
 
+    fun removeComment(groupHugId: String, commentId: String) {
+        val groupHugRef = db.collection("groupHugs").document(groupHugId)
+
+        db.runTransaction { transaction ->
+            val snapshot = transaction.get(groupHugRef)
+            val currentGroupHug = snapshot.toObject(GroupHug::class.java)
+
+            // Ensure the GroupHug object exists
+            currentGroupHug?.let {
+                // Filter out the comment with the given commentId
+                val updatedComments =
+                    it.comments?.filter { comment -> comment.commentId != commentId }
+
+                // Update the GroupHug object
+                it.comments = updatedComments as ArrayList<Comment>?
+                it.totalComments = updatedComments?.size ?: 0
+                if (updatedComments != null) {
+                    if (updatedComments.isNotEmpty()){
+                        _comments.postValue(updatedComments)
+                    }
+
+                }
+            }
+
+            // Update Firestore with the modified GroupHug object
+            transaction.set(groupHugRef, currentGroupHug ?: GroupHug())
+        }.addOnSuccessListener {
+            getAllGroupHugs() // Refresh group hugs after removing the comment
+            Log.d("Firestore", "Comment removed successfully.")
+            _success.postValue(" Comment removed successfully.")
+        }.addOnFailureListener { exception ->
+            _error.postValue(" Error removing comment: ${exception.message}")
+        }
+    }
 
 
 

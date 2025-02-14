@@ -38,14 +38,20 @@ class GroupHugAdapter(
         fun onGroupHugClick(
             id: String,
             totalHugs: Int?,
-            like: AppCompatTextView?
+            like: AppCompatTextView?,
+            textSendHug: AppCompatTextView?,
+            imgHug: AppCompatImageView?,
+            groupHug: LinearLayout
         )
 
         fun onSupportClick(
-           id:String,
-           commentText: AppCompatTextView?,
+            id: String,
+            commentText: AppCompatTextView?,
             ed_support: AppCompatEditText?,
-            totalComments: String
+            totalComments: String,
+            textSupport: AppCompatTextView?,
+            imgSupport: AppCompatImageView?,
+            sendSupport: LinearLayout?
         )
 
         fun onMenuImageClick(
@@ -61,11 +67,15 @@ class GroupHugAdapter(
         var support: LinearLayout? = itemView?.findViewById(R.id.support)
         var desc: ReadMoreTextView? = itemView?.findViewById(R.id.desc)
         var userName: AppCompatTextView? = itemView?.findViewById(R.id.userName)
+        var textSendHug: AppCompatTextView? = itemView?.findViewById(R.id.textSendHug)
+        var textSupport: AppCompatTextView? = itemView?.findViewById(R.id.textSupport)
         var ed_support: AppCompatEditText? = itemView?.findViewById(R.id.ed_support)
         var like: AppCompatTextView? = itemView?.findViewById(R.id.like)
         var comment: AppCompatTextView? = itemView?.findViewById(R.id.comment)
         var menuImage: AppCompatImageView? = itemView?.findViewById(R.id.menu)
         var sendSupport: AppCompatImageView? = itemView?.findViewById(R.id.sendSupport)
+        var imgHug: AppCompatImageView? = itemView?.findViewById(R.id.imgHug)
+        var imgSupport: AppCompatImageView? = itemView?.findViewById(R.id.imgSupport)
 
 
     }
@@ -104,7 +114,10 @@ class GroupHugAdapter(
                 clickListener.onGroupHugClick(
                     it,
                     groupHug.totalHugs,
-                    holder.like
+                    holder.like,
+                    holder.textSendHug,
+                    holder.imgHug,
+                    holder.groupHug!!
                 )
             }
         }
@@ -114,7 +127,10 @@ class GroupHugAdapter(
                     it,
                     holder.comment,
                     holder.ed_support,
-                    arraylist[position].totalComments.toString()
+                    arraylist[position].totalComments.toString(),
+                    holder.textSupport,
+                    holder.imgSupport,
+                    holder.support
                 )
             }
         }
