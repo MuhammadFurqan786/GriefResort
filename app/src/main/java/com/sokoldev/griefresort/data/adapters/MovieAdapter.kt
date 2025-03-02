@@ -39,7 +39,7 @@ class MovieAdapter(val context: Context,private val movies: List<Movie>) :
             summaryTextView.text = movie.summary
             genreTextView.text = context.getString(R.string.genre, movie.genre);
             actorsTextView.text = context.getString(R.string.actors, movie.main_actors.joinToString(", "))
-            directorTextView.text = context.getString(R.string.artist, movie.director)
+            directorTextView.text = context.getString(R.string.director, movie.director)
             watchTextView.text = context.getString(R.string.artist, movie.director)
         }
     }

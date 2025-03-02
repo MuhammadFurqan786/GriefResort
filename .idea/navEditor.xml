@@ -3,6 +3,28 @@
   <component name="navEditor-manualLayoutAlgorithm2">
     <option name="myPositions">
       <map>
+        <entry key="intro_nav_graph.xml">
+          <value>
+            <LayoutPositions>
+              <option name="myPositions">
+                <map>
+                  <entry key="onBoardingFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </LayoutPositions>
+          </value>
+        </entry>
         <entry key="mobile_navigation.xml">
           <value>
             <LayoutPositions>
@@ -65,27 +87,6 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="faqsFragment2">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="872" />
-                            <option name="y" value="816" />
-                          </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_faqsFragment2_to_contactUsFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                   <entry key="groupHug">
                     <value>
                       <LayoutPositions>
@@ -133,13 +134,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="227" />
-                            <option name="y" value="1080" />
+                            <option name="x" value="204" />
+                            <option name="y" value="1090" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_memoryBox_to_settingFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_memoryBox_to_singleMemoryFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -238,11 +244,6 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_settingFragment_to_faqsFragment2">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
                             <entry key="action_settingFragment_to_myAccountFragment">
                               <value>
                                 <LayoutPositions />
@@ -258,13 +259,25 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="singleMemoryFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="370" />
+                            <option name="y" value="1255" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="subscriptionFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="657" />
-                            <option name="y" value="638" />
+                            <option name="x" value="884" />
+                            <option name="y" value="314" />
                           </Point>
                         </option>
                       </LayoutPositions>

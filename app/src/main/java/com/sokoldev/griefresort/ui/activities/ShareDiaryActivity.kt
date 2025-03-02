@@ -24,6 +24,7 @@ class ShareDiaryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityShareDiaryBinding
     private val viewModel: GroupHugViewModel by viewModels()
     private lateinit var helper: PreferenceHelper
+    private var isShared: Boolean = false
 
     @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +36,12 @@ class ShareDiaryActivity : AppCompatActivity() {
         helper = PreferenceHelper.getPref(this)
 
         val intent = intent
+        isShared = intent.getBooleanExtra(Constants.IS_SHARED, false)
+        if (isShared) {
+            binding.buttonshare.text = "Share"
+        } else {
+            binding.buttonshare.text = "Save"
+        }
         val groupHug = intent.getParcelableExtra<GroupHug>(Constants.GROUP_HUG)
         if (groupHug != null) {
             binding.addStory.setText(groupHug.description)
@@ -82,7 +89,8 @@ class ShareDiaryActivity : AppCompatActivity() {
                     totalComments = 0,
                     comments = ArrayList<Comment>(),
                     userName = userName,
-                    date = date
+                    date = date,
+                    isShared = isShared
                 )
             viewModel.addGroupHug(groupHug)
         }

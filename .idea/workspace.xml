@@ -101,6 +101,11 @@
           <theme>@style/Theme.GriefResort</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_on_boarding.xml">
+        <config>
+          <theme>@style/Theme.GriefResort</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_register.xml">
         <config>
           <theme>@style/Theme.GriefResort</theme>
@@ -112,6 +117,11 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_setting.xml">
+        <config>
+          <theme>@style/Theme.GriefResort</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_single_memory.xml">
         <config>
           <theme>@style/Theme.GriefResort</theme>
         </config>
@@ -206,6 +216,11 @@
           <theme>@style/Theme.GriefResort</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/navigation/intro_nav_graph.xml">
+        <config>
+          <theme>@style/Theme.GriefResort</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/navigation/mobile_navigation.xml">
         <config>
           <theme>@style/Theme.GriefResort</theme>
@@ -218,8 +233,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6a766b9-d8aa-414c-bc6e-49c49671f6be" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_title_selected.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/memorybox/SingleMemoryFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_hug.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_hug_selected.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img_group_hug.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_single_memory.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -228,32 +247,61 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/navEditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/navEditor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/book.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/book.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/movie.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/movie.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/podcast.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/podcast.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/quote.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/quote.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/song.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/song.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/tvshow.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/tvshow.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/adapters/CommentAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/adapters/CommentAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/adapters/GroupHugAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/adapters/GroupHugAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/adapters/MemoryBoxAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/adapters/MemoryBoxAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/adapters/PodcastAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/adapters/PodcastAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/models/Comment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/models/Comment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/models/Podcast.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/models/Podcast.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/repository/PodCastRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/repository/PodCastRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/viewmodel/CommentViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/adapters/MovieAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/adapters/MovieAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/adapters/TvShowAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/adapters/TvShowAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/models/GroupHug.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/models/GroupHug.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/viewmodel/GroupHugViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/data/viewmodel/GroupHugViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/activities/AddReminderActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/activities/AddReminderActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/activities/CommentActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/activities/CommentActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/activities/HomeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/activities/HomeActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/activities/ShareDiaryActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/activities/ShareDiaryActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/grouphug/GroupHugFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/grouphug/GroupHugFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/register/RegisterFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/register/RegisterFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/information/FaqsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/information/FaqsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/memorybox/MemoryBoxFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/memorybox/MemoryBoxFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/mydiary/MyDiaryFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/mydiary/MyDiaryFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/onBoarding/OnBoardingFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/onBoarding/OnBoardingFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/remindme/RemindMeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/remindme/RemindMeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/settings/SettingFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/settings/SettingFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/utils/BounceLoadingView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/utils/BounceLoadingView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/utils/Constants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/utils/Constants.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_hug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_hug_selected.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/img_group_hug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_hug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_hug_selected.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/img_group_hug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_hug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_hug_selected.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/img_group_hug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_hug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_hug_selected.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/img_group_hug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_hug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_hug_selected.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/img_group_hug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_hug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_hug_selected.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/img_group_hug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_contact_us.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_contact_us.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_faqs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_faqs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_group_hug.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_group_hug.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_memory_box.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_memory_box.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_diary.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_diary.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_comment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_comment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_group_hug.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_group_hug.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_memory_box.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_memory_box.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_quotes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_quotes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/onboarding_design.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/onboarding_design.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/option_menu_diary.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/option_menu_diary.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/options_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/options_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/options_menu_comment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/options_menu_comment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/mobile_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/mobile_navigation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,7 +311,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=0826537258000927)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\Dell\.android\avd\Pixel_7_API_29.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -351,7 +399,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Android App.app.executor&quot;: &quot;Run&quot;,
-    &quot;DEBUGGABLE_DEVICE&quot;: &quot;infinix_x6817-0826537258000927&quot;,
+    &quot;DEBUGGABLE_DEVICE&quot;: &quot;Pixel_9_Pro_API_35 [emulator-5554]&quot;,
     &quot;DEBUGGABLE_PROCESS&quot;: &quot;com.sokoldev.griefresort&quot;,
     &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
     &quot;Gradle.Upgrade Gradle wrapper.executor&quot;: &quot;Run&quot;,
@@ -369,8 +417,8 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;F:/Running/GriefResort/app/src/main/res/drawable&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/Running/GriefResort/app/src/main/res/drawable&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Dell/Downloads/projects/GriefResort/app/src/main/res/drawable&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dell/Downloads/projects/GriefResort/app/src/main/res/drawable&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
@@ -400,11 +448,11 @@
       <recent name="com.sokoldev.griefresort.ui.activities" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dell\Downloads\projects\GriefResort\app\src\main\res\drawable" />
       <recent name="F:\Running\GriefResort\app\src\main\res\drawable" />
       <recent name="F:\Running\GriefResort\app\src\main\assets" />
       <recent name="C:\Users\Dell\Downloads\projects\GriefResort\app\src\main\res\layout" />
       <recent name="C:\Users\Dell\Downloads\projects\GriefResort\app\src\main\assets" />
-      <recent name="F:\Running\GriefResort\app" />
     </key>
     <key name="android.template.-574192620">
       <recent name="com.sokoldev.griefresort.ui.activities" />
@@ -562,6 +610,31 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/activities/SplashScreen.kt</url>
           <line>19</line>
           <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/activities/MediaPlayerActivity.kt</url>
+          <line>46</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/activities/MediaPlayerActivity.kt</url>
+          <line>47</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/activities/MediaPlayerActivity.kt</url>
+          <line>49</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/activities/MediaPlayerActivity.kt</url>
+          <line>50</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sokoldev/griefresort/ui/fragments/memorybox/SingleMemoryFragment.kt</url>
+          <line>259</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

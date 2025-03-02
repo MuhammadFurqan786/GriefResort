@@ -22,6 +22,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.data.adapters.GroupHugAdapter
 import com.sokoldev.griefresort.data.models.Comment
+import com.sokoldev.griefresort.data.models.GroupHug
 import com.sokoldev.griefresort.data.viewmodel.GroupHugViewModel
 import com.sokoldev.griefresort.databinding.FragmentGroupHugBinding
 import com.sokoldev.griefresort.preference.PreferenceHelper
@@ -66,11 +67,12 @@ class GroupHugFragment : Fragment(), GroupHugAdapter.OnGroupHugItemsClickListene
     }
 
     private fun initObserver() {
-        viewModel.groupHugs.observe(viewLifecycleOwner, Observer {
-            it.let {
+        viewModel.groupHugs.observe(viewLifecycleOwner, Observer { groupHugs ->
+            groupHugs?.let {
                 adapter = GroupHugAdapter(this)
                 binding.rvGroupHug.adapter = adapter
-                adapter.setList(it)
+                val sharedList = it.filter { item -> item.isShared == true } // Filter directly
+                adapter.setList(ArrayList(sharedList)) // Update list without recreating adapter
             }
         })
 

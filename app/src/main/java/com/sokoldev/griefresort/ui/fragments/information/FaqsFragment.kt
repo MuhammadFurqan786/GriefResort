@@ -6,11 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.databinding.FragmentFaqsBinding
 import com.sokoldev.griefresort.ui.activities.HomeActivity
-import com.sokoldev.griefresort.utils.Constants
 
 class FaqsFragment : Fragment() {
     private lateinit var binding: FragmentFaqsBinding
@@ -34,22 +32,7 @@ class FaqsFragment : Fragment() {
         }
         val toolbarText = (requireActivity() as HomeActivity).binding.toolbarText
         toolbarText.text = getString(R.string.faqs)
-
-
         (requireActivity() as HomeActivity).binding.relativeLayout.visibility = View.VISIBLE
-
-        binding.griefResort.setOnClickListener {
-            var bundle = Bundle()
-            bundle.putString(Constants.TYPE, Constants.FAQS)
-            findNavController().navigate(R.id.action_faqsFragment2_to_contactUsFragment, bundle)
-
-        }
-        binding.tvSub.setOnClickListener {
-            var bundle = Bundle()
-            bundle.putString(Constants.TYPE, Constants.FAQS)
-            findNavController().navigate(R.id.action_faqsFragment2_to_contactUsFragment, bundle)
-        }
-
 
     }
 }

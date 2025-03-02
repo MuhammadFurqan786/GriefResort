@@ -63,7 +63,14 @@ class MyDiaryFragment : Fragment(), DiaryAdapter.OnDiaryItemClickListener {
         initObserver()
 
         binding.shareHere.setOnClickListener {
-            startActivity(Intent(context, ShareDiaryActivity::class.java))
+            val intent = Intent(context, ShareDiaryActivity::class.java)
+            intent.putExtra(Constants.IS_SHARED, true)
+            startActivity(intent)
+        }
+        binding.saveHere.setOnClickListener {
+            val intent = Intent(context, ShareDiaryActivity::class.java)
+            intent.putExtra(Constants.IS_SHARED, false)
+            startActivity(intent)
         }
 
         binding.sendSupport.setOnClickListener {

@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sokoldev.griefresort.R
@@ -28,6 +29,12 @@ class CommentAdapter(private var clickListener: OnCommentAdapterClickListener) :
             comment: Comment,position: Int
         )
 
+        fun onMenuClick(
+            position: Int,
+            menu: AppCompatImageView,
+            comment: Comment
+        )
+
     }
 
 
@@ -36,7 +43,7 @@ class CommentAdapter(private var clickListener: OnCommentAdapterClickListener) :
 
         var name: AppCompatTextView? = itemView?.findViewById(R.id.name)
         var comment: AppCompatTextView? = itemView?.findViewById(R.id.comment)
-        var delete: AppCompatTextView? = itemView?.findViewById(R.id.delete)
+        var menu: AppCompatImageView? = itemView?.findViewById(R.id.menu)
 
 
     }
@@ -63,18 +70,18 @@ class CommentAdapter(private var clickListener: OnCommentAdapterClickListener) :
 
         if (!userId.isNullOrEmpty()) {
             if (userId == comment.userId) {
-                holder.delete?.visibility = View.VISIBLE
+                holder.menu?.visibility = View.VISIBLE
             } else {
-                holder.delete?.visibility = View.GONE
+                holder.menu?.visibility = View.GONE
             }
         }
 
 
-        holder.delete?.setOnClickListener {
-            clickListener.onDeleteClick(comment,position)
-
+        holder.menu!!.setOnClickListener { v: View? ->
+            clickListener.onMenuClick(
+                position, holder.menu!!, comment
+            )
         }
-
 
     }
 

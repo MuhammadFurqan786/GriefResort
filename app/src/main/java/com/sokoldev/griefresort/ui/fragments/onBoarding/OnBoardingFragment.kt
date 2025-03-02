@@ -81,7 +81,9 @@ class OnBoardingFragment : Fragment() {
 }
 
 
-//................................................................................
+/*.+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-..-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-*/
+
+
 class AppIntroViewPager2Adapter : RecyclerView.Adapter<PagerVH2>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerVH2 {

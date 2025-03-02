@@ -75,6 +75,17 @@ class RemindMeFragment : Fragment(), RemindMeAdapter.OnRemindMeItemsClickListene
     override fun onEditClick(position: Int) {
         val intent = Intent(context,AddReminderActivity::class.java)
         intent.putExtra(Constants.TITLE,adapter.arrayList[position].title)
+        intent.putExtra(Constants.ID, adapter.arrayList[position].id)
+        intent.putExtra(Constants.EDIT, true)
         startActivity(intent)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        PreferenceHelper.getPref(requireContext()).getCurrentUser()?.userId?.let {
+            viewModel.getReminders(
+                it
+            )
+        }
     }
 }

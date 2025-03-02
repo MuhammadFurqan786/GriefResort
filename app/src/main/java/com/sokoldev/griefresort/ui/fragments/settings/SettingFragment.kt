@@ -77,7 +77,9 @@ class SettingFragment : Fragment() {
             )
         }
         binding.faqs.setOnClickListener {
-            findNavController().navigate(R.id.action_settingFragment_to_faqsFragment2)
+            var bundle = Bundle()
+            bundle.putString(Constants.TYPE, Constants.FAQS)
+            findNavController().navigate(R.id.action_settingFragment_to_contactUsFragment, bundle)
         }
 
         binding.changePassword.setOnClickListener {

@@ -106,6 +106,39 @@ class GroupHugViewModel : ViewModel() {
         }
     }
 
+    fun updateComment(groupHugId: String, commentId: String, updatedText: String) {
+        val groupHugRef = db.collection("groupHugs").document(groupHugId)
+
+        db.runTransaction { transaction ->
+            val snapshot = transaction.get(groupHugRef)
+            val currentGroupHug = snapshot.toObject(GroupHug::class.java)
+
+            // Find the comment to update
+            val updatedComments = currentGroupHug?.comments?.map { comment ->
+                if (comment.commentId == commentId) {
+                    comment.copy(comment = updatedText) // Update the comment text
+                } else {
+                    comment
+                }
+            } ?: emptyList()
+
+            // Update the GroupHug object
+            currentGroupHug?.apply {
+                comments = updatedComments as ArrayList<Comment>?
+            }
+
+            // Update Firestore with the modified GroupHug object
+            transaction.set(groupHugRef, currentGroupHug ?: GroupHug())
+        }.addOnSuccessListener {
+            getAllGroupHugs() // Refresh after updating a comment
+            Log.d("Firestore", "Comment updated successfully.")
+            _success.postValue("Comment updated successfully.")
+        }.addOnFailureListener { exception ->
+            _error.postValue("Error updating comment: ${exception.message}")
+        }
+    }
+
+
     fun removeComment(groupHugId: String, commentId: String) {
         val groupHugRef = db.collection("groupHugs").document(groupHugId)
 

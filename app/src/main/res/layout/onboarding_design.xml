@@ -31,7 +31,7 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@color/black"
-        tools:text="@string/description6" />
+        tools:text="@string/description1" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/intro_image"
@@ -41,6 +41,6 @@
         android:layout_weight="3"
         android:paddingVertical="5dp"
         android:scaleType="fitCenter"
-        tools:srcCompat="@drawable/img_my_diary" />
+        tools:srcCompat="@drawable/img_group_hug" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

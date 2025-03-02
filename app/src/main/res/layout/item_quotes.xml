@@ -34,11 +34,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="80dp"
                     android:fontFamily="@font/poppins_bold"
                     android:text=" The saddest part of life is when the person who gave you the best memories becomes a memory  "
                     android:textAlignment="center"
-
                     android:textColor="@color/white" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -49,7 +47,6 @@
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="80dp"
                     android:fontFamily="@font/poppins_regular"
                     android:text="~Unknown"
                     android:textStyle="italic"

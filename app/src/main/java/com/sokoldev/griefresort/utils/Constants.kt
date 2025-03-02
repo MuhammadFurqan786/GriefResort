@@ -20,9 +20,14 @@ object Constants {
     const val TERMS = "terms"
     const val FAQS = "faqs"
     const val TITLE = "title"
+    const val ID = "id"
+    const val EDIT = "edit"
 
     const val USERCARD = "user_card"
     const val OTHERUSERCARD = "other_user_card"
+
+    const val IS_SHARED = "is_shared"
+
 
     const val AGAIN = "again"
     const val COMMENT_LIST = "comment_list"

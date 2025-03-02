@@ -1,7 +1,6 @@
 package com.sokoldev.griefresort.ui.activities
 
 import android.os.Bundle
-import android.provider.CalendarContract.Reminders
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.sokoldev.griefresort.data.models.RemindMe
@@ -14,6 +13,8 @@ import com.sokoldev.griefresort.utils.Global
 class AddReminderActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddReminderBinding
     private val viewModel: RemindViewModel by viewModels()
+    private var reminderId: String? = null
+    private var isUpdate = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,11 +24,19 @@ class AddReminderActivity : AppCompatActivity() {
 
         if (intent.getStringExtra(Constants.TITLE) != null) {
             binding.addDate.setText(intent.getStringExtra(Constants.TITLE))
+            reminderId = intent.getStringExtra(Constants.ID)
+            isUpdate = intent.getBooleanExtra(Constants.EDIT, false)
+            binding.btnSave.text = "Update"
+        } else {
+            binding.btnSave.text = "Save"
         }
+
+
 
         binding.back.setOnClickListener {
             finish()
         }
+
         binding.btnSave.setOnClickListener {
             val day = binding.datePicker.dayOfMonth
             val month = binding.datePicker.month + 1 // Convert 0-indexed month to 1-indexed
@@ -41,10 +50,19 @@ class AddReminderActivity : AppCompatActivity() {
             } else if (selectedDate.isEmpty()) {
                 Global.showErrorMessage(binding.root.rootView, "Please select date")
             } else {
-                val reminder = RemindMe(id = "", title = title, date = selectedDate)
-                PreferenceHelper.getPref(this).getCurrentUser()?.userId.let {
-                    if (it != null) {
-                        viewModel.addReminder(it, reminder)
+                if (isUpdate) {
+                    val reminder = RemindMe(id = reminderId, title = title, date = selectedDate)
+                    PreferenceHelper.getPref(this).getCurrentUser()?.userId.let {
+                        if (it != null) {
+                            viewModel.updateReminder(it, reminder)
+                        }
+                    }
+                } else {
+                    val reminder = RemindMe(id = "", title = title, date = selectedDate)
+                    PreferenceHelper.getPref(this).getCurrentUser()?.userId.let {
+                        if (it != null) {
+                            viewModel.addReminder(it, reminder)
+                        }
                     }
                 }
             }

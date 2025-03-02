@@ -63,11 +63,9 @@ class BounceLoadingView : View {
         matrix = Matrix()
         mShadowRectF = RectF()
         mBitmapList = ArrayList()
-
         mShadowPaint = Paint(Paint.ANTI_ALIAS_FLAG)
         mShadowPaint!!.style = Paint.Style.FILL
         mShadowPaint!!.color = mShadowColor
-
         mBitmapPaint = Paint(Paint.ANTI_ALIAS_FLAG)
     }
 
@@ -178,7 +176,6 @@ class BounceLoadingView : View {
         }
     }
 
-
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         stop()
@@ -186,10 +183,7 @@ class BounceLoadingView : View {
 
     companion object {
         private val TAG: String = BounceLoadingView::class.java.simpleName
-
         private const val SHADOW_COLOR = Color.LTGRAY
-
-
         private const val DEFAULT_DURATION = 800
     }
 }

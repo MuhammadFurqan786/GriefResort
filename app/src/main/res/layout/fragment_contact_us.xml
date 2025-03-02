@@ -98,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="Effective October 12, 2022"
+                    android:text="Effective March 2025"
                     android:textAllCaps="false" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -136,7 +136,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="last updated Oct 12, 2022"
+                    android:text="last updated March 2025"
                     android:textAllCaps="false" />
 
                 <androidx.appcompat.widget.AppCompatTextView

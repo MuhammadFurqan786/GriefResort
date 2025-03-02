@@ -2,7 +2,7 @@
     <string name="app_name">Grief Resort</string>
 
     <!--    Intro Screen Title-->
-    <string name="title1">You are Not Alone</string>
+    <string name="title1">Your Loved Ones are Still With You</string>
     <string name="title2">All we are left with now are Memories</string>
     <string name="title3">Never Forget/Miss Special Dates </string>
     <string name="title4">We are left with so many Whys!</string>
@@ -12,7 +12,7 @@
 
     <!--    Intro Screen Description-->
 
-    <string name="description1">Here we cry together and we support each other</string>
+    <string name="description1">They find new ways to reach you. Whether through dreams or signs, this is a space to share those moments.</string>
     <string name="description2">Here keep memories of your loved ones alive forever where you can access &amp; update them easily </string>
     <string name="description3">Here you can set a reminder notification for upcoming special dates</string>
     <string name="description4">Reading or listening or Watching something about grief can help you cope by opening up new perspectives</string>
@@ -67,14 +67,17 @@
     <string name="title_notifications">Notifications</string>
 
     <!--    Bottom Navigation-->
-    <!--   Group Hug -->
-    <string name="group_hug">Group Hug</string>
-    <string name="group_title">Here we cry together and we support each other. No one is alone</string>
+    <!--   Dreams & Signs -->
+    <string name="group_hug">Dreams &amp; Signs</string>
+    <string name="group_title">This space is built on Love❤ Please engage with kindness and respect. Skepticism, negativity, and dismissive comments are not allowed.</string>
+    <string name="group_title_note">To keep this a safe and meaningful space, no promotions or contact details are allowed. Violations may result in account removal.
+</string>
     <string name="group_desc">Send a Hug or Give \n words of support</string>
     <!--Memeory Box-->
     <string name="memory_box">Memory Box</string>
     <string name="memory_title">All we are left with now are memories. Let\'s keep those memories alive forever. Here add photos/videos of your loved ones, the funeral, grave visits, their treasured items etc</string>
     <string name="memory_desc">Add Picture/Video/Audio here</string>
+    <string name="single_memory_title">It\'s beautiful how you are keeping their legacy alive. Below are the %1$s memories</string>
     <!--Remind Me-->
     <string name="remind_me">Remind Me</string>
     <string name="remind_me_title">Never Forget/Miss Special Dates. Here add a special date such as anniversary, grave visit, estate administration meeting etc and get a Notification Reminder</string>
@@ -83,6 +86,7 @@
     <string name="delete"><font color="#3AAE42">Delete?</font></string>
     <string name="report"><font color="#3AAE42">Report</font></string>
     <string name="edit"><font color="#3AAE42">Edit</font></string>
+    <string name="cancel_"><font color="#3AAE42">Cancel</font></string>
     <string name="library">Library </string>
 
     <string name="quotes">Quotes</string>
@@ -91,8 +95,10 @@
 
     <!--    My Diary-->
     <string name="my_diary">My Diary</string>
-    <string name="my_diary_desc">Share Here</string>
-    <string name="my_diary_title">This is a Judgement Free Zone. Share your thoughts &amp; feelings, your ups and downs, your victories &amp; fears</string>
+    <string name="my_diary_desc">Share Your Dreams &amp; Signs Here</string>
+    <string name="my_diary_desc_save">Save Your Dreams &amp; Signs Here</string>
+    <string name="my_diary_title">Your loved ones are still with you—they find new ways to reach you. Whether through dreams, unexpected encounters, or small everyday signs, their presence lives on. This is a Judgement Free Space! Feel Free to share your dreams and the signs that brought you comfort.</string>
+    <string name="my_diary_title_note">To keep this a safe and meaningful space, promoting businesses, products, services or sharing contact details (emails, phone numbers, etc.) is strictly prohibited. Violations will result in account removal</string>
     <string name="my_account">My Account</string>
     <string name="manage_subscription">Manage Subscription</string>
     <string name="contatct_us">Contact Us</string>
@@ -2384,10 +2390,17 @@ Resort account.
     <string name="genre"><font color="#3AAE42">Genre : </font>%1$s</string>
     <string name="author"><font color="#3AAE42">Author : </font>%1$s</string>
     <string name="artist"><font color="#3AAE42">Artist : </font> %1$s </string>
+    <string name="director"><font color="#3AAE42">Director : </font> %1$s </string>
     <string name="host"><font color="#3AAE42">Host : </font> %1$s </string>
     <string name="actors"><font color="#3AAE42">Main Actors : </font> %1$s </string>
     <string name="where_to_watch"><font color="#3AAE42">Where to watch : </font> %1$s </string>
     <string name="where_to_listen"><font color="#3AAE42">Where to Listen : </font> %1$s </string>
+    <string name="photo_memories">Photo Memories</string>
+    <string name="photo_memories_desc">Tap here to view and add photos of your loved ones</string>
+    <string name="video_memories">Video Memories</string>
+    <string name="video_memories_desc">Tap here to view and add videos of your loved ones</string>
+    <string name="audio_memories">Audio Memories</string>
+    <string name="audio_memories_desc">Tap here to view and add audios of your loved ones</string>
 
 
 </resources>

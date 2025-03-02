@@ -44,7 +44,7 @@ class TvShowAdapter(val context: Context, private val movies: List<TVShow>) :
             actorsTextView.text = context.getString(R.string.actors, movie.main_actors.joinToString(", "))
             watchTextView.text =
                 context.getString(R.string.where_to_watch, movie.where_to_watch.joinToString(", "))
-            directorTextView.text = context.getString(R.string.artist, movie.director)
+            directorTextView.text = context.getString(R.string.director, movie.director)
 
             watchTextView.visibility = View.VISIBLE
         }
