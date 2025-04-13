@@ -15,12 +15,14 @@ object Constants {
 
 
     const val TYPE = "type"
+    const val ISREGISTERFORM = "isRegisterForm"
     const val CONTACT = "contact us"
     const val PRIVACY = "privacy"
     const val TERMS = "terms"
     const val FAQS = "faqs"
     const val TITLE = "title"
     const val ID = "id"
+    const val DATE = "DATE"
     const val EDIT = "edit"
 
     const val USERCARD = "user_card"
@@ -33,4 +35,6 @@ object Constants {
     const val COMMENT_LIST = "comment_list"
     const val MEDIA_URL = "MEDIA_URL"
     const val FILE_TYPE = "file_type"
+    const val MEDIA_URL_LIST = "media_url_list"
+    const val START_POSITION = "start_position"
 }

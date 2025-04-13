@@ -5,6 +5,7 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -41,6 +42,7 @@ class SingleMemoryFragment : Fragment(), MemoryBoxAdapter.OnMemoryBoxItemsClickL
     private val firestore = FirebaseFirestore.getInstance()
     private lateinit var userId: String
     private var fileType: String? = null
+    private var positions = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -144,13 +146,7 @@ class SingleMemoryFragment : Fragment(), MemoryBoxAdapter.OnMemoryBoxItemsClickL
     }
 
     private fun uploadMediaToStorage(uri: Uri) {
-        val fileType = when {
-            uri.toString().contains("image") -> "image"
-            uri.toString().contains("video") -> "video"
-            uri.toString().contains("audio") -> "audio"
-            else -> "unknown"
-        }
-
+        val fileType = getFileType(uri)
         val fileName = System.currentTimeMillis().toString() // Unique ID for each file
         val fileRef = storage.child("memory_box/$userId/$fileName")
 
@@ -158,7 +154,6 @@ class SingleMemoryFragment : Fragment(), MemoryBoxAdapter.OnMemoryBoxItemsClickL
             .addOnSuccessListener {
                 fileRef.downloadUrl.addOnSuccessListener { fileUrl ->
                     viewModel.addMemoryBox(fileName, fileUrl.toString(), fileType, userId)
-
                     viewModel.getMemoryBoxes(userId)
                 }
 
@@ -218,6 +213,7 @@ class SingleMemoryFragment : Fragment(), MemoryBoxAdapter.OnMemoryBoxItemsClickL
                         "Memory Deleted Successfully!",
                         Snackbar.LENGTH_SHORT
                     )
+                    adapter.removeAt(positions)
                 } else {
                     showLoading(false)
                     Global.showMessage(
@@ -230,34 +226,69 @@ class SingleMemoryFragment : Fragment(), MemoryBoxAdapter.OnMemoryBoxItemsClickL
         })
     }
 
-    override fun onitemClcik(position: Int) {
+    override fun onitemClcik(position: Int, arrayList: ArrayList<MemoryBox>) {
         val allMemoryBoxes = viewModel.memoryBoxes.value ?: emptyList()
         val filteredList = allMemoryBoxes.filter { it.fileType == fileType }
         val memoryBox = filteredList.getOrNull(position) // Get item from the full list
         val filteredItem = filteredList.find { it.fileUrl == memoryBox?.fileUrl }
 
-        filteredItem?.let {
+        filteredItem?.let { it ->
             when (it.fileType) {
                 "image" -> {
-                    val intent = Intent(requireContext(), MediaPlayerActivity::class.java)
-                    intent.putExtra(Constants.MEDIA_URL, it.fileUrl)
-                    intent.putExtra(Constants.FILE_TYPE, it.fileType)
-                    startActivity(intent)
+                    if (filteredList.isNotEmpty()) {
+                        val mediaUrls = filteredList.map { it.fileUrl } // Get all image URLs
+                        val clickedIndex = filteredList.indexOfFirst {
+                            it.fileUrl == filteredList.getOrNull(position)?.fileUrl
+                        }
+
+                        val intent = Intent(requireContext(), MediaPlayerActivity::class.java)
+                        intent.putStringArrayListExtra(
+                            Constants.MEDIA_URL_LIST,
+                            ArrayList(mediaUrls)
+                        ) // Pass all images
+                        intent.putExtra(
+                            Constants.START_POSITION,
+                            clickedIndex
+                        ) // Start from clicked image
+                        intent.putExtra(Constants.FILE_TYPE, "image")
+                        startActivity(intent)
+                    }
                 }
 
                 "video" -> {
-                    val intent = Intent(requireContext(), MediaPlayerActivity::class.java)
-                    intent.putExtra(Constants.MEDIA_URL, it.fileUrl)
-                    intent.putExtra(Constants.FILE_TYPE, it.fileType)
-                    startActivity(intent)
+                    if (filteredList.isNotEmpty()) {
+                        val mediaUrls = filteredList.map { it.fileUrl } // Get all image URLs
+                        val clickedIndex = filteredList.indexOfFirst {
+                            it.fileUrl == filteredList.getOrNull(position)?.fileUrl
+                        }
+                        val intent = Intent(requireContext(), MediaPlayerActivity::class.java)
+                        intent.putStringArrayListExtra(
+                            Constants.MEDIA_URL_LIST,
+                            ArrayList(mediaUrls)
+                        ) // Pass all images \intent.putExtra(Constants.START_POSITION, clickedIndex)
+                        intent.putExtra(Constants.FILE_TYPE, it.fileType)
+                        intent.putExtra(Constants.START_POSITION, clickedIndex)
+                        startActivity(intent)
+                    }
                 }
 
                 "audio" -> {
                     // Play audio
-                    val intent = Intent(requireContext(), MediaPlayerActivity::class.java)
-                    intent.putExtra(Constants.MEDIA_URL, it.fileUrl)
-                    intent.putExtra(Constants.FILE_TYPE, it.fileType)
-                    startActivity(intent)
+                    if (filteredList.isNotEmpty()) {
+                        val mediaUrls = filteredList.map { it.fileUrl }
+                        val clickedIndex = filteredList.indexOfFirst {
+                            it.fileUrl == filteredList.getOrNull(position)?.fileUrl
+                        }
+                        val intent = Intent(requireContext(), MediaPlayerActivity::class.java)
+                        intent.putStringArrayListExtra(
+                            Constants.MEDIA_URL_LIST,
+                            ArrayList(mediaUrls)
+                        )
+                        intent.putExtra(Constants.FILE_TYPE, it.fileType)
+                        intent.putExtra(Constants.START_POSITION, clickedIndex)
+                        intent.putExtra(Constants.FILE_TYPE, it.fileType)
+                        startActivity(intent)
+                    }
                 }
             }
         }
@@ -269,12 +300,52 @@ class SingleMemoryFragment : Fragment(), MemoryBoxAdapter.OnMemoryBoxItemsClickL
         popup?.inflate(R.menu.options_menu)
         popup?.setOnMenuItemClickListener { item ->
             if (item.itemId == R.id.delete) {
-                viewModel.deleteMemoryBox(position, userId)
+                // Get the filtered item
+                positions = position
+                val filteredList = viewModel.memoryBoxes.value?.filter { it.fileType == fileType }
+                val selectedItem = filteredList?.getOrNull(position)
+
+                // Find the correct index in the full list
+                val fullListIndex =
+                    viewModel.memoryBoxes.value?.indexOfFirst { it.fileUrl == selectedItem?.fileUrl }
+
+                if (fullListIndex != null && fullListIndex >= 0) {
+                    Log.d("TAG", "Deleting item at position: $fullListIndex in full list")
+
+                    viewModel.deleteMemoryBox(fullListIndex, userId)
+                } else {
+                    Log.e("TAG", "Item not found in full list")
+                }
                 return@setOnMenuItemClickListener true
-            } else
-                return@setOnMenuItemClickListener false
+            }
+            return@setOnMenuItemClickListener false
         }
         popup?.show()
     }
+
+
+    private fun getFileType(uri: Uri): String {
+        val contentResolver = requireContext().contentResolver
+        val type = contentResolver.getType(uri)
+
+        if (type != null) {
+            return when {
+                type.startsWith("image") -> "image"
+                type.startsWith("video") -> "video"
+                type.startsWith("audio") -> "audio"
+                else -> "unknown"
+            }
+        }
+
+        // **Fallback method: Check file extension**
+        val fileExtension = uri.lastPathSegment?.substringAfterLast(".", "unknown") ?: "unknown"
+        return when (fileExtension.lowercase()) {
+            "jpg", "jpeg", "png", "gif", "bmp", "webp" -> "image"
+            "mp4", "mkv", "avi", "mov", "flv", "wmv" -> "video"
+            "mp3", "wav", "ogg", "aac", "flac" -> "audio"
+            else -> "unknown"
+        }
+    }
+
 
 }

@@ -50,14 +50,14 @@ class OnBoardingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.viewPager2.adapter = AppIntroViewPager2Adapter()
+        binding.viewPager.adapter = AppIntroViewPager2Adapter()
 
-        TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
         }.attach()
 
-        binding.viewPager2.setPageTransformer(ZoomOutPageTransformer())
+        binding.viewPager.setPageTransformer(ZoomOutPageTransformer())
 
-        binding.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
 

@@ -44,6 +44,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     val isDelete: LiveData<Boolean> get() = _isDelete
 
 
+    private val _isPasswordChanged = MutableLiveData<Boolean>()
+    val isPasswordChanged: LiveData<Boolean> get() = _isPasswordChanged
+
+
     // Register a new user
     fun registerUser(
         firstName: String,
@@ -109,8 +113,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     _status.value = "Password changed successfully."
+                    _isPasswordChanged.value = true
                 } else {
                     _status.value = "Error: ${task.exception?.message}"
+                    _isPasswordChanged.value = false
                 }
             }
     }

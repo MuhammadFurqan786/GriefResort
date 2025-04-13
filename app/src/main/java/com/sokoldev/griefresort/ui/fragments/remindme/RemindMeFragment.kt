@@ -76,6 +76,7 @@ class RemindMeFragment : Fragment(), RemindMeAdapter.OnRemindMeItemsClickListene
         val intent = Intent(context,AddReminderActivity::class.java)
         intent.putExtra(Constants.TITLE,adapter.arrayList[position].title)
         intent.putExtra(Constants.ID, adapter.arrayList[position].id)
+        intent.putExtra(Constants.DATE, adapter.arrayList[position].date)
         intent.putExtra(Constants.EDIT, true)
         startActivity(intent)
     }

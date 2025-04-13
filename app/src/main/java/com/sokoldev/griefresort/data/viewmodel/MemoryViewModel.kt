@@ -1,6 +1,7 @@
 package com.sokoldev.griefresort.data.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -80,6 +81,7 @@ class MemoryViewModel(application: Application) : AndroidViewModel(application) 
                     val fileRef = storage.child("memory_box/$userId/$fileName")
                     fileRef.delete().addOnSuccessListener {
                         _delete.value = true
+                        getMemoryBoxes(userId)
                     }.addOnFailureListener {
                         // Handle Storage delete failure
                         _delete.value = false
@@ -91,4 +93,6 @@ class MemoryViewModel(application: Application) : AndroidViewModel(application) 
                 }
         }
     }
+
+
 }

@@ -1,5 +1,6 @@
 package com.sokoldev.griefresort.ui.fragments.changepassword
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.google.android.material.snackbar.Snackbar
 import com.sokoldev.griefresort.data.viewmodel.UserViewModel
 import com.sokoldev.griefresort.databinding.FragmentChangePasswordBinding
 import com.sokoldev.griefresort.ui.activities.HomeActivity
@@ -24,6 +26,7 @@ class ChangePasswordFragment : Fragment() {
 
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -60,15 +63,41 @@ class ChangePasswordFragment : Fragment() {
             }
 
             viewModel.changePassword(newPassword)
-            Global.showMessage(it,"Password Changed")
-            val intent = Intent(context, HomeActivity::class.java)
-            intent.putExtra(Constants.TYPE, "RENEW")
-            startActivity(intent)
-            activity?.finish()
+            showLoading(true)
+            initObserver()
+
         }
 
         (requireActivity() as HomeActivity).binding.relativeLayout.visibility = View.GONE
         return binding.root
     }
+
+    private fun initObserver() {
+        viewModel.status.observe(viewLifecycleOwner) { status ->
+            Snackbar.make(binding.root, status, Snackbar.LENGTH_SHORT).show()
+        }
+
+
+        viewModel.isPasswordChanged.observe(viewLifecycleOwner){
+            if (it){
+                showLoading(false)
+                val intent = Intent(context, HomeActivity::class.java)
+                intent.putExtra(Constants.TYPE, "RENEW")
+                startActivity(intent)
+                activity?.finish()
+            }else{
+                showLoading(false)
+            }
+        }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+        }
+    }
+
 
 }

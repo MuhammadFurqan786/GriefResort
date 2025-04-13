@@ -14,6 +14,7 @@ class AddReminderActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddReminderBinding
     private val viewModel: RemindViewModel by viewModels()
     private var reminderId: String? = null
+    private var selectedDate: String? = null
     private var isUpdate = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,8 +26,20 @@ class AddReminderActivity : AppCompatActivity() {
         if (intent.getStringExtra(Constants.TITLE) != null) {
             binding.addDate.setText(intent.getStringExtra(Constants.TITLE))
             reminderId = intent.getStringExtra(Constants.ID)
+            selectedDate = intent.getStringExtra(Constants.DATE)
             isUpdate = intent.getBooleanExtra(Constants.EDIT, false)
             binding.btnSave.text = "Update"
+
+            // Set date picker when updating
+            selectedDate?.let {
+                val parts = it.split("-") // Split by "-"
+                if (parts.size >= 3) {
+                    val year = parts[0].toInt()
+                    val month = parts[1].toInt() - 1 // Convert to 0-indexed
+                    val day = parts[2].split(" ")[0].toInt() // Remove time part
+                    binding.datePicker.updateDate(year, month, day) // Set to DatePicker
+                }
+            }
         } else {
             binding.btnSave.text = "Save"
         }
@@ -41,13 +54,13 @@ class AddReminderActivity : AppCompatActivity() {
             val day = binding.datePicker.dayOfMonth
             val month = binding.datePicker.month + 1 // Convert 0-indexed month to 1-indexed
             val year = binding.datePicker.year
-            val selectedDate = "$year-${month + 1}-$day 00:00" // Assuming time is 00:00
+            selectedDate = "$year-${month}-$day 00:00" // Assuming time is 00:00
 
             val title = binding.addDate.text.toString()
 
             if (title.isEmpty()) {
                 binding.addDate.error = "Please enter title"
-            } else if (selectedDate.isEmpty()) {
+            } else if (selectedDate!!.isEmpty()) {
                 Global.showErrorMessage(binding.root.rootView, "Please select date")
             } else {
                 if (isUpdate) {

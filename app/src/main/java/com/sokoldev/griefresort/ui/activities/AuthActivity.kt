@@ -8,7 +8,7 @@ import com.sokoldev.griefresort.databinding.ActivityAuthBinding
 
 class AuthActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityAuthBinding
+    lateinit var binding: ActivityAuthBinding
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {

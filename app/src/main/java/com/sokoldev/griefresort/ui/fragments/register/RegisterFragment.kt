@@ -12,12 +12,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.data.viewmodel.UserViewModel
 import com.sokoldev.griefresort.databinding.FragmentRegisterBinding
 import com.sokoldev.griefresort.ui.activities.AuthActivity
 import com.sokoldev.griefresort.ui.activities.HomeActivity
+import com.sokoldev.griefresort.utils.Constants
 
 class RegisterFragment : Fragment() {
 
@@ -32,7 +34,7 @@ class RegisterFragment : Fragment() {
     ): View {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
 
-
+        (requireActivity() as AuthActivity).binding.relativeLayout.visibility = View.GONE
         binding.loadingView.addBitmap(BitmapFactory.decodeResource(resources, R.drawable.ic_loader))
         binding.loadingView.setShadowColor(Color.LTGRAY)
         binding.loadingView.setDuration(800)
@@ -114,6 +116,20 @@ class RegisterFragment : Fragment() {
 
 
         initObserver()
+
+        binding.privacyButton.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString(Constants.TYPE, Constants.PRIVACY)
+            bundle.putBoolean(Constants.ISREGISTERFORM, true)
+            findNavController().navigate(R.id.action_registerFragment_to_contactUsFragment2, bundle)
+        }
+
+        binding.termsButton.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString(Constants.TYPE, Constants.TERMS)
+            bundle.putBoolean(Constants.ISREGISTERFORM, true)
+            findNavController().navigate(R.id.action_registerFragment_to_contactUsFragment2, bundle)
+        }
 
         return binding.root
     }

@@ -14,6 +14,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.sokoldev.griefresort.R
 import com.sokoldev.griefresort.data.viewmodel.UserViewModel
 import com.sokoldev.griefresort.databinding.FragmentLoginBinding
+import com.sokoldev.griefresort.ui.activities.AuthActivity
 import com.sokoldev.griefresort.ui.activities.GetStartedActivity
 import com.sokoldev.griefresort.ui.activities.HomeActivity
 import com.sokoldev.griefresort.utils.Constants
@@ -31,12 +32,11 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
-
+        (requireActivity() as AuthActivity).binding.relativeLayout.visibility = View.GONE
 
         if (activity?.intent?.getStringExtra(Constants.TYPE) != null) {
             val string = activity?.intent?.getStringExtra(Constants.TYPE)
             if (string.equals(Constants.AGAIN)) {
-
                 findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
             }
         }

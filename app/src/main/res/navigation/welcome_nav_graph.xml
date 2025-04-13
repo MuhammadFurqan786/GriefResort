@@ -18,6 +18,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_registerFragment_to_contactUsFragment2"
+            app:destination="@id/contactUsFragment2" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -59,4 +62,9 @@
             android:id="@+id/action_resetPasswordFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/contactUsFragment2"
+        android:name="com.sokoldev.griefresort.ui.fragments.information.ContactUsFragment"
+        android:label="fragment_contact_us"
+        tools:layout="@layout/fragment_contact_us" />
 </navigation>

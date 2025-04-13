@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.sokoldev.griefresort.data.viewmodel.UserViewModel
 import com.sokoldev.griefresort.databinding.FragmentForgotPasswordBinding
+import com.sokoldev.griefresort.ui.activities.AuthActivity
 import com.sokoldev.griefresort.utils.Global
 
 
@@ -23,7 +24,7 @@ class ForgotPasswordFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentForgotPasswordBinding.inflate(inflater, container, false)
-
+        (requireActivity() as AuthActivity).binding.relativeLayout.visibility = View.GONE
         binding.back.setOnClickListener {
             findNavController().navigateUp()
         }

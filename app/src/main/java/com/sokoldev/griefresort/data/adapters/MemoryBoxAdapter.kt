@@ -4,6 +4,7 @@ package com.sokoldev.griefresort.data.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -20,7 +21,8 @@ class MemoryBoxAdapter(
 
     interface OnMemoryBoxItemsClickListener {
         fun onitemClcik(
-            position: Int
+            position: Int,
+            arrayList: ArrayList<MemoryBox>
         )
 
         fun onMenuClick(
@@ -33,7 +35,6 @@ class MemoryBoxAdapter(
     class DataObjectHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
 
         var image: AppCompatImageView? = itemView?.findViewById(R.id.image)
-        var memoryTyp: AppCompatImageView? = itemView?.findViewById(R.id.memoryType)
         var menu: AppCompatImageView? = itemView?.findViewById(R.id.menu)
 
 
@@ -61,8 +62,6 @@ class MemoryBoxAdapter(
                         .load(memoryBox.fileUrl)
                         .into(it)
                 }
-                holder.memoryTyp?.setImageResource(R.drawable.ic_image)
-                holder.memoryTyp?.visibility = View.VISIBLE
 
             }
             "audio" -> {
@@ -72,6 +71,7 @@ class MemoryBoxAdapter(
                         .load(R.drawable.ic_music) // Use a default audio image
                         .into(it)
                 }
+                holder.image?.scaleType = ImageView.ScaleType.FIT_CENTER
             }
             "video" -> {
                 // Extract a thumbnail from the video using Glide or a custom method
@@ -81,8 +81,6 @@ class MemoryBoxAdapter(
                         .thumbnail(0.1f) // Get a preview thumbnail from the video
                         .into(it)
                 }
-                holder.memoryTyp?.setImageResource(R.drawable.ic_video)
-                holder.memoryTyp?.visibility = View.VISIBLE
             }
         }
 
@@ -93,7 +91,8 @@ class MemoryBoxAdapter(
         }
         holder.image!!.setOnClickListener { v: View? ->
             clickListener.onitemClcik(
-                position
+                position,
+                arrayList
             )
         }
     }
